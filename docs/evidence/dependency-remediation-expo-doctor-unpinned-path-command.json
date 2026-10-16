@@ -1,0 +1,12 @@
+{
+  "command": "expo-doctor@1.21.4 --verbose",
+  "date": "2026-10-16T07:46:41.064Z",
+  "node": "v22.23.3",
+  "ci": "1",
+  "noDotenv": "1",
+  "telemetryDisabled": "1",
+  "demoMode": "demo",
+  "officialMetadataNetworkAllowed": true,
+  "exit": 1,
+  "seconds": 30.769
+}

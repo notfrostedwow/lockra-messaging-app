@@ -1,0 +1,19 @@
+-- Function to revoke all sessions for a specific user
+CREATE OR REPLACE FUNCTION revoke_user_sessions(user_id_param UUID)
+RETURNS void
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+BEGIN
+  -- Delete all refresh tokens for the user
+  DELETE FROM auth.refresh_tokens
+  WHERE auth.refresh_tokens.user_id = user_id_param;
+  
+  -- Update the user's last_sign_in_at to invalidate existing sessions
+  UPDATE auth.users
+  SET last_sign_in_at = '1970-01-01 00:00:00+00'::timestamptz
+  WHERE id = user_id_param;
+  
+  -- We don't need to update the banned flag here as it's already handled in the moderation.tsx file
+END;
+$$; 

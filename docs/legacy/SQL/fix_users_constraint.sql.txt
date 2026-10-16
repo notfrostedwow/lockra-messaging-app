@@ -1,0 +1,5 @@
+-- Drop the foreign key constraint on the users table
+ALTER TABLE public.users DROP CONSTRAINT IF EXISTS users_id_fkey;
+
+-- Add a comment explaining what we did
+COMMENT ON TABLE public.users IS 'User profiles - no longer constrained to auth.users since we use Clerk for authentication'; 

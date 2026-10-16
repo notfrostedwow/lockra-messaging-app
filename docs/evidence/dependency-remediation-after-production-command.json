@@ -1,0 +1,7 @@
+{
+  "command": "npm audit --json --registry=https://registry.npmjs.org --omit=dev",
+  "exit": 1,
+  "date": "2026-10-16T08:09:14.689Z",
+  "node": "v22.23.3",
+  "stderr": ""
+}

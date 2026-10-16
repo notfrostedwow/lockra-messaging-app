@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-16T08:09:25.856Z",
+  "reviewedBase": "8a2c31109110d78b7f60bfa8d60029244c62de31",
+  "originalPaths": 151,
+  "originalAppPaths": 41,
+  "mappedTargets": 160,
+  "changedMappedOriginalPaths": [
+    "README.md",
+    "package.json"
+  ],
+  "allOriginalAndIntakeHashesRetained": true,
+  "allMappingTargetsRetained": true,
+  "lockBytesUnchanged": true,
+  "lockSha256": "22cf03c2e4c4c8e3c54ed819d017d9bc85c4bcc55acd5081b67d839a03e981ce",
+  "dependencyRangesUnchanged": true,
+  "enginesUnchanged": true,
+  "reviewedE2eeAssetsLegacySourceUnchanged": true,
+  "workflowYamlSyntaxValid": true
+}

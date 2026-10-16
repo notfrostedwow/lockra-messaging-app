@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-16",
+  "runtime": "Final Expo 57.0.30 production web export, served only at http://127.0.0.1:4177",
+  "browser": "T3 collaborative desktop browser; resized CSS viewports are not mobile-device tests",
+  "viewports": ["390x844", "1440x900"],
+  "observations": {
+    "signedOutAdminDeepLink": "Rendered the public landing screen without admin data. The requested URL initially remained /admin/users; Sign In navigated correctly to /signin.",
+    "syntheticSignIn": "Clicked Continue as Zaheer · Demo; existing chat list rendered.",
+    "dm": {
+      "actions": ["opened Alice conversation", "opened key controls", "explicitly confirmed synthetic fingerprint comparison", "typed and clicked actual Send message button"],
+      "visibleDecryptedSyntheticText": true,
+      "storedContentEmpty": true,
+      "encryptionVersion": 1,
+      "storedCiphertextPresent": true,
+      "storedRowContainsSentPlaintext": false,
+      "privateKeyOrSecretKeyFieldInPersistedSyntheticTables": false,
+      "afterFullPageReload": "Ciphertext remained persisted; session and memory keys were lost. After synthetic sign-in, the new text was not silently recovered and explicit missing-key/integrity placeholders rendered."
+    },
+    "contacts": "Opened sidebar, selected Contacts, entered alice in the actual search field; Alice remained while Sam and demo_admin were filtered out.",
+    "community": "Used Join private community with code, entered DEMOJOIN, clicked Join and the real web confirmation's View Community. Private circle · Demo opened with no messages; typed and sent the first synthetic message, which rendered locally.",
+    "ordinaryUserAdminDenial": "With the same Zaheer session, requested /admin/users through same-document browser pushState/popstate. Router returned to /; Zaheer remained signed in and no admin screen mounted. No identity or stored data was injected.",
+    "calling": "Clicked actual Voice call control; explicit offline unavailable explanation rendered, with no permission prompt or provider connection.",
+    "externalResourceRequestsObserved": [],
+    "visualInspection": "Authentication, chat and community saved captures were opened and inspected. Existing dark/blue visual language and responsive chat layout are retained."
+  },
+  "screenshots": [
+    "docs/screenshots/authentication-final.png",
+    "docs/screenshots/chat-final.png",
+    "docs/screenshots/chat-wide-final.png",
+    "docs/screenshots/contacts-final.png",
+    "docs/screenshots/community-final.png",
+    "docs/screenshots/calling-disabled-final.png"
+  ],
+  "limitations": [
+    "Preview automation transiently disconnected; it was reopened and failed actions were repeated and independently inspected before recording success.",
+    "Drawer animation required waiting before interacting; initial obstructed clicks were not counted as successful navigation.",
+    "Earlier browser history contains framework accessibility-focus and native-driver fallback warnings; no comprehensive accessibility audit is claimed.",
+    "Both synthetic private keys share one process. Web keys are memory-only; this is not two-device confidentiality proof.",
+    "No real auth, Supabase policies, provider calls, native compilation, iOS/Android device operation or remote CI was tested."
+  ]
+}

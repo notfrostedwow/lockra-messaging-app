@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-16",
+  "platform": "Windows; Node 22.23.3; npm 10.9.9",
+  "checks": [
+    {"command": "npm ci --ignore-scripts", "exit": 0, "result": "Clean install: 1116 packages in 7 minutes", "output": "npm-ci-final-verified.txt"},
+    {"command": "npm test", "exit": 0, "result": "45 passed; 0 failed, skipped, cancelled or todo", "output": "tests-final-verified.txt"},
+    {"command": "npm run typecheck", "exit": 0, "result": "Strict TypeScript passed", "output": "types-final-verified.txt"},
+    {"command": "npm run lint", "exit": 0, "result": "Zero errors/warnings; rules remain enabled", "output": "lint-final-verified.txt"},
+    {"command": "npm run build:web", "exit": 0, "result": "3406 modules; exported dist", "output": "export-final-verified.txt"},
+    {"command": "npm start", "exit": null, "result": "Started localhost-only Metro web app; rendered public landing. Stopped its verified process after QA before final export to avoid parallel heavy jobs.", "output": "start-final.txt"},
+    {"command": "npm audit --json", "exit": 1, "result": "33 findings: 21 high, 12 moderate, 0 critical; unresolved release blocker", "output": "npm-audit-final-verified.json"}
+  ],
+  "installControls": "No lifecycle scripts, force, legacy-peer-deps, dependency overrides or node_modules patches. Framework-compatible dependency repairs and lock regeneration were explicit.",
+  "failuresPreserved": "Initial dependency/type/lint/export failures remain recorded separately. The final lint also caught a missing Buffer import in the ignored privacy helper; repaired without changing lint rules, then rerun successfully.",
+  "browserEvidence": "browser-final-qa.json",
+  "unverified": ["native builds/devices", "real service auth/data", "isolated SQL/RLS tests", "two-client provider calls", "remote GitHub Actions"]
+}

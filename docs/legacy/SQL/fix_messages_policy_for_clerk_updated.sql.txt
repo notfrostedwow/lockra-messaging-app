@@ -1,0 +1,124 @@
+-- Fix messages table RLS policy for Clerk authentication
+-- This file addresses the error: "new row violates row-level security policy for table messages"
+
+-- First, let's check what policies exist
+SELECT * FROM pg_policies WHERE tablename = 'messages';
+
+-- Drop existing policies for messages table
+DROP POLICY IF EXISTS "Users can insert messages they send" ON public.messages;
+DROP POLICY IF EXISTS "Users can insert messages they send with Clerk auth" ON public.messages;
+DROP POLICY IF EXISTS "Users can read messages they sent or received" ON public.messages;
+DROP POLICY IF EXISTS "Users can read messages they sent or received with Clerk auth" ON public.messages;
+DROP POLICY IF EXISTS "Users can update messages they sent" ON public.messages;
+DROP POLICY IF EXISTS "Users can update messages they sent with Clerk auth" ON public.messages;
+DROP POLICY IF EXISTS "Users can delete their own messages" ON public.messages;
+DROP POLICY IF EXISTS "Users can delete their own messages with Clerk auth" ON public.messages;
+
+-- Create new policies that work with Clerk authentication
+-- For the insert policy, we need to ensure the sender_id matches a user where the clerk_id matches auth.uid()
+
+-- Insert policy
+CREATE POLICY "Users can insert messages they send with Clerk auth"
+ON public.messages FOR INSERT
+WITH CHECK (
+  EXISTS (
+    SELECT 1 FROM users
+    WHERE users.id = sender_id
+    AND users.clerk_id = auth.uid()::text
+  )
+);
+
+-- Read policy
+CREATE POLICY "Users can read messages they sent or received with Clerk auth"
+ON public.messages FOR SELECT
+USING (
+  EXISTS (
+    SELECT 1 FROM users
+    WHERE users.id = sender_id
+    AND users.clerk_id = auth.uid()::text
+  )
+  OR 
+  EXISTS (
+    SELECT 1 FROM users 
+    WHERE users.clerk_id = auth.uid()::text 
+    AND users.username = receiver_username
+  )
+);
+
+-- Update policy
+CREATE POLICY "Users can update messages they sent with Clerk auth"
+ON public.messages FOR UPDATE
+USING (
+  EXISTS (
+    SELECT 1 FROM users
+    WHERE users.id = sender_id
+    AND users.clerk_id = auth.uid()::text
+  )
+);
+
+-- Delete policy
+CREATE POLICY "Users can delete their own messages with Clerk auth"
+ON public.messages FOR DELETE
+USING (
+  EXISTS (
+    SELECT 1 FROM users
+    WHERE users.id = sender_id
+    AND users.clerk_id = auth.uid()::text
+  )
+);
+
+-- Drop existing policies for file_attachments table
+DROP POLICY IF EXISTS "Users can read their attachments" ON public.file_attachments;
+DROP POLICY IF EXISTS "Users can insert their attachments" ON public.file_attachments;
+DROP POLICY IF EXISTS "Users can delete their attachments" ON public.file_attachments;
+DROP POLICY IF EXISTS "Users can read their attachments with Clerk auth" ON public.file_attachments;
+DROP POLICY IF EXISTS "Users can insert their attachments with Clerk auth" ON public.file_attachments;
+DROP POLICY IF EXISTS "Users can delete their attachments with Clerk auth" ON public.file_attachments;
+
+-- Create policies for the file_attachments table
+-- 1. Users can read attachments for messages they sent or received
+CREATE POLICY "Users can read their attachments with Clerk auth"
+ON public.file_attachments FOR SELECT
+USING (
+  EXISTS (
+    SELECT 1 FROM messages
+    JOIN users sender ON sender.id = messages.sender_id
+    WHERE messages.id = file_attachments.message_id
+    AND (
+      sender.clerk_id = auth.uid()::text
+      OR
+      EXISTS (
+        SELECT 1 FROM users receiver
+        WHERE receiver.clerk_id = auth.uid()::text 
+        AND receiver.username = messages.receiver_username
+      )
+    )
+  )
+);
+
+-- 2. Users can insert attachments for messages they sent
+CREATE POLICY "Users can insert their attachments with Clerk auth"
+ON public.file_attachments FOR INSERT
+WITH CHECK (
+  EXISTS (
+    SELECT 1 FROM messages
+    JOIN users ON users.id = messages.sender_id
+    WHERE messages.id = message_id
+    AND users.clerk_id = auth.uid()::text
+  )
+);
+
+-- 3. Users can delete attachments for messages they sent
+CREATE POLICY "Users can delete their attachments with Clerk auth"
+ON public.file_attachments FOR DELETE
+USING (
+  EXISTS (
+    SELECT 1 FROM messages
+    JOIN users ON users.id = messages.sender_id
+    WHERE messages.id = message_id
+    AND users.clerk_id = auth.uid()::text
+  )
+);
+
+-- Add comment explaining what we did
+COMMENT ON TABLE public.messages IS 'Messages between users with RLS policies updated for Clerk authentication'; 

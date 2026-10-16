@@ -1,0 +1,22 @@
+{
+  "prefixes": [
+    "lockra://",
+    "https://example.invalid"
+  ],
+  "config": {
+    "screens": {
+      "auth/callback": {
+        "path": "auth/callback",
+        "initialRouteName": "auth/callback"
+      },
+      "(tabs)": {
+        "path": "tabs",
+        "screens": {
+          "index": ""
+        }
+      },
+      "signin": "signin",
+      "signup": "signup"
+    }
+  }
+}

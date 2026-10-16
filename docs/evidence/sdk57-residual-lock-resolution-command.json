@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-16T08:54:22.096Z",
+  "command": "npm install --package-lock-only --ignore-scripts --registry=https://registry.npmjs.org",
+  "node": "v22.23.3",
+  "childPathPinned": true,
+  "demo": "demo",
+  "noDotenv": "1",
+  "noTelemetry": "1",
+  "expoOffline": true,
+  "seconds": 16.283,
+  "exit": 0
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-16T03:39:19.193Z",
+  "node": "v22.23.3",
+  "scope": "Published fixed package unpacked only into ignored local cache. App manifest/lock and node_modules were not changed. No exploit payload or service request.",
+  "parent": {
+    "name": "query-string",
+    "version": "7.1.3",
+    "declaredDecoderRange": "^0.2.2",
+    "consumerContract": "CommonJS require result is called directly; query-string/index.js lines 3 and 233"
+  },
+  "candidate": {
+    "version": "0.5.0",
+    "type": "module",
+    "exports": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "integrity": "sha512-1BiQVoK8C9gUbQU6NzAtO/tkz2qOFpEObMWpcFvhx4fYnj4Oc5yzaJN/LD36ihkVUdXyh5ZekzX+yM+ty/SrPg==",
+    "integrityVerified": true,
+    "satisfiesParentRange": false
+  },
+  "observed": {
+    "requireResultType": "object",
+    "defaultExportType": "function",
+    "directCallFailure": {
+      "name": "TypeError",
+      "message": "fixed is not a function"
+    },
+    "explicitDefaultCallWorks": true
+  },
+  "conclusion": "0.5.0 is an incompatible module/semver change, not a scoped compatible patch override. No app override was applied."
+}

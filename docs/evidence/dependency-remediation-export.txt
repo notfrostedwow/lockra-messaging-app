@@ -1,0 +1,36 @@
+
+> lockra-messaging-app@1.0.0 build:web
+> node scripts/export.cjs
+
+Starting Metro Bundler
+
+Web Bundled 33044ms index.js (3406 modules)
+
+› Assets (18):
+node_modules\expo-router\assets\arrow_down.017bc6ba3fc25503e5eb5e53826d48a8.png (9.5KB)
+node_modules\expo-router\assets\error.d1ea1496f9057eb392d5bbf3732a61b7.png (469B)
+node_modules\expo-router\assets\file.19eeb73b9593a38f8e9f418337fc7d10.png (138B)
+node_modules\expo-router\assets\forward.d8b800c443b8972542883e0b9de2bdc6.png (188B)
+node_modules\expo-router\assets\pkg.ab19f4cbc543357183a20571f68380a3.png (364B)
+node_modules\expo-router\assets\react-navigation\elements\back-icon-mask.0a328cd9c1afd0afe8e3b1ec5165b1b4.png (653B)
+node_modules\expo-router\assets\react-navigation\elements\back-icon.35ba0eaec5a4f5ed12ca16fabeae451d.png (207B)
+node_modules\expo-router\assets\react-navigation\elements\clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55.png (4 variations | 425B)
+node_modules\expo-router\assets\react-navigation\elements\close-icon.808e1b1b9b53114ec2838071a7e6daa7.png (4 variations | 235B)
+node_modules\expo-router\assets\react-navigation\elements\search-icon.286d67d3f74808a60a78d3ebf1a5fb57.png (928B)
+node_modules\expo-router\assets\sitemap.412dd9275b6b48ad28f5e3d81bb1f626.png (465B)
+node_modules\expo-router\assets\unmatched.20e71bdf79e3a97bf55fd9e164041578.png (4.8KB)
+
+› web bundles (6):
+_expo/static/js/web/__common-24a63602ef7ff2e34b3260b3bcad08c7.js (645KB)
+_expo/static/js/web/__expo-metro-runtime-9f1a7b6acd20011e290bc79f0164ae37.js (9.9KB)
+_expo/static/js/web/ads-389480a24e282d8a5864616aa9abbc7b.js (399B)
+_expo/static/js/web/CallMedia-a124e0e81ae85ae37d8de07200c43410.js (1.3KB)
+_expo/static/js/web/index-3b3cee41d1814cda54571f51e5c56ea9.js (4.3MB)
+_expo/static/js/web/IntegrationBoot-29ed64f7b9d8ef839095547a90954b60.js (597KB)
+
+› Files (3):
+favicon.ico (15KB)
+index.html (1.4KB)
+metadata.json (49B)
+
+Exported: dist

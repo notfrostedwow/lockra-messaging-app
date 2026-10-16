@@ -1,0 +1,35 @@
+-- Fix system_messages RLS policy
+BEGIN;
+  -- Drop existing policy
+  DROP POLICY IF EXISTS "Only admins can create system messages" ON public.system_messages;
+
+  -- Create new policy that allows both admins and service role to create system messages
+  CREATE POLICY "Allow admins and service role to create system messages"
+    ON public.system_messages
+    FOR INSERT
+    WITH CHECK (
+      -- Either the user is an admin
+      EXISTS (
+        SELECT 1 FROM public.users
+        WHERE users.id = auth.uid() AND users.role = 'admin'
+      )
+      OR
+      -- Or the request is coming from a service role (authenticated service)
+      auth.jwt() ->> 'role' = 'service_role'
+    );
+
+  -- Add policy to allow updates
+  CREATE POLICY "Allow admins and service role to update system messages"
+    ON public.system_messages
+    FOR UPDATE
+    USING (
+      -- Either the user is an admin
+      EXISTS (
+        SELECT 1 FROM public.users
+        WHERE users.id = auth.uid() AND users.role = 'admin'
+      )
+      OR
+      -- Or the request is coming from a service role
+      auth.jwt() ->> 'role' = 'service_role'
+    );
+COMMIT; 

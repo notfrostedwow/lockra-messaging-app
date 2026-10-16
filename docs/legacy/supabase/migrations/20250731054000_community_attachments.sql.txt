@@ -1,0 +1,79 @@
+-- Community attachments support and setting
+
+-- 1) Add attachments_enabled to communities (default false)
+ALTER TABLE public.communities
+  ADD COLUMN IF NOT EXISTS attachments_enabled BOOLEAN NOT NULL DEFAULT FALSE;
+
+-- Policy: only owners/admins can toggle attachments_enabled (covered by existing update policy if present)
+-- If not present in your env, you may need to re-create the update policy accordingly.
+
+-- 2) Create community_file_attachments table
+CREATE TABLE IF NOT EXISTS public.community_file_attachments (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  message_id UUID NOT NULL REFERENCES public.community_messages(id) ON DELETE CASCADE,
+  file_name TEXT NOT NULL,
+  file_type TEXT NOT NULL,
+  file_size BIGINT NOT NULL,
+  storage_path TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+ALTER TABLE public.community_file_attachments ENABLE ROW LEVEL SECURITY;
+
+-- Members can read attachments for messages in their communities
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies WHERE schemaname='public' AND tablename='community_file_attachments' AND policyname='Members can read attachments'
+  ) THEN
+    DROP POLICY "Members can read attachments" ON public.community_file_attachments;
+  END IF;
+END $$;
+
+CREATE POLICY "Members can read attachments"
+  ON public.community_file_attachments FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_messages cm
+      JOIN public.community_members m ON m.community_id = cm.community_id AND m.user_id = auth.uid()
+      WHERE cm.id = community_file_attachments.message_id
+    )
+  );
+
+-- Insert attachments policy: allow owners/admins always; allow members only if attachments_enabled=true
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies WHERE schemaname='public' AND tablename='community_file_attachments' AND policyname='Owners/admins or enabled can insert'
+  ) THEN
+    DROP POLICY "Owners/admins or enabled can insert" ON public.community_file_attachments;
+  END IF;
+END $$;
+
+CREATE POLICY "Owners/admins or enabled can insert"
+  ON public.community_file_attachments FOR INSERT
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM public.community_messages cm
+      JOIN public.community_members m ON m.community_id = cm.community_id AND m.user_id = auth.uid()
+      WHERE cm.id = community_file_attachments.message_id
+        AND m.role IN ('owner','admin')
+    )
+    OR EXISTS (
+      SELECT 1 FROM public.community_messages cm
+      JOIN public.communities c ON c.id = cm.community_id
+      JOIN public.community_members m ON m.community_id = cm.community_id AND m.user_id = auth.uid()
+      WHERE cm.id = community_file_attachments.message_id
+        AND c.attachments_enabled = TRUE
+    )
+  );
+
+-- Add to realtime publication for optional streaming
+DO $$
+BEGIN
+  BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.community_file_attachments';
+  EXCEPTION WHEN others THEN NULL; END;
+END $$;
+
+

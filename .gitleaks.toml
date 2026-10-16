@@ -1,0 +1,8 @@
+title = "Lockra complete candidate and bundle scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated installed dependencies, portable tools, local caches, and raw git storage. History is scanned separately with gitleaks git --log-opts=--all. Source, docs, tests, env examples and dist remain in scope."
+paths = ['''(^|[/\\])(node_modules|\.tools|\.cache|\.git)([/\\]|$)''']

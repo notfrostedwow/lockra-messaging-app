@@ -1,0 +1,12 @@
+{
+  "command": "npx --no-install expo install --check",
+  "date": "2026-10-16T07:45:11.422Z",
+  "node": "v22.23.3",
+  "ci": "1",
+  "noDotenv": "1",
+  "telemetryDisabled": "1",
+  "demoMode": "demo",
+  "officialMetadataNetworkAllowed": true,
+  "exit": 1,
+  "seconds": 14.893
+}

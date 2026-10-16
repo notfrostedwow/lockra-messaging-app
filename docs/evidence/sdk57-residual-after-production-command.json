@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-16T09:12:37.514Z",
+  "command": "npm audit --json --registry=https://registry.npmjs.org --omit=dev",
+  "exit": 1,
+  "node": "v22.23.3",
+  "counts": {
+    "info": 0,
+    "low": 0,
+    "moderate": 12,
+    "high": 21,
+    "critical": 0,
+    "total": 33
+  }
+}

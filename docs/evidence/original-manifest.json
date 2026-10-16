@@ -1,0 +1,966 @@
+{
+  "source_repo": "notfrostedwow/lockra-messaging",
+  "source_sha": "7029d5b7fefdfa8ecd40270e25e8092230200fb5",
+  "policy": "FULL SOURCE PRESERVATION, targeted sanitization. Prior 16-file UI staging is rejected and not a starting point.",
+  "source_file_count": 152,
+  "route_and_app_support_paths": [
+    "app/(clerk-auth)/_layout.tsx",
+    "app/(tabs)/_layout.tsx",
+    "app/(tabs)/communities.tsx",
+    "app/(tabs)/index.tsx",
+    "app/(tabs)/settings.tsx",
+    "app/+not-found.tsx",
+    "app/_layout.tsx",
+    "app/admin-panel.tsx",
+    "app/admin/analytics.tsx",
+    "app/admin/bans.tsx",
+    "app/admin/database.tsx",
+    "app/admin/reports.tsx",
+    "app/admin/users.tsx",
+    "app/auth/callback.tsx",
+    "app/chat/[username].tsx",
+    "app/chat/contact/[username].tsx",
+    "app/chat/media/[username].tsx",
+    "app/chat/settings/[username].tsx",
+    "app/community/[id].tsx",
+    "app/community/members/[id].tsx",
+    "app/components/NotificationListener.tsx",
+    "app/contacts.tsx",
+    "app/contexts/AuthContext.tsx",
+    "app/contexts/SecureBootContext.tsx",
+    "app/create-community.tsx",
+    "app/device-settings.tsx",
+    "app/features.tsx",
+    "app/forgot-password.tsx",
+    "app/index.tsx",
+    "app/invite.tsx",
+    "app/new-chat.tsx",
+    "app/premium.tsx",
+    "app/privacy.tsx",
+    "app/profile.tsx",
+    "app/security.tsx",
+    "app/signin.tsx",
+    "app/signup.tsx",
+    "app/storage.tsx",
+    "app/terms.tsx",
+    "app/types.ts",
+    "app/verify-email.tsx"
+  ],
+  "files": [
+    {
+      "path": ".bolt/config.json",
+      "source_sha256": "79ee83623eec98302ac40f7d45a22fdc382882b9a3aae086013eef60cec4a45f",
+      "planned_action": "preserve_safe_development_metadata_review",
+      "reason": "Review metadata paths/identifiers; no executable tooling launch, no secrets. Template provenance flag is not license clearance."
+    },
+    {
+      "path": ".gitignore",
+      "source_sha256": "65edecb1e367fd2f1139c4aa9ff7bfb709cbdac46311306607c8c168a4e76b4a",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": ".npmrc",
+      "source_sha256": "a093bb2fed59d699b7f9a62a5203cc196054c624e9c39c6d908c9e7db5dd2464",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve/document legacy-peer-deps constraint until dependency resolution verified."
+    },
+    {
+      "path": ".prettierrc",
+      "source_sha256": "838209fb358f2453c4024b71fd205c4251a86956cd021f08bb5b92f34fe6ebdb",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": ".vscode/settings.json",
+      "source_sha256": "3fa9ee66f919c3759d952d5e40b18637e72902e01a55ff116ee17bf215cb5548",
+      "planned_action": "preserve_safe_development_metadata_review",
+      "reason": "Review metadata paths/identifiers; no executable tooling launch, no secrets. Template provenance flag is not license clearance."
+    },
+    {
+      "path": "README.md",
+      "source_sha256": "245a5be6e6f73ca9811729108a51a6f2bd486bf3eea12d223ee541f5cd862c07",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve project identity/history of work while replacing inaccurate capability assertions with evidence-based feature status, runnable setup, Mermaid, actual screenshots/tests/limitations."
+    },
+    {
+      "path": "SQL/README_COMMUNITY_FIX.md",
+      "source_sha256": "79446e023ef91e6ab247138a4dbc50a1ae8019a2abf883b210bc3d254e05e742",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/check_policies.sql",
+      "source_sha256": "61cc7bf631812c31b4c03b5bdcc45a2d3832b98aee6a532f50e98db8d0afa0f8",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/create_notifications_table.sql",
+      "source_sha256": "44adb6c8ee161b334a34a69448704f97fba5fe2c8402d4422397eaab53cb991f",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/create_system_messages.sql",
+      "source_sha256": "ac47fc780b3fdfc54ffff69e4ae0f5f31fb283448bb8fe309bb84481edb59189",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/create_user_without_constraint.sql",
+      "source_sha256": "a857295b1e0d0cc0d5553a6b8cc160219a3f75ccf2a8f0bdf3b51f4b9f2fb5c2",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/direct_fix_recursion.sql",
+      "source_sha256": "95cb54183ed55c94556590e50680ed17cbcc734d832a7848e3854764befacfb8",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_communities_policy.sql",
+      "source_sha256": "d92abca22ff320477ea15c1a3189aeacf5cc6a36d9d2d8bf4c88398506eba6fc",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_community_members_policy.sql",
+      "source_sha256": "146da497d8aed21ae9b1d254f638830c191d92a2732acef61f2c8451ed394e34",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_community_recursion.sql",
+      "source_sha256": "74eb4896ef9926ad5ef6518ac7e66b68c852f766505d4b9eea561ce5c08b348f",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_manual_revoke_sessions.sql",
+      "source_sha256": "94d4604528005b4a6a0edc30a62bb5575c998f4a55d67f4131aaff15224dd6cb",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_messages_policy.sql",
+      "source_sha256": "840b572ad6cf31ed568267b90079c700a05f0061184449cb6d8f73f6d9283aa4",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_messages_policy_for_clerk.sql",
+      "source_sha256": "2b618b9a11c24422256c2d672f3cfdb442d81ca8dc322296cfd2b239c20a033b",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_messages_policy_for_clerk_updated.sql",
+      "source_sha256": "043f5dc079ee9cf33b8187353592cf936c26857faec4f1f448eb17ac62927102",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_notifications_table.sql",
+      "source_sha256": "9c7920391bd76d8319ec15ae68d6883e1ad3add47b4a611d5f711049bcea589c",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_publication_error.sql",
+      "source_sha256": "da1e63a5a3fb8baec05791534210b424414f9a4213f49f48d6beedc3ef8ef565",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_revoke_sessions.sql",
+      "source_sha256": "7686c26632b6cc2e6ea9a98d4a7ecf40e06f9c3cba14587fcff9a99b679bb07b",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_system_messages_policy.sql",
+      "source_sha256": "34a8ac60c095c2286888a483df9f44e5b963837667a167f7c2ae6f62ec8a4d29",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_users_constraint.sql",
+      "source_sha256": "021b1bec81d391feda51404993d0a7e4f43bf13c7981adad41a666c24e660241",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_users_policy.sql",
+      "source_sha256": "29c15a84c5a8f1443e4ecf50bb8f9fd40093bff2b922a8c4ecc6995b88130544",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/fix_users_policy_corrected.sql",
+      "source_sha256": "a3e607590825f9ef97e589adc66148b6044ec95034663b64347609c9f0c66d16",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "SQL/simple_users_policy.sql",
+      "source_sha256": "8313a3e6c97216e101552b389e2c028d1c5ba536a2276d0293aaf44c6f08dbc0",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "app.json",
+      "source_sha256": "a5f7679c36c23654d5e1af3bbd699533389770e006480a9e73cb7f2e7faf47cd",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve configuration structure/plugins/platform intent; replace real project identifiers, provider values, release/update endpoints and any privileged logging keys with placeholders or explicit disabled-demo settings. No live OTA/update/signing attachment."
+    },
+    {
+      "path": "app/(clerk-auth)/_layout.tsx",
+      "source_sha256": "e8eaca373753397566088516c5cfb426fcba39047b28adc4c380c6d31a07287a",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/(tabs)/_layout.tsx",
+      "source_sha256": "0a42a0b9300515882e236226a310268f5dc5cf11ce9cf606120fc14e51d8e907",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/(tabs)/communities.tsx",
+      "source_sha256": "176ec7a648ea0d7f8ead2b8692923608730ab3f7cf8e8712d9191fcafc918562",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/(tabs)/index.tsx",
+      "source_sha256": "a926756f23c1479d19353f2c62d2a854302acaed7038642bd21d0e939e451c63",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/(tabs)/settings.tsx",
+      "source_sha256": "72e9f495c6af61232888d99ad1f27c21ee9be6e95271cc3602f59995ff3622fc",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/+not-found.tsx",
+      "source_sha256": "e7d15a25b069b4fd645f7b4b519de69b5ddfdc15f0cc5112d8c479adfc161344",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/_layout.tsx",
+      "source_sha256": "35c85d481210f313b49bb2acb153fa2a1d79c7c88193bc8607605d5e463efcc1",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/admin-panel.tsx",
+      "source_sha256": "169ced1cd1a40d52a31bf50a9c1be7b732dd0ee2cf2e8cb1d624f13bb87f69de",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "app/admin/analytics.tsx",
+      "source_sha256": "cab82583f25709373ecedb041d22ba6b929ed08b2cf9f4046bd7f419a7d8ae64",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "app/admin/bans.tsx",
+      "source_sha256": "79b2b8af270d72b4c7faddfdb4af0d3f153da265ded6912d70e423a33e284e01",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "app/admin/database.tsx",
+      "source_sha256": "a14e33645bb9cb7512b0de905349b74b2d5fb9719f3ccf75874f7a9674133ce3",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "app/admin/reports.tsx",
+      "source_sha256": "d5f6d06cc5a92ad146344dafe81bfeec20354452fb0ba43a05bba7a42dee2f5f",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "app/admin/users.tsx",
+      "source_sha256": "0180177c2084c6017243c7d34deef01965b268b0632d2f94ef8bd3556d8ee95d",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "app/auth/callback.tsx",
+      "source_sha256": "7076ca5f21bb1dc3f584e5b2d3c49bf4abc1c164a508620704ad432ae86d8897",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/chat/[username].tsx",
+      "source_sha256": "0adb5a33b991a4463e778ba2827665469d6cd0d0588b03707e348527023541c2",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/chat/contact/[username].tsx",
+      "source_sha256": "22c556cc9789fb0b5b2eba1a53369e922305dd8245c906a3e3a0808fcce0772c",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/chat/media/[username].tsx",
+      "source_sha256": "8227a3917da70d08b197a2f098d94a02a8a672abdbea549d48de795ce4ff7fda",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/chat/settings/[username].tsx",
+      "source_sha256": "ff29601021f04ca1ae83825271f650a10edf19f8dd02512062c8aded3144b23e",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/community/[id].tsx",
+      "source_sha256": "d06e1f1a30df297a5e632045bdd4f2060785e2189e16bfe7b68feaf335d9b89f",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/community/members/[id].tsx",
+      "source_sha256": "b09cb0972a0097a57c080cc442beb954c9673a1a8073fe50cb2d03c0c021d5c6",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/components/NotificationListener.tsx",
+      "source_sha256": "c7b3bf4e2e7c2a8e7654e81d6ab597889b5929d7e05c9d58635796c30b6355d2",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/contacts.tsx",
+      "source_sha256": "50d57c753b73545aaa0a18f87d584cef8c8da2d31bf760c43fb6486bc47c66db",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/contexts/AuthContext.tsx",
+      "source_sha256": "f9ed95d8f2595932dde124ef6b23e94abeacda94af9e8be99d43d32641c2cb96",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/contexts/SecureBootContext.tsx",
+      "source_sha256": "b555801b03116c524d23dead0ba0e4f7b6731594a4268ad8832c560f11ed8f1d",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/create-community.tsx",
+      "source_sha256": "374163a8b7d35c0e3895eb3ca56e5be63012cf02e7e05fdbe9c232c31383063d",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/device-settings.tsx",
+      "source_sha256": "7fe8f9de26aa384c0d30edba9c8ecce5e3609497114f51cf3605afa9bec02e3c",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/features.tsx",
+      "source_sha256": "3d5cab93a88b03a57d3ba6154f64a3906dfbcefd1582669771cc33e862a01b29",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/forgot-password.tsx",
+      "source_sha256": "15caf66935145ee06a62fea7c87b33b17c2f761eb890f3cc699e34f168a36757",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/index.tsx",
+      "source_sha256": "7de361f5204d1fbe1853a1da536b4342b5d754be4a6bbd7ac9ef21496db3698b",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/invite.tsx",
+      "source_sha256": "27129fc2d5765c89aeea86639d042c43b6e59b42a6585d175edff0eb8a3254a1",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/new-chat.tsx",
+      "source_sha256": "b1929cd4f029cc33ff0e8fc9cc263eabd71cb345270fb595eda17c348e6f7e7b",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/premium.tsx",
+      "source_sha256": "a6b26cf43e9f9977b22327f811ed3359c812a5b77fc9c19f28a5a95e4098ddce",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/privacy.tsx",
+      "source_sha256": "50ae790df1e8b32dfbeeaf4587a0d8a8b64bdc2f498b83a87ca19db5c8be8413",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/profile.tsx",
+      "source_sha256": "5e6b9b6cd8e3f93068e25a22e13e2f45c17a5c4affb706be18d5523ad5aa7321",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/security.tsx",
+      "source_sha256": "c2d037126e487ec45cae2d07f2687475cace3d9145d450db0def6c922241a008",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/signin.tsx",
+      "source_sha256": "9e1e89a2a10d794b1245b40c0cb5dcdb3e4b4db2068f534c4286d014add220aa",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/signup.tsx",
+      "source_sha256": "e6cbc0b74ae77c8e2ca9ba6c1bc0defde933e75c34adf4820f485f0eb430520f",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/sql/broadcast_notification.sql",
+      "source_sha256": "cb4330e2877d1dbada2fa81ab00315ecc037ee7d1c49e1b0ebac8d2dffc38078",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "app/sql/create_admin_exec_sql.sql",
+      "source_sha256": "b224ab51f8671ec326d68923322245ca1a93b44d35212ffd5c6e202fb448d66c",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "app/sql/manual_revoke_sessions_uuid.sql",
+      "source_sha256": "5dd10914a924a1b9cf7fff9663333dc304a3d9ee620473429a19e0b6c67aa783",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "app/storage.tsx",
+      "source_sha256": "51ecc0f2230a1895f47719464e75e32ca33dbcd457c501ec86dea378ccb12304",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/terms.tsx",
+      "source_sha256": "89314d7b2baa8c5c9ff05674a70514dc5529cb7bd17f93f182312bfed28c30ed",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/types.ts",
+      "source_sha256": "3a471d1621be0a51e9b508a1615f767b2686283e9e068a1cce01c86b9409cd83",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "app/verify-email.tsx",
+      "source_sha256": "d915421fe939cc2778646df9b2773916dc95404e9609b76faa11fb4d44089e20",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "assets/images/favicon.png",
+      "source_sha256": "24272cdaeff82cc5facdaccd982a6f05b60c4504704bbf94c19a6388659880bb",
+      "planned_action": "preserve_asset_pending_privacy_rights_review",
+      "reason": "Preserve app identity/assets if ownership/privacy cleared; inspect actual image. Replace only specific unsafe/uncleared asset with equivalent original asset and record mapping, not whole asset directory."
+    },
+    {
+      "path": "assets/images/icon.png",
+      "source_sha256": "74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de",
+      "planned_action": "preserve_asset_pending_privacy_rights_review",
+      "reason": "Preserve app identity/assets if ownership/privacy cleared; inspect actual image. Replace only specific unsafe/uncleared asset with equivalent original asset and record mapping, not whole asset directory."
+    },
+    {
+      "path": "components/AuthWrapper.tsx",
+      "source_sha256": "1c2b1d0a50809a8596df0e8ffbf94070bc81346b95f180b56450122ca0a58da6",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/BanNotification.tsx",
+      "source_sha256": "a66f323aa4d82e64b0cce8403e5a1d34b4518b8a51c7a277632a14f0dce5345c",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ClerkSignOutButton.tsx",
+      "source_sha256": "1b387001554237181aef4d997bf129361e2e8c2bc7671a514106dc14a1454641",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/LoadingScreen.tsx",
+      "source_sha256": "fe35edf5567e3cbe4b067c47cbefee8413a6e5bc0b51952d380148ba32013d46",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/LockScreen.tsx",
+      "source_sha256": "970ce9678a0f1f24fdba7625b088dd7cf6e36062f4a3859ab548885333cd0b1a",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/Sidebar.tsx",
+      "source_sha256": "86e657a6a757d81deadd3cdd4273a22c101fbfcc078ab2f150c3b1b4d187cb8a",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/UserList.tsx",
+      "source_sha256": "48ef5e8e6e4ef5bf88641c3251fff85f3cf65a60db9ea4c022102de9007c0a4a",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/Avatar.tsx",
+      "source_sha256": "6faad6ca579e1068da324e3889d704bc2c3f6d86a0e5f4efea3ad1949be75dda",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/Banner.tsx",
+      "source_sha256": "977fd1e3976d37690e054008382e11c28500449757e1fa7763c5c3776a53f97f",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/Button.tsx",
+      "source_sha256": "928f5de1ca312e8de8c2fe56c9dd04432d03c0285c095330c0911f5e5af06174",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/ChatInput.tsx",
+      "source_sha256": "5da83cd52ad9e3ddd82eadcc3c4979ad0042f60d83a45816be994cbe261b02fb",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/Checkbox.tsx",
+      "source_sha256": "302d84f6ae3c0c490ef7c580158d0da907d24696ad1e98b3edd3dffb08fe4c50",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/HamburgerMenu.tsx",
+      "source_sha256": "edefbd1545f47d0a369d888a8ed43b770b01193ad2578b88fc8d08b25c6e8597",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/Input.tsx",
+      "source_sha256": "c0b68316da9fdbfaeb968d45ff0138a64cb2f98050e2bd062eb813f07eb6d801",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/InstagramHeader.tsx",
+      "source_sha256": "7367f822de9d88e4bf815400dc186361bf501870bd2064588bb39c13207b8df3",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/Logo.tsx",
+      "source_sha256": "bcc7f3c52b0c3797c97301a2d3b7c506d7a1bc0dfa2ae3e2536abeca80532631",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "components/ui/RadioButton.tsx",
+      "source_sha256": "fcac5943ca096572d04b70bdbedf3e3c8145f76f2d5d385f4c14fec934972400",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "contexts/AuthGuard.tsx",
+      "source_sha256": "c8e947918f904c85afe9677a4e4146ce94ec86205203b792071c4a038fb13673",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve route guard and fix actual missing relative AuthContext import."
+    },
+    {
+      "path": "contexts/ThemeContext.tsx",
+      "source_sha256": "0e68d8e825d5f6d0a4b987e673e6bfe81be5f50d94682fabb71db1e49fcacf55",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "eas.json",
+      "source_sha256": "60d8966b3d59ee5cf4cce2f782572d5d671f33838227b36e5ab6f11be812845c",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve build profile source; no EAS build/submit or account link by default. Review remote versioning."
+    },
+    {
+      "path": "fix_recursion_sql.txt",
+      "source_sha256": "d5867a810620203053dbc9085b60ad1e566f2dcbf9d27ffd552196d76df85a27",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "hooks/useFrameworkReady.ts",
+      "source_sha256": "4909151611d198bbf97ced4aa7f731e6298ffb495f3109d91c208b073a0dda89",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "lib/billingService.ts",
+      "source_sha256": "0dfd02a0ee6dda516373c04770ae79d90a1b4f76dacceb6bc1bc6c3731c6cf87",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "lib/clearClerkSession.ts",
+      "source_sha256": "0c8295d3f1dd34e876eb84cab662cb00f0e5587b4dbe02f4af4e178764eb69ed",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "lib/clerkAuth.ts",
+      "source_sha256": "569405bdf78558b28f8cd9bd9b7469c1791486d521fc0dc0f1572d07aa7dc1ca",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve auth/message source and contract; correct unsigned JWT trust at actual server/database boundary, keep demo identity clearly synthetic. Do not remove authentication functionality."
+    },
+    {
+      "path": "lib/clerkTokenCache.ts",
+      "source_sha256": "dd0f0cbc37a0c1215e952e7309412abdad644eb42de3c7ad0550e52558174497",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "lib/communityService.ts",
+      "source_sha256": "7d3090d5aa2cee69f21a0bc49a27f917e1cef663bfcbc0768e96c4c1a449f971",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "lib/errorTracking.ts",
+      "source_sha256": "2d10531b205004c4b78b681645218e209e782ba014c830bf18ab3e3468f3df52",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve logging/error-reporting abstraction and all caller behavior; disabled/redacted local adapter default, explicitly opt-in provider boundary. Do not delete this source or screens."
+    },
+    {
+      "path": "lib/logsnag.ts",
+      "source_sha256": "a4d7114c66729cb537a3f5b32d2c6838868d2186c098bc6269d04e96e07bc57d",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve exports/event contract and callers; replace embedded/configured privileged token with environment-gated server-side integration or disabled demo adapter. No device/user tracking emitted by default."
+    },
+    {
+      "path": "lib/supabase.ts",
+      "source_sha256": "9f64465874b0423104fc164faaae2477a2260c8f9d4fe5fe2aa19c063e341f68",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve real Supabase adapter and interface; add deterministic local demo provider via explicit provider selection before client import/initialization. Placeholder public config, no secret/client service-role. No real service fallback."
+    },
+    {
+      "path": "lib/utils.ts",
+      "source_sha256": "cb5b68e3352a84a581f36ff858c3df0d28ceadd8d87cc1468efa3a76beaf8fea",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "metro.config.js",
+      "source_sha256": "fdf3f976982c52e0c0133ba673036a76a2e5a69d0a2e5c01cf73117b055a1c9e",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve Metro aliases/config; disable upload/telemetry integrations by default without deleting error-handling capability."
+    },
+    {
+      "path": "package-lock.json",
+      "source_sha256": "83ba94a400d88406c4cb8d4463e7ccbf071ff2cbf07e760c28f13d72db711f68",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve/reconcile actual dependency graph reproducibly after reviewed install; no wholesale stack replacement. Audit lifecycle scripts and provenance."
+    },
+    {
+      "path": "package.json",
+      "source_sha256": "f100147661d68153d8e37246b1572c9e3a7d321296032d36949d90c910f9c625",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve actual feature dependencies and script intent; add explicit safe demo/test commands, repair install/version drift and unsafe default tunnel. No cosmetic feature stripping to get green."
+    },
+    {
+      "path": "register.js",
+      "source_sha256": "16badb37a41594bdc680f49356ab7ad619ec0e5ad78c4c3751b74e4b21978a78",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve bootstrap but prevent implicit loading of production env in demo; isolated placeholder-only demo config."
+    },
+    {
+      "path": "scripts/ban-user.js",
+      "source_sha256": "7ef70415298945a5a6726fcaece64e4860593dfa58cec3e9457a06fd83514629",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "scripts/clearAuth.js",
+      "source_sha256": "aa5fd7ebec2ad8d72f52240594e8bb6ea88cb4f19341bdfdf68f1c5ca67d0adb",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "scripts/fix_communities_policy.js",
+      "source_sha256": "1c89401d643920c3ea6cfb53cbf57c6b2132c67bf15a903f933e9d16012481d1",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "scripts/fix_community_members_policy.js",
+      "source_sha256": "31213c2febc5ea1ca3d694a0f3a2ecaf9b020a11d017b4fd7c8574c0458ffdb5",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "scripts/fix_community_recursion.js",
+      "source_sha256": "2cbaf1182342e43e81927c6fadda100a0d266fcef4eaa092b74d42bdf9357cfd",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "scripts/unban-user.js",
+      "source_sha256": "c4706c3429aab13265bdedcf50549f986c4342445db0acda5cfc2e90f70e9807",
+      "planned_action": "preserve_privileged_source_with_execution_gate",
+      "reason": "Keep source, route names and feature workflows. Demo uses synthetic repository plus explicit harmless actions; real operations fail closed behind independently authorized server boundary. No scripts autoexecuted, no production credentials, no fake successful maintenance."
+    },
+    {
+      "path": "start.bat",
+      "source_sha256": "8d352ca3b5bfacb5cdf942bc5aef3f3ee274db8ec929b71c311751b1fe0554cf",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve Windows launcher with safe local demo default rather than automatic tunnel."
+    },
+    {
+      "path": "supabase/.temp/cli-latest",
+      "source_sha256": "b691491af5b3ad08937ad4ffb20760dc948d08169e9afa587671aaea5afa63ed",
+      "planned_action": "exclude_non_source_cache",
+      "reason": "Only existing tracked cache identified for omission. Not app/schema source."
+    },
+    {
+      "path": "supabase/migrations/20240101000000_revoke_user_sessions.sql",
+      "source_sha256": "e7444d5b57d14204875d0cac98bed1831689934109963983fd109bc7ece32675",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20240101000001_system_messages.sql",
+      "source_sha256": "2dbd7ccf5c8438861065d6c74c08cd1a708f71b55f2451f4c074b67ed45c2086",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20240101000002_fix_recursion.sql",
+      "source_sha256": "38797f5292dcfc3005da934386a6a875425a56ee39b534d1c65af6fa906869b3",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20240101000003_enable_realtime.sql",
+      "source_sha256": "3dbc1d894cabe48f0fdc3e46bdaa1d00a83a0501e434b8eac89282c057cbb2e4",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20240320000000_add_user_search_policies.sql",
+      "source_sha256": "2b5f970aaeab96805a6589095a2e75555c41e74fea73a8ce0f1993252af7fb3e",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20240321000000_add_message_delete_policy.sql",
+      "source_sha256": "211bbc5c50be3d2786a3a4e5896b0e9fbfd8e6e5693a3352d851d38bd7361916",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20240322000000_add_blocks_reports.sql",
+      "source_sha256": "9b6fba8f170cad45d99195595c25fd4865b72ee00cd45fc58f2d0c1cf99b3432",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20240729_community_system.sql",
+      "source_sha256": "6fdff819f52ae177ec8f67dc4c04cb075326bcf1047848694b670fe70c22f8db",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250524151011_amber_crystal.sql",
+      "source_sha256": "03df532065dc6a88f8bf38eb9b6c9b50ca3efbd747131307d02923a1a32f1cfe",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250524151012_add_chat_policies.sql",
+      "source_sha256": "addc6d411fc385c854771b4faba5e8b7bbc177df8ac28a4b450b6b986bbf19bb",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250524151012_setup_database.sql",
+      "source_sha256": "f2099cc97cba0ff9f7995d6af8da5bd85c1fb1dc10b7986cacc92c30ecf213b8",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250524151013_add_user_sessions.sql",
+      "source_sha256": "4a5f2b1ad06611579a53ec35ddebbcc53ebcced0f54ef3d9d815704deb55e301",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250524151014_add_profile_visibility.sql",
+      "source_sha256": "27e2c979bca40be021a62fbfbb3f72b56fcfc1a70685a2b5c211c0738c55e962",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250614173248_create_chat_settings.sql",
+      "source_sha256": "252b551c93f3a59cf1870085ba4adc84cf89acc309a6bb402671f07f449f2535",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250614173335_create_privacy_settings.sql",
+      "source_sha256": "ac032dba8d042b7e208305180655c07ef9f0ce4b5e678c5145e9f66a53827b5d",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250614173350_add_clerk_id_to_users.sql",
+      "source_sha256": "423cdb48abc20d913a14eaa873f73208136490403b1454e83f5d8a75459fff75",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250614173351_modify_users_constraint.sql",
+      "source_sha256": "7f800ae049e41d0956f75fff550dad3d86e7cdceb07cc2b1d42eed04fb6ab7ad",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250718000000_fix_community_rls_for_clerk.sql",
+      "source_sha256": "90e645dfbbf0a7b8dcb02192642e6860dcc7fad2edc5cece8ada6b3b91ed9b66",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250719000000_fix_community_foreign_keys.sql",
+      "source_sha256": "e52984373985a094301d1624be7caf9506938007d48f78bc8b0a7155cf42eef4",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250729000000_clerk_integration.sql",
+      "source_sha256": "93f31fca2e6f3a7243fe43688450ccdb65d26889b8092669ec8a6e010a6dfdfc",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250730000000_fix_messages_for_clerk.sql",
+      "source_sha256": "b8bde5160d7349cfe4d84b170aa6d3d1fc3c8628df63416f0121b95528a11cdf",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731000000_fix_messages_for_clerk_updated.sql",
+      "source_sha256": "187bcc95039b489d9bf52eb2df1d97418f73a7fa4d2348656e8c85d93a1d32b0",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731010000_add_community_lock.sql",
+      "source_sha256": "0df2b8869ba2d91067932565136b2a3c34e8b2b96573728372f041088ee20c80",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731020000_fix_locked_by_fk.sql",
+      "source_sha256": "70cbf6fb77da7ea81837b195c2404d6e479bfc128e9fdb2611b735e59204906e",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731030000_allow_admin_delete_community_messages.sql",
+      "source_sha256": "6fb4f5c3ee301b1931956dda753965915fcbb3cd3e88d1738ac41857a00d06ff",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731040000_moderation_features.sql",
+      "source_sha256": "f00cdce3bfcd958d4069dc8552a3596449fcd438ee5837facdd390e4f876fa4d",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731050000_user_message_deletes.sql",
+      "source_sha256": "d6536d45ec4742605dccf38d6698e1351b5cc98c85b8a36544a705a57f3f74c3",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731051000_user_pinned_messages.sql",
+      "source_sha256": "3419454860cd1d4e3c7398007f27337484b345283bc5b3e40023139f6d0f4b59",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731052000_enable_realtime_communities.sql",
+      "source_sha256": "0778de96e04160bfc64534b1c21e491b874174b3bc9aa59938a8f1cd2e4c3fa2",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731053000_community_events.sql",
+      "source_sha256": "e848e519a62308ec90fa6ea1ec06049bbe42884f723f733ccddde2b8f85c2f7e",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250731054000_community_attachments.sql",
+      "source_sha256": "318e44bf132bfc6aa9f1479b3947c493e1d59b52d43a36ba8a83bfd490145e92",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "supabase/migrations/20250818_billing_subscriptions.sql",
+      "source_sha256": "77c1c15ecfd7d631bf5b059079b4a04d9fb359b0707505843c6dcab6ecc7ad65",
+      "planned_action": "preserve_schema_and_security_source_review_only",
+      "reason": "Preserve source/schema history as source files, NOT git history. No automatic execution. Correct/quarantine dangerous arbitrary SQL, broad grants or permissive policies with clear non-runnable legacy marking; secure replacement needs local authorization tests. Never discard all database source."
+    },
+    {
+      "path": "test_auth.js",
+      "source_sha256": "622003fa245825520e86500fe52020414a5eac682523e24a72a7b9e7ec115f35",
+      "planned_action": "preserve_targeted_sanitization",
+      "reason": "Preserve original diagnostic intent as opt-in integration diagnostic only, prevent default live calls/private logs; add separate assertion-based offline tests. Repair module/env mismatch."
+    },
+    {
+      "path": "tsconfig.json",
+      "source_sha256": "a5bad6d659350b8f9a3ebd07b71a1a26a8f49877f0cd68e817f00c70eb758ef4",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    },
+    {
+      "path": "types/index.ts",
+      "source_sha256": "771fcfc4dcf39e70ad73dc4d6f0cb0869ef3990954d0a8f6b64a667a068a5e13",
+      "planned_action": "preserve_application_source",
+      "reason": "Keep feature logic, UI, routes, services, auth/session/billing/community/data models and scripts. Targeted literal/import/provider repairs only after review. All original behavior accounted for."
+    }
+  ],
+  "candidate_created": false,
+  "install_run_tests": false,
+  "publication_approved": false
+}

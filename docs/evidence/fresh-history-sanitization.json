@@ -1,0 +1,23 @@
+{
+  "scope": "Only this isolated copy's three unpublished project-branch commits. No original history was present or rewritten. Authorship, dates and check results preserved; targeted contact/source-echo redactions and corresponding hash receipts updated.",
+  "commits": [
+    {
+      "before": "50bab33c61b8cbc5cc6d38400895033464eea2e9",
+      "after": "e1bac9943b93a161b54c5b41ca09159a341e26c2"
+    },
+    {
+      "before": "16fb7953d64134cfdbc4b76a95dfceb4921780ac",
+      "after": "8984d4e97f2d4590a4ab2a8a7b41e384f0e983e2"
+    },
+    {
+      "before": "e976253c1fde99220eef4f99fdc4bf2c5a598242",
+      "after": "7d7c7325da5ae69e65559fd426491ca43fc55244"
+    }
+  ],
+  "toolOwnedRefsPreserved": [
+    "refs/t3/checkpoints/MWIyN2QwZTktZTU2YS00OWEyLWI5ZTAtZTQ4YzliNGRmZDhk/turn/0",
+    "refs/t3/checkpoints/MWIyN2QwZTktZTU2YS00OWEyLWI5ZTAtZTQ4YzliNGRmZDhk/turn/1",
+    "refs/t3/checkpoints/MWIyN2QwZTktZTU2YS00OWEyLWI5ZTAtZTQ4YzliNGRmZDhk/turn/2"
+  ],
+  "limitation": "Host-owned T3 checkpoint refs are not project publication history and remain unchanged. They may retain legacy contact/deployment literals. Parent must review them and never mirror/publish these internal refs. Scan all refs independently before any source/history export."
+}

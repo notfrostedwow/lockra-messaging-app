@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-16T03:50:48.603Z",
+  "name": "expo-doctor",
+  "version": "1.21.4",
+  "engines": {
+    "node": "^22.13.0 || ^24.3.0 || ^26.0.0 || >=27.0.0"
+  },
+  "scriptsReviewed": {
+    "prebuild": "expo-module clean",
+    "build": "ncc build ./src/index.ts -o build/",
+    "prebuild:prod": "expo-module clean",
+    "build:prod": "ncc build ./src/index.ts -o build/ --minify --no-cache --no-source-map-register",
+    "clean": "expo-module clean",
+    "lint": "oxlint --config oxlint.config.mjs .",
+    "format": "expo-module format",
+    "depscheck": "expo-module depscheck",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "jest"
+  },
+  "integrity": "sha512-JA2TeT7/o5WmSX+DHWkf4EfgdOsJ1RnRFX5OptlMXywo88j7T4IYPRRtM5ONVSvfGH/nL/3xBmhBgJ8t4fDE9w==",
+  "integrityVerified": true,
+  "extracted": [
+    "package/LICENSE",
+    "package/build/index.js",
+    "package/package.json"
+  ],
+  "scope": "Isolated ignored .tools copy of the official bundled CLI; no lifecycle scripts or app dependency changes. Same executable as pinned npx expo-doctor@1.21.4."
+}

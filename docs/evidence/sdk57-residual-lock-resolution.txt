@@ -1,0 +1,424 @@
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react@19.2.9
+npm warn node_modules/react
+npm warn   react@"19.2.3" from the root project
+npm warn   80 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react@"^19.2.9" from react-server-dom-webpack@19.2.9
+npm warn node_modules/react-server-dom-webpack
+npm warn   peerOptional react-server-dom-webpack@"~19.0.1 || ~19.1.2 || ~19.2.1" from @expo/router-server@57.0.13
+npm warn   node_modules/@expo/router-server
+npm warn   1 more (expo-router)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: lockra-messaging-app@1.0.0
+npm warn Found: react-dom@19.2.9
+npm warn node_modules/react-dom
+npm warn   react-dom@"19.2.3" from the root project
+npm warn   23 more (@clerk/expo, @clerk/react, @clerk/shared, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer react-dom@"^19.2.9" from react-server-dom-webpack@19.2.9
+npm warn node_modules/react-server-dom-webpack
+npm warn   peerOptional react-server-dom-webpack@"~19.0.1 || ~19.1.2 || ~19.2.1" from @expo/router-server@57.0.13
+npm warn   node_modules/@expo/router-server
+npm warn   1 more (expo-router)
+
+up to date in 15s

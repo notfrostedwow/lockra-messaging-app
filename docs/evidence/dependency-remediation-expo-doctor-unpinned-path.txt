@@ -1,0 +1,51 @@
+﻿expo-doctor: v1.21.4
+Running 21 checks on your project...
+✔ Check that local environment files are not committed
+✔ Check package.json for common issues
+✔ Check Expo config for common issues
+✔ Check for overridden dependencies
+✔ Check for Expo SDK versions affected by Hermes V1 regressions
+✔ Check if the project meets version requirements for submission to app stores
+✔ Check for lock file
+✔ Check dependencies for packages that should not be installed directly
+✔ Check for app config fields that may not be synced in a non-CNG project
+✔ Check for issues with Metro config
+✔ Check npm/yarn versions
+✔ Check native tooling versions
+✔ Check for common project setup issues
+✖ Check that packages match versions required by installed Expo SDK
+✔ Check that required peer dependencies are installed
+✖ Check Expo config (app.json/ app.config.js) schema
+✔ Check that no duplicate dependencies are installed
+✔ Validate packages against React Native Directory package metadata
+✔ Check that native modules do not use incompatible support packages
+✔ Check that @expo/vector-icons package is not installed together with other potentially conflicting icon packages.
+✔ Check for legacy global CLI installed locally
+
+19/21 checks passed. 2 checks failed. Possible issues detected:
+
+✖ Check Expo config (app.json/ app.config.js) schema
+Error validating fields in <WORKSPACE>\app.json:
+ Field: linking - Additional property "linking" is not allowed.
+Advice:
+Resolve schema errors in your app config. Learn more: https://docs.expo.dev/workflow/configuration/
+
+✖ Check that packages match versions required by installed Expo SDK
+
+❗ Major version mismatches
+package     expected  found   
+typescript  ~6.0.3    5.9.3   
+
+🔧 Patch version mismatches
+package     expected  found   
+react       19.2.3    19.2.9  
+react-dom   19.2.3    19.2.9  
+
+
+
+3 packages out of date.
+Advice:
+Use 'npx expo install --check' to review and upgrade your dependencies.
+To ignore specific packages, add them to "expo.install.exclude" in package.json. Learn more: https://expo.fyi/dependency-validation
+
+2 checks failed, indicating possible issues with the project.

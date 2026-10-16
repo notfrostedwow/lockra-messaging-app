@@ -1,0 +1,2014 @@
+{
+  "source_sha": "7029d5b7fefdfa8ecd40270e25e8092230200fb5",
+  "preserved_original_paths": 151,
+  "original_app_paths": 41,
+  "omitted_original_paths": [
+    "supabase/.temp/cli-latest"
+  ],
+  "recorded_at": "2026-10-16T10:57:47.612Z",
+  "files": [
+    {
+      "original_path": ".bolt/config.json",
+      "original_sha256": "79ee83623eec98302ac40f7d45a22fdc382882b9a3aae086013eef60cec4a45f",
+      "intake_sha256": "79ee83623eec98302ac40f7d45a22fdc382882b9a3aae086013eef60cec4a45f",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": ".bolt/config.json",
+          "sha256": "79ee83623eec98302ac40f7d45a22fdc382882b9a3aae086013eef60cec4a45f"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": ".gitignore",
+      "original_sha256": "65edecb1e367fd2f1139c4aa9ff7bfb709cbdac46311306607c8c168a4e76b4a",
+      "intake_sha256": "65edecb1e367fd2f1139c4aa9ff7bfb709cbdac46311306607c8c168a4e76b4a",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": ".gitignore",
+          "sha256": "7dffd5c3cde56c248e3c7bbc6a2010149547c15c72c86384cf1b8699d4403ea0"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": ".npmrc",
+      "original_sha256": "a093bb2fed59d699b7f9a62a5203cc196054c624e9c39c6d908c9e7db5dd2464",
+      "intake_sha256": "a093bb2fed59d699b7f9a62a5203cc196054c624e9c39c6d908c9e7db5dd2464",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": ".npmrc",
+          "sha256": "9185f8b7d66bb6bf786bb0a8c787201c9233acee73c3cd9501aa1f71dabf1a61"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": ".prettierrc",
+      "original_sha256": "838209fb358f2453c4024b71fd205c4251a86956cd021f08bb5b92f34fe6ebdb",
+      "intake_sha256": "838209fb358f2453c4024b71fd205c4251a86956cd021f08bb5b92f34fe6ebdb",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": ".prettierrc",
+          "sha256": "838209fb358f2453c4024b71fd205c4251a86956cd021f08bb5b92f34fe6ebdb"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": ".vscode/settings.json",
+      "original_sha256": "3fa9ee66f919c3759d952d5e40b18637e72902e01a55ff116ee17bf215cb5548",
+      "intake_sha256": "3fa9ee66f919c3759d952d5e40b18637e72902e01a55ff116ee17bf215cb5548",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": ".vscode/settings.json",
+          "sha256": "3fa9ee66f919c3759d952d5e40b18637e72902e01a55ff116ee17bf215cb5548"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "README.md",
+      "original_sha256": "245a5be6e6f73ca9811729108a51a6f2bd486bf3eea12d223ee541f5cd862c07",
+      "intake_sha256": "245a5be6e6f73ca9811729108a51a6f2bd486bf3eea12d223ee541f5cd862c07",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "README.md",
+          "sha256": "3072a71cb51fbf832685d0440d4cc0fe133ba00e21ca813bf06e930345efc6bc"
+        }
+      ],
+      "reason": "Original documentation restored to source-evidenced features and honest offline/E2EE/calling limits. Current user-authorized SDK57 residual policy replaces the former blanket moderate stop; runtime bundle evidence, supported alignment and independent final publication gates are explicit."
+    },
+    {
+      "original_path": "SQL/README_COMMUNITY_FIX.md",
+      "original_sha256": "79446e023ef91e6ab247138a4dbc50a1ae8019a2abf883b210bc3d254e05e742",
+      "intake_sha256": "79446e023ef91e6ab247138a4dbc50a1ae8019a2abf883b210bc3d254e05e742",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/README_COMMUNITY_FIX.md.txt",
+          "sha256": "79446e023ef91e6ab247138a4dbc50a1ae8019a2abf883b210bc3d254e05e742"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/check_policies.sql",
+      "original_sha256": "61cc7bf631812c31b4c03b5bdcc45a2d3832b98aee6a532f50e98db8d0afa0f8",
+      "intake_sha256": "61cc7bf631812c31b4c03b5bdcc45a2d3832b98aee6a532f50e98db8d0afa0f8",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/check_policies.sql.txt",
+          "sha256": "61cc7bf631812c31b4c03b5bdcc45a2d3832b98aee6a532f50e98db8d0afa0f8"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/create_notifications_table.sql",
+      "original_sha256": "44adb6c8ee161b334a34a69448704f97fba5fe2c8402d4422397eaab53cb991f",
+      "intake_sha256": "44adb6c8ee161b334a34a69448704f97fba5fe2c8402d4422397eaab53cb991f",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/create_notifications_table.sql.txt",
+          "sha256": "44adb6c8ee161b334a34a69448704f97fba5fe2c8402d4422397eaab53cb991f"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/create_system_messages.sql",
+      "original_sha256": "ac47fc780b3fdfc54ffff69e4ae0f5f31fb283448bb8fe309bb84481edb59189",
+      "intake_sha256": "ac47fc780b3fdfc54ffff69e4ae0f5f31fb283448bb8fe309bb84481edb59189",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/create_system_messages.sql.txt",
+          "sha256": "ac47fc780b3fdfc54ffff69e4ae0f5f31fb283448bb8fe309bb84481edb59189"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/create_user_without_constraint.sql",
+      "original_sha256": "a857295b1e0d0cc0d5553a6b8cc160219a3f75ccf2a8f0bdf3b51f4b9f2fb5c2",
+      "intake_sha256": "a857295b1e0d0cc0d5553a6b8cc160219a3f75ccf2a8f0bdf3b51f4b9f2fb5c2",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/create_user_without_constraint.sql.txt",
+          "sha256": "a857295b1e0d0cc0d5553a6b8cc160219a3f75ccf2a8f0bdf3b51f4b9f2fb5c2"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/direct_fix_recursion.sql",
+      "original_sha256": "95cb54183ed55c94556590e50680ed17cbcc734d832a7848e3854764befacfb8",
+      "intake_sha256": "95cb54183ed55c94556590e50680ed17cbcc734d832a7848e3854764befacfb8",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/direct_fix_recursion.sql.txt",
+          "sha256": "95cb54183ed55c94556590e50680ed17cbcc734d832a7848e3854764befacfb8"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_communities_policy.sql",
+      "original_sha256": "d92abca22ff320477ea15c1a3189aeacf5cc6a36d9d2d8bf4c88398506eba6fc",
+      "intake_sha256": "d92abca22ff320477ea15c1a3189aeacf5cc6a36d9d2d8bf4c88398506eba6fc",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_communities_policy.sql.txt",
+          "sha256": "d92abca22ff320477ea15c1a3189aeacf5cc6a36d9d2d8bf4c88398506eba6fc"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_community_members_policy.sql",
+      "original_sha256": "146da497d8aed21ae9b1d254f638830c191d92a2732acef61f2c8451ed394e34",
+      "intake_sha256": "146da497d8aed21ae9b1d254f638830c191d92a2732acef61f2c8451ed394e34",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_community_members_policy.sql.txt",
+          "sha256": "146da497d8aed21ae9b1d254f638830c191d92a2732acef61f2c8451ed394e34"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_community_recursion.sql",
+      "original_sha256": "74eb4896ef9926ad5ef6518ac7e66b68c852f766505d4b9eea561ce5c08b348f",
+      "intake_sha256": "74eb4896ef9926ad5ef6518ac7e66b68c852f766505d4b9eea561ce5c08b348f",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_community_recursion.sql.txt",
+          "sha256": "74eb4896ef9926ad5ef6518ac7e66b68c852f766505d4b9eea561ce5c08b348f"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_manual_revoke_sessions.sql",
+      "original_sha256": "94d4604528005b4a6a0edc30a62bb5575c998f4a55d67f4131aaff15224dd6cb",
+      "intake_sha256": "94d4604528005b4a6a0edc30a62bb5575c998f4a55d67f4131aaff15224dd6cb",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_manual_revoke_sessions.sql.txt",
+          "sha256": "94d4604528005b4a6a0edc30a62bb5575c998f4a55d67f4131aaff15224dd6cb"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_messages_policy.sql",
+      "original_sha256": "840b572ad6cf31ed568267b90079c700a05f0061184449cb6d8f73f6d9283aa4",
+      "intake_sha256": "840b572ad6cf31ed568267b90079c700a05f0061184449cb6d8f73f6d9283aa4",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_messages_policy.sql.txt",
+          "sha256": "840b572ad6cf31ed568267b90079c700a05f0061184449cb6d8f73f6d9283aa4"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_messages_policy_for_clerk.sql",
+      "original_sha256": "2b618b9a11c24422256c2d672f3cfdb442d81ca8dc322296cfd2b239c20a033b",
+      "intake_sha256": "2b618b9a11c24422256c2d672f3cfdb442d81ca8dc322296cfd2b239c20a033b",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_messages_policy_for_clerk.sql.txt",
+          "sha256": "2b618b9a11c24422256c2d672f3cfdb442d81ca8dc322296cfd2b239c20a033b"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_messages_policy_for_clerk_updated.sql",
+      "original_sha256": "043f5dc079ee9cf33b8187353592cf936c26857faec4f1f448eb17ac62927102",
+      "intake_sha256": "043f5dc079ee9cf33b8187353592cf936c26857faec4f1f448eb17ac62927102",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_messages_policy_for_clerk_updated.sql.txt",
+          "sha256": "043f5dc079ee9cf33b8187353592cf936c26857faec4f1f448eb17ac62927102"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_notifications_table.sql",
+      "original_sha256": "9c7920391bd76d8319ec15ae68d6883e1ad3add47b4a611d5f711049bcea589c",
+      "intake_sha256": "9c7920391bd76d8319ec15ae68d6883e1ad3add47b4a611d5f711049bcea589c",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_notifications_table.sql.txt",
+          "sha256": "9c7920391bd76d8319ec15ae68d6883e1ad3add47b4a611d5f711049bcea589c"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_publication_error.sql",
+      "original_sha256": "da1e63a5a3fb8baec05791534210b424414f9a4213f49f48d6beedc3ef8ef565",
+      "intake_sha256": "da1e63a5a3fb8baec05791534210b424414f9a4213f49f48d6beedc3ef8ef565",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_publication_error.sql.txt",
+          "sha256": "da1e63a5a3fb8baec05791534210b424414f9a4213f49f48d6beedc3ef8ef565"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_revoke_sessions.sql",
+      "original_sha256": "7686c26632b6cc2e6ea9a98d4a7ecf40e06f9c3cba14587fcff9a99b679bb07b",
+      "intake_sha256": "7686c26632b6cc2e6ea9a98d4a7ecf40e06f9c3cba14587fcff9a99b679bb07b",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_revoke_sessions.sql.txt",
+          "sha256": "7686c26632b6cc2e6ea9a98d4a7ecf40e06f9c3cba14587fcff9a99b679bb07b"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_system_messages_policy.sql",
+      "original_sha256": "34a8ac60c095c2286888a483df9f44e5b963837667a167f7c2ae6f62ec8a4d29",
+      "intake_sha256": "34a8ac60c095c2286888a483df9f44e5b963837667a167f7c2ae6f62ec8a4d29",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_system_messages_policy.sql.txt",
+          "sha256": "34a8ac60c095c2286888a483df9f44e5b963837667a167f7c2ae6f62ec8a4d29"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_users_constraint.sql",
+      "original_sha256": "021b1bec81d391feda51404993d0a7e4f43bf13c7981adad41a666c24e660241",
+      "intake_sha256": "021b1bec81d391feda51404993d0a7e4f43bf13c7981adad41a666c24e660241",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_users_constraint.sql.txt",
+          "sha256": "021b1bec81d391feda51404993d0a7e4f43bf13c7981adad41a666c24e660241"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_users_policy.sql",
+      "original_sha256": "29c15a84c5a8f1443e4ecf50bb8f9fd40093bff2b922a8c4ecc6995b88130544",
+      "intake_sha256": "29c15a84c5a8f1443e4ecf50bb8f9fd40093bff2b922a8c4ecc6995b88130544",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_users_policy.sql.txt",
+          "sha256": "29c15a84c5a8f1443e4ecf50bb8f9fd40093bff2b922a8c4ecc6995b88130544"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/fix_users_policy_corrected.sql",
+      "original_sha256": "a3e607590825f9ef97e589adc66148b6044ec95034663b64347609c9f0c66d16",
+      "intake_sha256": "a3e607590825f9ef97e589adc66148b6044ec95034663b64347609c9f0c66d16",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/fix_users_policy_corrected.sql.txt",
+          "sha256": "a3e607590825f9ef97e589adc66148b6044ec95034663b64347609c9f0c66d16"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "SQL/simple_users_policy.sql",
+      "original_sha256": "8313a3e6c97216e101552b389e2c028d1c5ba536a2276d0293aaf44c6f08dbc0",
+      "intake_sha256": "8313a3e6c97216e101552b389e2c028d1c5ba536a2276d0293aaf44c6f08dbc0",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/SQL/simple_users_policy.sql.txt",
+          "sha256": "8313a3e6c97216e101552b389e2c028d1c5ba536a2276d0293aaf44c6f08dbc0"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "app.json",
+      "original_sha256": "a5f7679c36c23654d5e1af3bbd699533389770e006480a9e73cb7f2e7faf47cd",
+      "intake_sha256": "cbb870303c6ed6ac02ca4b442b3ae92263fbf41928a7a0eb14940c16da0c9f7b",
+      "intake_targeted_replacements": 6,
+      "current": [
+        {
+          "path": "app.json",
+          "sha256": "74307d7d16625f68e99ad329cba544eb824decd450b11ae3d9c741af89e9a180"
+        },
+        {
+          "path": "docs/legacy/app-linking.json",
+          "sha256": "f5f49d1ebf1c000ce2693c8dc913efbbf343b2aa8e866f80f8a1c3a5866ecb9e"
+        }
+      ],
+      "reason": "Invalid legacy top-level linking configuration relocated without changing its object to docs/legacy/app-linking.json. Expo Router already derives routes from preserved app files; lockra scheme and all auth/tab route source stay intact. No application reader of expo.linking existed."
+    },
+    {
+      "original_path": "app/(clerk-auth)/_layout.tsx",
+      "original_sha256": "e8eaca373753397566088516c5cfb426fcba39047b28adc4c380c6d31a07287a",
+      "intake_sha256": "e8eaca373753397566088516c5cfb426fcba39047b28adc4c380c6d31a07287a",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/(clerk-auth)/_layout.tsx",
+          "sha256": "f4a6f199eceba2f7cbaba9ae3aea2cb51ac519cff428c17ca466e3fb9d0548a3"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/(tabs)/_layout.tsx",
+      "original_sha256": "0a42a0b9300515882e236226a310268f5dc5cf11ce9cf606120fc14e51d8e907",
+      "intake_sha256": "0a42a0b9300515882e236226a310268f5dc5cf11ce9cf606120fc14e51d8e907",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/(tabs)/_layout.tsx",
+          "sha256": "4e6ab1113567924df24aeff37954177581bd154d3297bed4f89a37ea9c86f996"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/(tabs)/communities.tsx",
+      "original_sha256": "176ec7a648ea0d7f8ead2b8692923608730ab3f7cf8e8712d9191fcafc918562",
+      "intake_sha256": "176ec7a648ea0d7f8ead2b8692923608730ab3f7cf8e8712d9191fcafc918562",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/(tabs)/communities.tsx",
+          "sha256": "758feacb6631b3fbdab7b0514786a8237d05194f423d02cc469d210f8929dfa7"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/(tabs)/index.tsx",
+      "original_sha256": "a926756f23c1479d19353f2c62d2a854302acaed7038642bd21d0e939e451c63",
+      "intake_sha256": "a926756f23c1479d19353f2c62d2a854302acaed7038642bd21d0e939e451c63",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/(tabs)/index.tsx",
+          "sha256": "dd4c7e301b0aeb020d48846a1c1667fa96e83971e62e6853c4289840f868e57b"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/(tabs)/settings.tsx",
+      "original_sha256": "72e9f495c6af61232888d99ad1f27c21ee9be6e95271cc3602f59995ff3622fc",
+      "intake_sha256": "72e9f495c6af61232888d99ad1f27c21ee9be6e95271cc3602f59995ff3622fc",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/(tabs)/settings.tsx",
+          "sha256": "1008ebb61372a9094c638cb52194daeb5a7089f457483ba8821a0209454ac448"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/+not-found.tsx",
+      "original_sha256": "e7d15a25b069b4fd645f7b4b519de69b5ddfdc15f0cc5112d8c479adfc161344",
+      "intake_sha256": "e7d15a25b069b4fd645f7b4b519de69b5ddfdc15f0cc5112d8c479adfc161344",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/+not-found.tsx",
+          "sha256": "5b55bdef0947cdc56ae85165faac7d10a8ada52d31cf94084278cdc21a1cf129"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/_layout.tsx",
+      "original_sha256": "35c85d481210f313b49bb2acb153fa2a1d79c7c88193bc8607605d5e463efcc1",
+      "intake_sha256": "35c85d481210f313b49bb2acb153fa2a1d79c7c88193bc8607605d5e463efcc1",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/_layout.tsx",
+          "sha256": "2cd9b42ca660fa1571dc2039291e4b9c7af0ba23887a6b5acdb8bf4dfd4e5ff8"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/admin-panel.tsx",
+      "original_sha256": "169ced1cd1a40d52a31bf50a9c1be7b732dd0ee2cf2e8cb1d624f13bb87f69de",
+      "intake_sha256": "169ced1cd1a40d52a31bf50a9c1be7b732dd0ee2cf2e8cb1d624f13bb87f69de",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/admin-panel.tsx",
+          "sha256": "21c36e07751ec3aba529ebb6a281ef7c1be401108ae42c80b31994509930c88c"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/admin/analytics.tsx",
+      "original_sha256": "cab82583f25709373ecedb041d22ba6b929ed08b2cf9f4046bd7f419a7d8ae64",
+      "intake_sha256": "cab82583f25709373ecedb041d22ba6b929ed08b2cf9f4046bd7f419a7d8ae64",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/admin/analytics.tsx",
+          "sha256": "6d80950c8d0eaf18e63fe32c94b308ea9d2fa5a87732795ac02373180ff76334"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/admin/bans.tsx",
+      "original_sha256": "79b2b8af270d72b4c7faddfdb4af0d3f153da265ded6912d70e423a33e284e01",
+      "intake_sha256": "79b2b8af270d72b4c7faddfdb4af0d3f153da265ded6912d70e423a33e284e01",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/admin/bans.tsx",
+          "sha256": "b5a5c7222bc4bd8abdc019167c035feca624f9d1bcc06a6fa0d67bf395daa5df"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/admin/database.tsx",
+      "original_sha256": "a14e33645bb9cb7512b0de905349b74b2d5fb9719f3ccf75874f7a9674133ce3",
+      "intake_sha256": "a14e33645bb9cb7512b0de905349b74b2d5fb9719f3ccf75874f7a9674133ce3",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/admin/database.tsx",
+          "sha256": "0de3ca2c168df06d29337a851dedc124e45f40f9a47ff317268c94cfeb3c6d79"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/admin/reports.tsx",
+      "original_sha256": "d5f6d06cc5a92ad146344dafe81bfeec20354452fb0ba43a05bba7a42dee2f5f",
+      "intake_sha256": "d5f6d06cc5a92ad146344dafe81bfeec20354452fb0ba43a05bba7a42dee2f5f",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/admin/reports.tsx",
+          "sha256": "4fa519dea1213219b1e151f02959ce46aea01bb485dbcb8782e168f99701fb16"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/admin/users.tsx",
+      "original_sha256": "0180177c2084c6017243c7d34deef01965b268b0632d2f94ef8bd3556d8ee95d",
+      "intake_sha256": "0180177c2084c6017243c7d34deef01965b268b0632d2f94ef8bd3556d8ee95d",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/admin/users.tsx",
+          "sha256": "e4c9cc8461cb4550142b5fc7bd198c578ca131c4219edf24ed65473f2f5308be"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/auth/callback.tsx",
+      "original_sha256": "7076ca5f21bb1dc3f584e5b2d3c49bf4abc1c164a508620704ad432ae86d8897",
+      "intake_sha256": "7076ca5f21bb1dc3f584e5b2d3c49bf4abc1c164a508620704ad432ae86d8897",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/auth/callback.tsx",
+          "sha256": "235209b06ad2652134a58582ce9adf798f2c8247b42e695b32ad1bcd6e729f0f"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/chat/[username].tsx",
+      "original_sha256": "0adb5a33b991a4463e778ba2827665469d6cd0d0588b03707e348527023541c2",
+      "intake_sha256": "0adb5a33b991a4463e778ba2827665469d6cd0d0588b03707e348527023541c2",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/chat/[username].tsx",
+          "sha256": "7142b5fc91c7c989b18fae7eaff1c616de18c35924219c720ad09577fc817ff7"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/chat/contact/[username].tsx",
+      "original_sha256": "22c556cc9789fb0b5b2eba1a53369e922305dd8245c906a3e3a0808fcce0772c",
+      "intake_sha256": "22c556cc9789fb0b5b2eba1a53369e922305dd8245c906a3e3a0808fcce0772c",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/chat/contact/[username].tsx",
+          "sha256": "f6cd8c26dbe3c3b104163db4d5118268d0a44aa793e989a281c6c9b370dceded"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/chat/media/[username].tsx",
+      "original_sha256": "8227a3917da70d08b197a2f098d94a02a8a672abdbea549d48de795ce4ff7fda",
+      "intake_sha256": "8227a3917da70d08b197a2f098d94a02a8a672abdbea549d48de795ce4ff7fda",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/chat/media/[username].tsx",
+          "sha256": "76203a82c4de4e9c4e170fd78c117efddb0d159dd358a3dda2efd269f84ba9f9"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/chat/settings/[username].tsx",
+      "original_sha256": "ff29601021f04ca1ae83825271f650a10edf19f8dd02512062c8aded3144b23e",
+      "intake_sha256": "ff29601021f04ca1ae83825271f650a10edf19f8dd02512062c8aded3144b23e",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/chat/settings/[username].tsx",
+          "sha256": "6934bf91a7de50c31f21553ba1b9712417e0fc98c35ece2380a7111db8cf9499"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/community/[id].tsx",
+      "original_sha256": "d06e1f1a30df297a5e632045bdd4f2060785e2189e16bfe7b68feaf335d9b89f",
+      "intake_sha256": "d06e1f1a30df297a5e632045bdd4f2060785e2189e16bfe7b68feaf335d9b89f",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/community/[id].tsx",
+          "sha256": "77c1b9e8c74ef549992ca4353d792f5b3b508574e8b817a87fd98309121e461d"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/community/members/[id].tsx",
+      "original_sha256": "b09cb0972a0097a57c080cc442beb954c9673a1a8073fe50cb2d03c0c021d5c6",
+      "intake_sha256": "b09cb0972a0097a57c080cc442beb954c9673a1a8073fe50cb2d03c0c021d5c6",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/community/members/[id].tsx",
+          "sha256": "d240f15dff28a30bec507fca09938d642a8ad81442cc805d378f7de053f3a4be"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/components/NotificationListener.tsx",
+      "original_sha256": "c7b3bf4e2e7c2a8e7654e81d6ab597889b5929d7e05c9d58635796c30b6355d2",
+      "intake_sha256": "c7b3bf4e2e7c2a8e7654e81d6ab597889b5929d7e05c9d58635796c30b6355d2",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/NotificationListener.tsx",
+          "sha256": "cd4f5cc6e4f4cf22896f35bacd9ffd4aa9ffc3bb650fab1800e2faa2207a9e2e"
+        }
+      ],
+      "reason": "Support module relocated outside Expo Router discovery; original contract retained and repaired."
+    },
+    {
+      "original_path": "app/contacts.tsx",
+      "original_sha256": "50d57c753b73545aaa0a18f87d584cef8c8da2d31bf760c43fb6486bc47c66db",
+      "intake_sha256": "50d57c753b73545aaa0a18f87d584cef8c8da2d31bf760c43fb6486bc47c66db",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/contacts.tsx",
+          "sha256": "b3d7129ef7d050e40cd1ec4e67a1a18138b6a12a3c106b91b1108ab43bd9edad"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/contexts/AuthContext.tsx",
+      "original_sha256": "f9ed95d8f2595932dde124ef6b23e94abeacda94af9e8be99d43d32641c2cb96",
+      "intake_sha256": "f9ed95d8f2595932dde124ef6b23e94abeacda94af9e8be99d43d32641c2cb96",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "contexts/AuthContext.tsx",
+          "sha256": "a32ca243467663992e1d8e676d510ff7e2aca5e982e93067cb6d8361924934e2"
+        }
+      ],
+      "reason": "Support module relocated outside Expo Router discovery; original contract retained and repaired."
+    },
+    {
+      "original_path": "app/contexts/SecureBootContext.tsx",
+      "original_sha256": "b555801b03116c524d23dead0ba0e4f7b6731594a4268ad8832c560f11ed8f1d",
+      "intake_sha256": "b555801b03116c524d23dead0ba0e4f7b6731594a4268ad8832c560f11ed8f1d",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "contexts/SecureBootContext.tsx",
+          "sha256": "63bd9e113a11418240a5d1c2c85fa71a8fd2879c1f1dbcfe5da18b69e9e4b376"
+        }
+      ],
+      "reason": "Support module relocated outside Expo Router discovery; original contract retained and repaired."
+    },
+    {
+      "original_path": "app/create-community.tsx",
+      "original_sha256": "374163a8b7d35c0e3895eb3ca56e5be63012cf02e7e05fdbe9c232c31383063d",
+      "intake_sha256": "374163a8b7d35c0e3895eb3ca56e5be63012cf02e7e05fdbe9c232c31383063d",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/create-community.tsx",
+          "sha256": "31a3dbe0d233560afee3bed4c3ff5dc7690dc147c1e145c83d054fc651cb4ffa"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/device-settings.tsx",
+      "original_sha256": "7fe8f9de26aa384c0d30edba9c8ecce5e3609497114f51cf3605afa9bec02e3c",
+      "intake_sha256": "7fe8f9de26aa384c0d30edba9c8ecce5e3609497114f51cf3605afa9bec02e3c",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/device-settings.tsx",
+          "sha256": "b22d48fe77bc998d22157db58b924df9d1ed6c4d249910a67b4e6e3941da84be"
+        },
+        {
+          "path": "docs/legacy/app/device-settings-samples.tsx.txt",
+          "sha256": "8443a17d6836aa66c3e05b232043b0882f8e7a49f373774e4ea4a6aca3f58516"
+        }
+      ],
+      "reason": "Device screen and local settings preserved; original fabricated measurement/permission/cache callbacks retained as non-runnable references. Current UI shows unavailable or actual readable platform constants."
+    },
+    {
+      "original_path": "app/features.tsx",
+      "original_sha256": "3d5cab93a88b03a57d3ba6154f64a3906dfbcefd1582669771cc33e862a01b29",
+      "intake_sha256": "3d5cab93a88b03a57d3ba6154f64a3906dfbcefd1582669771cc33e862a01b29",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/features.tsx",
+          "sha256": "9e071191d0a489daf5f72c863ac03601b54c08957f23ef055aa97a7dfcbea6a9"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/forgot-password.tsx",
+      "original_sha256": "15caf66935145ee06a62fea7c87b33b17c2f761eb890f3cc699e34f168a36757",
+      "intake_sha256": "15caf66935145ee06a62fea7c87b33b17c2f761eb890f3cc699e34f168a36757",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/forgot-password.tsx",
+          "sha256": "1b41cf22a14b1ac3ad8fa13cd23f388aedbe04741d5d474a4b17fd203b628af9"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/index.tsx",
+      "original_sha256": "7de361f5204d1fbe1853a1da536b4342b5d754be4a6bbd7ac9ef21496db3698b",
+      "intake_sha256": "7de361f5204d1fbe1853a1da536b4342b5d754be4a6bbd7ac9ef21496db3698b",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/index.tsx",
+          "sha256": "0f6afaf0f51264641dd15a0ac57183d318e632ca92e2c48384bab410e2fd9199"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/invite.tsx",
+      "original_sha256": "27129fc2d5765c89aeea86639d042c43b6e59b42a6585d175edff0eb8a3254a1",
+      "intake_sha256": "27129fc2d5765c89aeea86639d042c43b6e59b42a6585d175edff0eb8a3254a1",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/invite.tsx",
+          "sha256": "32a3c1503233bd4f432b8a40cc6816b0fc4baece3c2e5db3ebfb0bf51d9b16c5"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/new-chat.tsx",
+      "original_sha256": "b1929cd4f029cc33ff0e8fc9cc263eabd71cb345270fb595eda17c348e6f7e7b",
+      "intake_sha256": "b1929cd4f029cc33ff0e8fc9cc263eabd71cb345270fb595eda17c348e6f7e7b",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/new-chat.tsx",
+          "sha256": "38024fc18a6b26daa43607ffa1343b2ef2a3c6ede11ec5a362f9fd2c58faed57"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/premium.tsx",
+      "original_sha256": "a6b26cf43e9f9977b22327f811ed3359c812a5b77fc9c19f28a5a95e4098ddce",
+      "intake_sha256": "a6b26cf43e9f9977b22327f811ed3359c812a5b77fc9c19f28a5a95e4098ddce",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/premium.tsx",
+          "sha256": "5fc71e2a8c8dce93b36e16925e0d46cab87a98b38b682a9b9cd399c20aa1bb5e"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/privacy.tsx",
+      "original_sha256": "50ae790df1e8b32dfbeeaf4587a0d8a8b64bdc2f498b83a87ca19db5c8be8413",
+      "intake_sha256": "50ae790df1e8b32dfbeeaf4587a0d8a8b64bdc2f498b83a87ca19db5c8be8413",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/privacy.tsx",
+          "sha256": "421a2b934c802abad520caea80a32556e4ed787319d87e00995b045777b93e26"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/profile.tsx",
+      "original_sha256": "5e6b9b6cd8e3f93068e25a22e13e2f45c17a5c4affb706be18d5523ad5aa7321",
+      "intake_sha256": "5e6b9b6cd8e3f93068e25a22e13e2f45c17a5c4affb706be18d5523ad5aa7321",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/profile.tsx",
+          "sha256": "6d07160432b1475f771fa3dc6a0b4ff32ff982c4639f2a939c6b50c8e10db815"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/security.tsx",
+      "original_sha256": "c2d037126e487ec45cae2d07f2687475cace3d9145d450db0def6c922241a008",
+      "intake_sha256": "c2d037126e487ec45cae2d07f2687475cace3d9145d450db0def6c922241a008",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/security.tsx",
+          "sha256": "72722353ca138487cffc04262e6b576daba11d8080c95b7dd26356feaecfca35"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/signin.tsx",
+      "original_sha256": "9e1e89a2a10d794b1245b40c0cb5dcdb3e4b4db2068f534c4286d014add220aa",
+      "intake_sha256": "9e1e89a2a10d794b1245b40c0cb5dcdb3e4b4db2068f534c4286d014add220aa",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/signin.tsx",
+          "sha256": "5197c5aaf168d1eeb97bbaeaf49d6cfbfa4f39e1a690a55ac7f0ac94cadaabbb"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/signup.tsx",
+      "original_sha256": "e6cbc0b74ae77c8e2ca9ba6c1bc0defde933e75c34adf4820f485f0eb430520f",
+      "intake_sha256": "e6cbc0b74ae77c8e2ca9ba6c1bc0defde933e75c34adf4820f485f0eb430520f",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/signup.tsx",
+          "sha256": "a13296c4c282a52f1b87f8bb3af65be33af1dec3b458d9b0cde181167b84066d"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/sql/broadcast_notification.sql",
+      "original_sha256": "cb4330e2877d1dbada2fa81ab00315ecc037ee7d1c49e1b0ebac8d2dffc38078",
+      "intake_sha256": "cb4330e2877d1dbada2fa81ab00315ecc037ee7d1c49e1b0ebac8d2dffc38078",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/app/sql/broadcast_notification.sql.txt",
+          "sha256": "cb4330e2877d1dbada2fa81ab00315ecc037ee7d1c49e1b0ebac8d2dffc38078"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "app/sql/create_admin_exec_sql.sql",
+      "original_sha256": "b224ab51f8671ec326d68923322245ca1a93b44d35212ffd5c6e202fb448d66c",
+      "intake_sha256": "b224ab51f8671ec326d68923322245ca1a93b44d35212ffd5c6e202fb448d66c",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/app/sql/create_admin_exec_sql.sql.txt",
+          "sha256": "b224ab51f8671ec326d68923322245ca1a93b44d35212ffd5c6e202fb448d66c"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "app/sql/manual_revoke_sessions_uuid.sql",
+      "original_sha256": "5dd10914a924a1b9cf7fff9663333dc304a3d9ee620473429a19e0b6c67aa783",
+      "intake_sha256": "5dd10914a924a1b9cf7fff9663333dc304a3d9ee620473429a19e0b6c67aa783",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/app/sql/manual_revoke_sessions_uuid.sql.txt",
+          "sha256": "5dd10914a924a1b9cf7fff9663333dc304a3d9ee620473429a19e0b6c67aa783"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "app/storage.tsx",
+      "original_sha256": "51ecc0f2230a1895f47719464e75e32ca33dbcd457c501ec86dea378ccb12304",
+      "intake_sha256": "51ecc0f2230a1895f47719464e75e32ca33dbcd457c501ec86dea378ccb12304",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/storage.tsx",
+          "sha256": "7bbfb22bd8b4c072df8b6411e5b687ef3ec14a3bef7887be39af27f63b1d15dc"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "app/terms.tsx",
+      "original_sha256": "89314d7b2baa8c5c9ff05674a70514dc5529cb7bd17f93f182312bfed28c30ed",
+      "intake_sha256": "89314d7b2baa8c5c9ff05674a70514dc5529cb7bd17f93f182312bfed28c30ed",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/terms.tsx",
+          "sha256": "bc4e1e9674ccd7ee81038ca99ce77921e2b1a45bdfe1d44f5b60f36da28ab9ce"
+        }
+      ],
+      "reason": "Original terms screen retained; legacy private support contact replaced with support@example.invalid. Exact targeted byte/hash receipt in privacy-redactions.json."
+    },
+    {
+      "original_path": "app/types.ts",
+      "original_sha256": "3a471d1621be0a51e9b508a1615f767b2686283e9e068a1cce01c86b9409cd83",
+      "intake_sha256": "3a471d1621be0a51e9b508a1615f767b2686283e9e068a1cce01c86b9409cd83",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "types/user-profile.ts",
+          "sha256": "2e91e7636787dac83ceb11889d8ba7abe0e30cf64dfd3f40df3c729495590074"
+        }
+      ],
+      "reason": "Support module relocated outside Expo Router discovery; original contract retained and repaired."
+    },
+    {
+      "original_path": "app/verify-email.tsx",
+      "original_sha256": "d915421fe939cc2778646df9b2773916dc95404e9609b76faa11fb4d44089e20",
+      "intake_sha256": "d915421fe939cc2778646df9b2773916dc95404e9609b76faa11fb4d44089e20",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "app/verify-email.tsx",
+          "sha256": "0993591f70d1aa592ccc08a57793b08e639a45ee1491cc2e08f78d05f7f913a7"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "assets/images/favicon.png",
+      "original_sha256": "24272cdaeff82cc5facdaccd982a6f05b60c4504704bbf94c19a6388659880bb",
+      "intake_sha256": "24272cdaeff82cc5facdaccd982a6f05b60c4504704bbf94c19a6388659880bb",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "assets/images/favicon.png",
+          "sha256": "24272cdaeff82cc5facdaccd982a6f05b60c4504704bbf94c19a6388659880bb"
+        }
+      ],
+      "reason": "Original image retained verbatim; independent privacy, authorship and redistribution-rights review pending."
+    },
+    {
+      "original_path": "assets/images/icon.png",
+      "original_sha256": "74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de",
+      "intake_sha256": "74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "assets/images/icon.png",
+          "sha256": "74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de"
+        }
+      ],
+      "reason": "Original image retained verbatim; independent privacy, authorship and redistribution-rights review pending."
+    },
+    {
+      "original_path": "components/AuthWrapper.tsx",
+      "original_sha256": "1c2b1d0a50809a8596df0e8ffbf94070bc81346b95f180b56450122ca0a58da6",
+      "intake_sha256": "1c2b1d0a50809a8596df0e8ffbf94070bc81346b95f180b56450122ca0a58da6",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/AuthWrapper.tsx",
+          "sha256": "53e7985c912fd0cec19cee8e1615a9f6bc317d4986db9d724398d22e7c1b1a2a"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/BanNotification.tsx",
+      "original_sha256": "a66f323aa4d82e64b0cce8403e5a1d34b4518b8a51c7a277632a14f0dce5345c",
+      "intake_sha256": "a66f323aa4d82e64b0cce8403e5a1d34b4518b8a51c7a277632a14f0dce5345c",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/BanNotification.tsx",
+          "sha256": "83139da6a2ed55d9f1c45e9248e1a6161ddc636f38625c6392a087e7612f2787"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ClerkSignOutButton.tsx",
+      "original_sha256": "1b387001554237181aef4d997bf129361e2e8c2bc7671a514106dc14a1454641",
+      "intake_sha256": "1b387001554237181aef4d997bf129361e2e8c2bc7671a514106dc14a1454641",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ClerkSignOutButton.tsx",
+          "sha256": "b07da3785f4fdf25602ca1f03c4241d9ed2a80bf2ee5e639f4dab6b4b68f4659"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/LoadingScreen.tsx",
+      "original_sha256": "fe35edf5567e3cbe4b067c47cbefee8413a6e5bc0b51952d380148ba32013d46",
+      "intake_sha256": "fe35edf5567e3cbe4b067c47cbefee8413a6e5bc0b51952d380148ba32013d46",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/LoadingScreen.tsx",
+          "sha256": "9e5126d985e9c2f2cdcbce472f42619d665fd74ca5bad381c2b682600d882e2e"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/LockScreen.tsx",
+      "original_sha256": "970ce9678a0f1f24fdba7625b088dd7cf6e36062f4a3859ab548885333cd0b1a",
+      "intake_sha256": "970ce9678a0f1f24fdba7625b088dd7cf6e36062f4a3859ab548885333cd0b1a",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/LockScreen.tsx",
+          "sha256": "970ce9678a0f1f24fdba7625b088dd7cf6e36062f4a3859ab548885333cd0b1a"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/Sidebar.tsx",
+      "original_sha256": "86e657a6a757d81deadd3cdd4273a22c101fbfcc078ab2f150c3b1b4d187cb8a",
+      "intake_sha256": "86e657a6a757d81deadd3cdd4273a22c101fbfcc078ab2f150c3b1b4d187cb8a",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/Sidebar.tsx",
+          "sha256": "d9b979cd0bbb97675942366577f0ff0b90335d5c773b2f06f3f499ae59f37177"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/UserList.tsx",
+      "original_sha256": "48ef5e8e6e4ef5bf88641c3251fff85f3cf65a60db9ea4c022102de9007c0a4a",
+      "intake_sha256": "48ef5e8e6e4ef5bf88641c3251fff85f3cf65a60db9ea4c022102de9007c0a4a",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/UserList.tsx",
+          "sha256": "4c79358ccc03eaba75c86a41714b9510c015e8aae9118c05e3ddfd2a5475aced"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/Avatar.tsx",
+      "original_sha256": "6faad6ca579e1068da324e3889d704bc2c3f6d86a0e5f4efea3ad1949be75dda",
+      "intake_sha256": "6faad6ca579e1068da324e3889d704bc2c3f6d86a0e5f4efea3ad1949be75dda",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/Avatar.tsx",
+          "sha256": "caf5e1a5206bc7776978ab2c39ef67840079b0eb7bfc76ee8d530eb49748b599"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/Banner.tsx",
+      "original_sha256": "977fd1e3976d37690e054008382e11c28500449757e1fa7763c5c3776a53f97f",
+      "intake_sha256": "977fd1e3976d37690e054008382e11c28500449757e1fa7763c5c3776a53f97f",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/Banner.tsx",
+          "sha256": "ead116685c3c54c1535b517eb488ed2fb3d60784e89009bb45994e5bae3d894f"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/Button.tsx",
+      "original_sha256": "928f5de1ca312e8de8c2fe56c9dd04432d03c0285c095330c0911f5e5af06174",
+      "intake_sha256": "928f5de1ca312e8de8c2fe56c9dd04432d03c0285c095330c0911f5e5af06174",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/Button.tsx",
+          "sha256": "805dfb90a803311e7f2d7397d9eb24eda7e0ff9a5aaaed43c0344aff0f1b8d29"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/ChatInput.tsx",
+      "original_sha256": "5da83cd52ad9e3ddd82eadcc3c4979ad0042f60d83a45816be994cbe261b02fb",
+      "intake_sha256": "5da83cd52ad9e3ddd82eadcc3c4979ad0042f60d83a45816be994cbe261b02fb",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/ChatInput.tsx",
+          "sha256": "0b3e9bbe7be6fb1f67d0eaaac75c4ec8022d617eb1cc145ce7f6cdd7ef4f3fe7"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/Checkbox.tsx",
+      "original_sha256": "302d84f6ae3c0c490ef7c580158d0da907d24696ad1e98b3edd3dffb08fe4c50",
+      "intake_sha256": "302d84f6ae3c0c490ef7c580158d0da907d24696ad1e98b3edd3dffb08fe4c50",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/Checkbox.tsx",
+          "sha256": "302d84f6ae3c0c490ef7c580158d0da907d24696ad1e98b3edd3dffb08fe4c50"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/HamburgerMenu.tsx",
+      "original_sha256": "edefbd1545f47d0a369d888a8ed43b770b01193ad2578b88fc8d08b25c6e8597",
+      "intake_sha256": "edefbd1545f47d0a369d888a8ed43b770b01193ad2578b88fc8d08b25c6e8597",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/HamburgerMenu.tsx",
+          "sha256": "23fbdd4f1a4cefa8f5b6c2f230423327eaa67325e1d6ab583a49a518fe6ca68a"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/Input.tsx",
+      "original_sha256": "c0b68316da9fdbfaeb968d45ff0138a64cb2f98050e2bd062eb813f07eb6d801",
+      "intake_sha256": "c0b68316da9fdbfaeb968d45ff0138a64cb2f98050e2bd062eb813f07eb6d801",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/Input.tsx",
+          "sha256": "9ddd28d10eb10d3414db65fae0fc54d88c50ea2ce816977ef8b374cd2b9554ef"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/InstagramHeader.tsx",
+      "original_sha256": "7367f822de9d88e4bf815400dc186361bf501870bd2064588bb39c13207b8df3",
+      "intake_sha256": "7367f822de9d88e4bf815400dc186361bf501870bd2064588bb39c13207b8df3",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/InstagramHeader.tsx",
+          "sha256": "7c381399ba2ad696c41e6b1f897373bf0ea9fab98b5d78a8253da07b2a75ed75"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/Logo.tsx",
+      "original_sha256": "bcc7f3c52b0c3797c97301a2d3b7c506d7a1bc0dfa2ae3e2536abeca80532631",
+      "intake_sha256": "bcc7f3c52b0c3797c97301a2d3b7c506d7a1bc0dfa2ae3e2536abeca80532631",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/Logo.tsx",
+          "sha256": "bcc7f3c52b0c3797c97301a2d3b7c506d7a1bc0dfa2ae3e2536abeca80532631"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "components/ui/RadioButton.tsx",
+      "original_sha256": "fcac5943ca096572d04b70bdbedf3e3c8145f76f2d5d385f4c14fec934972400",
+      "intake_sha256": "fcac5943ca096572d04b70bdbedf3e3c8145f76f2d5d385f4c14fec934972400",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "components/ui/RadioButton.tsx",
+          "sha256": "fcac5943ca096572d04b70bdbedf3e3c8145f76f2d5d385f4c14fec934972400"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "contexts/AuthGuard.tsx",
+      "original_sha256": "c8e947918f904c85afe9677a4e4146ce94ec86205203b792071c4a038fb13673",
+      "intake_sha256": "c8e947918f904c85afe9677a4e4146ce94ec86205203b792071c4a038fb13673",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "contexts/AuthGuard.tsx",
+          "sha256": "04f5497d21154418afdb2de1e2f1b247e2606560a558458591fdd1359c55c4ce"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "contexts/ThemeContext.tsx",
+      "original_sha256": "0e68d8e825d5f6d0a4b987e673e6bfe81be5f50d94682fabb71db1e49fcacf55",
+      "intake_sha256": "0e68d8e825d5f6d0a4b987e673e6bfe81be5f50d94682fabb71db1e49fcacf55",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "contexts/ThemeContext.tsx",
+          "sha256": "5e30a0caee71882e8b27066972c6903462de8d1887221a166f2efd0457c2b02d"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "eas.json",
+      "original_sha256": "60d8966b3d59ee5cf4cce2f782572d5d671f33838227b36e5ab6f11be812845c",
+      "intake_sha256": "60d8966b3d59ee5cf4cce2f782572d5d671f33838227b36e5ab6f11be812845c",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "eas.json",
+          "sha256": "60d8966b3d59ee5cf4cce2f782572d5d671f33838227b36e5ab6f11be812845c"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "fix_recursion_sql.txt",
+      "original_sha256": "d5867a810620203053dbc9085b60ad1e566f2dcbf9d27ffd552196d76df85a27",
+      "intake_sha256": "d5867a810620203053dbc9085b60ad1e566f2dcbf9d27ffd552196d76df85a27",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/fix_recursion_sql.txt.txt",
+          "sha256": "d5867a810620203053dbc9085b60ad1e566f2dcbf9d27ffd552196d76df85a27"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "hooks/useFrameworkReady.ts",
+      "original_sha256": "4909151611d198bbf97ced4aa7f731e6298ffb495f3109d91c208b073a0dda89",
+      "intake_sha256": "4909151611d198bbf97ced4aa7f731e6298ffb495f3109d91c208b073a0dda89",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "hooks/useFrameworkReady.ts",
+          "sha256": "4909151611d198bbf97ced4aa7f731e6298ffb495f3109d91c208b073a0dda89"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/billingService.ts",
+      "original_sha256": "0dfd02a0ee6dda516373c04770ae79d90a1b4f76dacceb6bc1bc6c3731c6cf87",
+      "intake_sha256": "0dfd02a0ee6dda516373c04770ae79d90a1b4f76dacceb6bc1bc6c3731c6cf87",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/billingService.ts",
+          "sha256": "dfb0f9abf5ef4ccc5ae9144171168ac8cad3f5b19e5dc4c9c2a5ade168820209"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/clearClerkSession.ts",
+      "original_sha256": "0c8295d3f1dd34e876eb84cab662cb00f0e5587b4dbe02f4af4e178764eb69ed",
+      "intake_sha256": "0c8295d3f1dd34e876eb84cab662cb00f0e5587b4dbe02f4af4e178764eb69ed",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/clearClerkSession.ts",
+          "sha256": "edbd162cadeaa25531f3c8c49acc70fba8369b9d3726dfffa73cee3a0a81af43"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/clerkAuth.ts",
+      "original_sha256": "569405bdf78558b28f8cd9bd9b7469c1791486d521fc0dc0f1572d07aa7dc1ca",
+      "intake_sha256": "569405bdf78558b28f8cd9bd9b7469c1791486d521fc0dc0f1572d07aa7dc1ca",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/clerkAuth.ts",
+          "sha256": "172f8e4ec83544e190ffc51cf82c7a7ec15a0288dd5d858676587c20038e8312"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/clerkTokenCache.ts",
+      "original_sha256": "dd0f0cbc37a0c1215e952e7309412abdad644eb42de3c7ad0550e52558174497",
+      "intake_sha256": "dd0f0cbc37a0c1215e952e7309412abdad644eb42de3c7ad0550e52558174497",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/clerkTokenCache.ts",
+          "sha256": "ba6845efc7583873c8ac91e9cf98c158b06975efc82617289e4f1cf26af6f100"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/communityService.ts",
+      "original_sha256": "7d3090d5aa2cee69f21a0bc49a27f917e1cef663bfcbc0768e96c4c1a449f971",
+      "intake_sha256": "7d3090d5aa2cee69f21a0bc49a27f917e1cef663bfcbc0768e96c4c1a449f971",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/communityService.ts",
+          "sha256": "95d207889eb9f5998a7acb64b6db91a42703f8579a05ff6caaa5267a1518971e"
+        },
+        {
+          "path": "lib/communityRepository.ts",
+          "sha256": "03d3f66cf16aada658d3b9b8a521c237e61cd67983753605d63ec239b568c871"
+        }
+      ],
+      "reason": "Original service entry point retained; existing algorithms extracted for dependency injection and actual offline contract tests."
+    },
+    {
+      "original_path": "lib/errorTracking.ts",
+      "original_sha256": "2d10531b205004c4b78b681645218e209e782ba014c830bf18ab3e3468f3df52",
+      "intake_sha256": "2d10531b205004c4b78b681645218e209e782ba014c830bf18ab3e3468f3df52",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/errorTracking.ts",
+          "sha256": "e76e0bbc1e9123c8ce2b2a4274dc80cb4b3d709a7eb3561a4632783e59f959d4"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/logsnag.ts",
+      "original_sha256": "a4d7114c66729cb537a3f5b32d2c6838868d2186c098bc6269d04e96e07bc57d",
+      "intake_sha256": "a4d7114c66729cb537a3f5b32d2c6838868d2186c098bc6269d04e96e07bc57d",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/logsnag.ts",
+          "sha256": "7b8950e65a8105f78b9c66d3c43ebbed645808d215a8ce52a442082fda47d4e6"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/supabase.ts",
+      "original_sha256": "9f64465874b0423104fc164faaae2477a2260c8f9d4fe5fe2aa19c063e341f68",
+      "intake_sha256": "9f64465874b0423104fc164faaae2477a2260c8f9d4fe5fe2aa19c063e341f68",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/supabase.ts",
+          "sha256": "c2a7b33219688f6d50c4319ff0bf422eb3fc51f386454bc2bdd76d927a4229ee"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "lib/utils.ts",
+      "original_sha256": "cb5b68e3352a84a581f36ff858c3df0d28ceadd8d87cc1468efa3a76beaf8fea",
+      "intake_sha256": "cb5b68e3352a84a581f36ff858c3df0d28ceadd8d87cc1468efa3a76beaf8fea",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "lib/utils.ts",
+          "sha256": "cb5b68e3352a84a581f36ff858c3df0d28ceadd8d87cc1468efa3a76beaf8fea"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "metro.config.js",
+      "original_sha256": "fdf3f976982c52e0c0133ba673036a76a2e5a69d0a2e5c01cf73117b055a1c9e",
+      "intake_sha256": "fdf3f976982c52e0c0133ba673036a76a2e5a69d0a2e5c01cf73117b055a1c9e",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "metro.config.js",
+          "sha256": "913710c129271f7effca5a84c11e43b253b7afaa7ddc8c2d715c0c1854af9f05"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "package-lock.json",
+      "original_sha256": "83ba94a400d88406c4cb8d4463e7ccbf071ff2cbf07e760c28f13d72db711f68",
+      "intake_sha256": "83ba94a400d88406c4cb8d4463e7ccbf071ff2cbf07e760c28f13d72db711f68",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "package-lock.json",
+          "sha256": "24616aa6f916bce20f4da63e8eda92aa65529ba527ea4b31c66b6f6093ff7fdc"
+        }
+      ],
+      "reason": "Fresh npm resolution from the supported manifest in an isolated ignored directory inside this workspace; then clean npm ci with lifecycle scripts ignored. Exact version additions/removals and hoisting explanation in sdk57-residual-lock-delta.json. No incompatible overrides, forks or installed-package edits."
+    },
+    {
+      "original_path": "package.json",
+      "original_sha256": "f100147661d68153d8e37246b1572c9e3a7d321296032d36949d90c910f9c625",
+      "intake_sha256": "f100147661d68153d8e37246b1572c9e3a7d321296032d36949d90c910f9c625",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "package.json",
+          "sha256": "d587fe623502e722e91b0d715b1e861107979f6ad06062eae8f2e49adddf92ba"
+        }
+      ],
+      "reason": "Original application dependencies/source contracts retained on supported SDK57. React/DOM align to official 19.2.3; TypeScript aligns to ~6.0.3. Unused optional RSC transport added during restoration is omitted from this non-RSC SPA rather than forcing its incompatible peers. No original RSC source/feature exists or was removed. Fresh synchronized lock resolution is recorded in sdk57-residual-lock-delta.json; no peer bypass or dependency patch."
+    },
+    {
+      "original_path": "register.js",
+      "original_sha256": "16badb37a41594bdc680f49356ab7ad619ec0e5ad78c4c3751b74e4b21978a78",
+      "intake_sha256": "16badb37a41594bdc680f49356ab7ad619ec0e5ad78c4c3751b74e4b21978a78",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "register.js",
+          "sha256": "0aff06a64810cedb1f34dc4fd3a8ef29aadf3f5e53df5c380235c885bb4005c6"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "scripts/ban-user.js",
+      "original_sha256": "7ef70415298945a5a6726fcaece64e4860593dfa58cec3e9457a06fd83514629",
+      "intake_sha256": "7ef70415298945a5a6726fcaece64e4860593dfa58cec3e9457a06fd83514629",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "scripts/ban-user.js",
+          "sha256": "fcb1b91da4a4ee5706cb2866f294f0bee9b5701498415a72f2dea4527a0d01eb"
+        },
+        {
+          "path": "docs/legacy/scripts/ban-user.js.txt",
+          "sha256": "7ef70415298945a5a6726fcaece64e4860593dfa58cec3e9457a06fd83514629"
+        }
+      ],
+      "reason": "Fail-closed executable entry point; original body retained verbatim as non-runnable reference. Offline assertions replace live diagnostic execution."
+    },
+    {
+      "original_path": "scripts/clearAuth.js",
+      "original_sha256": "aa5fd7ebec2ad8d72f52240594e8bb6ea88cb4f19341bdfdf68f1c5ca67d0adb",
+      "intake_sha256": "aa5fd7ebec2ad8d72f52240594e8bb6ea88cb4f19341bdfdf68f1c5ca67d0adb",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "scripts/clearAuth.js",
+          "sha256": "fcb1b91da4a4ee5706cb2866f294f0bee9b5701498415a72f2dea4527a0d01eb"
+        },
+        {
+          "path": "docs/legacy/scripts/clearAuth.js.txt",
+          "sha256": "aa5fd7ebec2ad8d72f52240594e8bb6ea88cb4f19341bdfdf68f1c5ca67d0adb"
+        }
+      ],
+      "reason": "Fail-closed executable entry point; original body retained verbatim as non-runnable reference. Offline assertions replace live diagnostic execution."
+    },
+    {
+      "original_path": "scripts/fix_communities_policy.js",
+      "original_sha256": "1c89401d643920c3ea6cfb53cbf57c6b2132c67bf15a903f933e9d16012481d1",
+      "intake_sha256": "1c89401d643920c3ea6cfb53cbf57c6b2132c67bf15a903f933e9d16012481d1",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "scripts/fix_communities_policy.js",
+          "sha256": "fcb1b91da4a4ee5706cb2866f294f0bee9b5701498415a72f2dea4527a0d01eb"
+        },
+        {
+          "path": "docs/legacy/scripts/fix_communities_policy.js.txt",
+          "sha256": "1c89401d643920c3ea6cfb53cbf57c6b2132c67bf15a903f933e9d16012481d1"
+        }
+      ],
+      "reason": "Fail-closed executable entry point; original body retained verbatim as non-runnable reference. Offline assertions replace live diagnostic execution."
+    },
+    {
+      "original_path": "scripts/fix_community_members_policy.js",
+      "original_sha256": "31213c2febc5ea1ca3d694a0f3a2ecaf9b020a11d017b4fd7c8574c0458ffdb5",
+      "intake_sha256": "31213c2febc5ea1ca3d694a0f3a2ecaf9b020a11d017b4fd7c8574c0458ffdb5",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "scripts/fix_community_members_policy.js",
+          "sha256": "fcb1b91da4a4ee5706cb2866f294f0bee9b5701498415a72f2dea4527a0d01eb"
+        },
+        {
+          "path": "docs/legacy/scripts/fix_community_members_policy.js.txt",
+          "sha256": "31213c2febc5ea1ca3d694a0f3a2ecaf9b020a11d017b4fd7c8574c0458ffdb5"
+        }
+      ],
+      "reason": "Fail-closed executable entry point; original body retained verbatim as non-runnable reference. Offline assertions replace live diagnostic execution."
+    },
+    {
+      "original_path": "scripts/fix_community_recursion.js",
+      "original_sha256": "2cbaf1182342e43e81927c6fadda100a0d266fcef4eaa092b74d42bdf9357cfd",
+      "intake_sha256": "2cbaf1182342e43e81927c6fadda100a0d266fcef4eaa092b74d42bdf9357cfd",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "scripts/fix_community_recursion.js",
+          "sha256": "fcb1b91da4a4ee5706cb2866f294f0bee9b5701498415a72f2dea4527a0d01eb"
+        },
+        {
+          "path": "docs/legacy/scripts/fix_community_recursion.js.txt",
+          "sha256": "2cbaf1182342e43e81927c6fadda100a0d266fcef4eaa092b74d42bdf9357cfd"
+        }
+      ],
+      "reason": "Fail-closed executable entry point; original body retained verbatim as non-runnable reference. Offline assertions replace live diagnostic execution."
+    },
+    {
+      "original_path": "scripts/unban-user.js",
+      "original_sha256": "c4706c3429aab13265bdedcf50549f986c4342445db0acda5cfc2e90f70e9807",
+      "intake_sha256": "c4706c3429aab13265bdedcf50549f986c4342445db0acda5cfc2e90f70e9807",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "scripts/unban-user.js",
+          "sha256": "fcb1b91da4a4ee5706cb2866f294f0bee9b5701498415a72f2dea4527a0d01eb"
+        },
+        {
+          "path": "docs/legacy/scripts/unban-user.js.txt",
+          "sha256": "c4706c3429aab13265bdedcf50549f986c4342445db0acda5cfc2e90f70e9807"
+        }
+      ],
+      "reason": "Fail-closed executable entry point; original body retained verbatim as non-runnable reference. Offline assertions replace live diagnostic execution."
+    },
+    {
+      "original_path": "start.bat",
+      "original_sha256": "8d352ca3b5bfacb5cdf942bc5aef3f3ee274db8ec929b71c311751b1fe0554cf",
+      "intake_sha256": "8d352ca3b5bfacb5cdf942bc5aef3f3ee274db8ec929b71c311751b1fe0554cf",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "start.bat",
+          "sha256": "8ebe15f45e0e53d465cc30305089d8fa512adc9396c2794d664d73b0894534a9"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    },
+    {
+      "original_path": "supabase/migrations/20240101000000_revoke_user_sessions.sql",
+      "original_sha256": "e7444d5b57d14204875d0cac98bed1831689934109963983fd109bc7ece32675",
+      "intake_sha256": "e7444d5b57d14204875d0cac98bed1831689934109963983fd109bc7ece32675",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240101000000_revoke_user_sessions.sql.txt",
+          "sha256": "e7444d5b57d14204875d0cac98bed1831689934109963983fd109bc7ece32675"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20240101000001_system_messages.sql",
+      "original_sha256": "2dbd7ccf5c8438861065d6c74c08cd1a708f71b55f2451f4c074b67ed45c2086",
+      "intake_sha256": "2dbd7ccf5c8438861065d6c74c08cd1a708f71b55f2451f4c074b67ed45c2086",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240101000001_system_messages.sql.txt",
+          "sha256": "2dbd7ccf5c8438861065d6c74c08cd1a708f71b55f2451f4c074b67ed45c2086"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20240101000002_fix_recursion.sql",
+      "original_sha256": "38797f5292dcfc3005da934386a6a875425a56ee39b534d1c65af6fa906869b3",
+      "intake_sha256": "38797f5292dcfc3005da934386a6a875425a56ee39b534d1c65af6fa906869b3",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240101000002_fix_recursion.sql.txt",
+          "sha256": "38797f5292dcfc3005da934386a6a875425a56ee39b534d1c65af6fa906869b3"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20240101000003_enable_realtime.sql",
+      "original_sha256": "3dbc1d894cabe48f0fdc3e46bdaa1d00a83a0501e434b8eac89282c057cbb2e4",
+      "intake_sha256": "3dbc1d894cabe48f0fdc3e46bdaa1d00a83a0501e434b8eac89282c057cbb2e4",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240101000003_enable_realtime.sql.txt",
+          "sha256": "3dbc1d894cabe48f0fdc3e46bdaa1d00a83a0501e434b8eac89282c057cbb2e4"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20240320000000_add_user_search_policies.sql",
+      "original_sha256": "2b5f970aaeab96805a6589095a2e75555c41e74fea73a8ce0f1993252af7fb3e",
+      "intake_sha256": "2b5f970aaeab96805a6589095a2e75555c41e74fea73a8ce0f1993252af7fb3e",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240320000000_add_user_search_policies.sql.txt",
+          "sha256": "2b5f970aaeab96805a6589095a2e75555c41e74fea73a8ce0f1993252af7fb3e"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20240321000000_add_message_delete_policy.sql",
+      "original_sha256": "211bbc5c50be3d2786a3a4e5896b0e9fbfd8e6e5693a3352d851d38bd7361916",
+      "intake_sha256": "211bbc5c50be3d2786a3a4e5896b0e9fbfd8e6e5693a3352d851d38bd7361916",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240321000000_add_message_delete_policy.sql.txt",
+          "sha256": "211bbc5c50be3d2786a3a4e5896b0e9fbfd8e6e5693a3352d851d38bd7361916"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20240322000000_add_blocks_reports.sql",
+      "original_sha256": "9b6fba8f170cad45d99195595c25fd4865b72ee00cd45fc58f2d0c1cf99b3432",
+      "intake_sha256": "9b6fba8f170cad45d99195595c25fd4865b72ee00cd45fc58f2d0c1cf99b3432",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240322000000_add_blocks_reports.sql.txt",
+          "sha256": "9b6fba8f170cad45d99195595c25fd4865b72ee00cd45fc58f2d0c1cf99b3432"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20240729_community_system.sql",
+      "original_sha256": "6fdff819f52ae177ec8f67dc4c04cb075326bcf1047848694b670fe70c22f8db",
+      "intake_sha256": "6fdff819f52ae177ec8f67dc4c04cb075326bcf1047848694b670fe70c22f8db",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20240729_community_system.sql.txt",
+          "sha256": "6fdff819f52ae177ec8f67dc4c04cb075326bcf1047848694b670fe70c22f8db"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250524151011_amber_crystal.sql",
+      "original_sha256": "03df532065dc6a88f8bf38eb9b6c9b50ca3efbd747131307d02923a1a32f1cfe",
+      "intake_sha256": "03df532065dc6a88f8bf38eb9b6c9b50ca3efbd747131307d02923a1a32f1cfe",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250524151011_amber_crystal.sql.txt",
+          "sha256": "03df532065dc6a88f8bf38eb9b6c9b50ca3efbd747131307d02923a1a32f1cfe"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250524151012_add_chat_policies.sql",
+      "original_sha256": "addc6d411fc385c854771b4faba5e8b7bbc177df8ac28a4b450b6b986bbf19bb",
+      "intake_sha256": "addc6d411fc385c854771b4faba5e8b7bbc177df8ac28a4b450b6b986bbf19bb",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250524151012_add_chat_policies.sql.txt",
+          "sha256": "addc6d411fc385c854771b4faba5e8b7bbc177df8ac28a4b450b6b986bbf19bb"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250524151012_setup_database.sql",
+      "original_sha256": "f2099cc97cba0ff9f7995d6af8da5bd85c1fb1dc10b7986cacc92c30ecf213b8",
+      "intake_sha256": "f2099cc97cba0ff9f7995d6af8da5bd85c1fb1dc10b7986cacc92c30ecf213b8",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250524151012_setup_database.sql.txt",
+          "sha256": "f2099cc97cba0ff9f7995d6af8da5bd85c1fb1dc10b7986cacc92c30ecf213b8"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250524151013_add_user_sessions.sql",
+      "original_sha256": "4a5f2b1ad06611579a53ec35ddebbcc53ebcced0f54ef3d9d815704deb55e301",
+      "intake_sha256": "4a5f2b1ad06611579a53ec35ddebbcc53ebcced0f54ef3d9d815704deb55e301",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250524151013_add_user_sessions.sql.txt",
+          "sha256": "4a5f2b1ad06611579a53ec35ddebbcc53ebcced0f54ef3d9d815704deb55e301"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250524151014_add_profile_visibility.sql",
+      "original_sha256": "27e2c979bca40be021a62fbfbb3f72b56fcfc1a70685a2b5c211c0738c55e962",
+      "intake_sha256": "27e2c979bca40be021a62fbfbb3f72b56fcfc1a70685a2b5c211c0738c55e962",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250524151014_add_profile_visibility.sql.txt",
+          "sha256": "27e2c979bca40be021a62fbfbb3f72b56fcfc1a70685a2b5c211c0738c55e962"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250614173248_create_chat_settings.sql",
+      "original_sha256": "252b551c93f3a59cf1870085ba4adc84cf89acc309a6bb402671f07f449f2535",
+      "intake_sha256": "252b551c93f3a59cf1870085ba4adc84cf89acc309a6bb402671f07f449f2535",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250614173248_create_chat_settings.sql.txt",
+          "sha256": "252b551c93f3a59cf1870085ba4adc84cf89acc309a6bb402671f07f449f2535"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250614173335_create_privacy_settings.sql",
+      "original_sha256": "ac032dba8d042b7e208305180655c07ef9f0ce4b5e678c5145e9f66a53827b5d",
+      "intake_sha256": "ac032dba8d042b7e208305180655c07ef9f0ce4b5e678c5145e9f66a53827b5d",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250614173335_create_privacy_settings.sql.txt",
+          "sha256": "ac032dba8d042b7e208305180655c07ef9f0ce4b5e678c5145e9f66a53827b5d"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250614173350_add_clerk_id_to_users.sql",
+      "original_sha256": "423cdb48abc20d913a14eaa873f73208136490403b1454e83f5d8a75459fff75",
+      "intake_sha256": "423cdb48abc20d913a14eaa873f73208136490403b1454e83f5d8a75459fff75",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250614173350_add_clerk_id_to_users.sql.txt",
+          "sha256": "423cdb48abc20d913a14eaa873f73208136490403b1454e83f5d8a75459fff75"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250614173351_modify_users_constraint.sql",
+      "original_sha256": "7f800ae049e41d0956f75fff550dad3d86e7cdceb07cc2b1d42eed04fb6ab7ad",
+      "intake_sha256": "7f800ae049e41d0956f75fff550dad3d86e7cdceb07cc2b1d42eed04fb6ab7ad",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250614173351_modify_users_constraint.sql.txt",
+          "sha256": "7f800ae049e41d0956f75fff550dad3d86e7cdceb07cc2b1d42eed04fb6ab7ad"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250718000000_fix_community_rls_for_clerk.sql",
+      "original_sha256": "90e645dfbbf0a7b8dcb02192642e6860dcc7fad2edc5cece8ada6b3b91ed9b66",
+      "intake_sha256": "90e645dfbbf0a7b8dcb02192642e6860dcc7fad2edc5cece8ada6b3b91ed9b66",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250718000000_fix_community_rls_for_clerk.sql.txt",
+          "sha256": "90e645dfbbf0a7b8dcb02192642e6860dcc7fad2edc5cece8ada6b3b91ed9b66"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250719000000_fix_community_foreign_keys.sql",
+      "original_sha256": "e52984373985a094301d1624be7caf9506938007d48f78bc8b0a7155cf42eef4",
+      "intake_sha256": "e52984373985a094301d1624be7caf9506938007d48f78bc8b0a7155cf42eef4",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250719000000_fix_community_foreign_keys.sql.txt",
+          "sha256": "e52984373985a094301d1624be7caf9506938007d48f78bc8b0a7155cf42eef4"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250729000000_clerk_integration.sql",
+      "original_sha256": "93f31fca2e6f3a7243fe43688450ccdb65d26889b8092669ec8a6e010a6dfdfc",
+      "intake_sha256": "93f31fca2e6f3a7243fe43688450ccdb65d26889b8092669ec8a6e010a6dfdfc",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250729000000_clerk_integration.sql.txt",
+          "sha256": "93f31fca2e6f3a7243fe43688450ccdb65d26889b8092669ec8a6e010a6dfdfc"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250730000000_fix_messages_for_clerk.sql",
+      "original_sha256": "b8bde5160d7349cfe4d84b170aa6d3d1fc3c8628df63416f0121b95528a11cdf",
+      "intake_sha256": "b8bde5160d7349cfe4d84b170aa6d3d1fc3c8628df63416f0121b95528a11cdf",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250730000000_fix_messages_for_clerk.sql.txt",
+          "sha256": "b8bde5160d7349cfe4d84b170aa6d3d1fc3c8628df63416f0121b95528a11cdf"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731000000_fix_messages_for_clerk_updated.sql",
+      "original_sha256": "187bcc95039b489d9bf52eb2df1d97418f73a7fa4d2348656e8c85d93a1d32b0",
+      "intake_sha256": "187bcc95039b489d9bf52eb2df1d97418f73a7fa4d2348656e8c85d93a1d32b0",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731000000_fix_messages_for_clerk_updated.sql.txt",
+          "sha256": "187bcc95039b489d9bf52eb2df1d97418f73a7fa4d2348656e8c85d93a1d32b0"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731010000_add_community_lock.sql",
+      "original_sha256": "0df2b8869ba2d91067932565136b2a3c34e8b2b96573728372f041088ee20c80",
+      "intake_sha256": "0df2b8869ba2d91067932565136b2a3c34e8b2b96573728372f041088ee20c80",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731010000_add_community_lock.sql.txt",
+          "sha256": "0df2b8869ba2d91067932565136b2a3c34e8b2b96573728372f041088ee20c80"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731020000_fix_locked_by_fk.sql",
+      "original_sha256": "70cbf6fb77da7ea81837b195c2404d6e479bfc128e9fdb2611b735e59204906e",
+      "intake_sha256": "70cbf6fb77da7ea81837b195c2404d6e479bfc128e9fdb2611b735e59204906e",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731020000_fix_locked_by_fk.sql.txt",
+          "sha256": "70cbf6fb77da7ea81837b195c2404d6e479bfc128e9fdb2611b735e59204906e"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731030000_allow_admin_delete_community_messages.sql",
+      "original_sha256": "6fb4f5c3ee301b1931956dda753965915fcbb3cd3e88d1738ac41857a00d06ff",
+      "intake_sha256": "6fb4f5c3ee301b1931956dda753965915fcbb3cd3e88d1738ac41857a00d06ff",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731030000_allow_admin_delete_community_messages.sql.txt",
+          "sha256": "6fb4f5c3ee301b1931956dda753965915fcbb3cd3e88d1738ac41857a00d06ff"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731040000_moderation_features.sql",
+      "original_sha256": "f00cdce3bfcd958d4069dc8552a3596449fcd438ee5837facdd390e4f876fa4d",
+      "intake_sha256": "f00cdce3bfcd958d4069dc8552a3596449fcd438ee5837facdd390e4f876fa4d",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731040000_moderation_features.sql.txt",
+          "sha256": "f00cdce3bfcd958d4069dc8552a3596449fcd438ee5837facdd390e4f876fa4d"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731050000_user_message_deletes.sql",
+      "original_sha256": "d6536d45ec4742605dccf38d6698e1351b5cc98c85b8a36544a705a57f3f74c3",
+      "intake_sha256": "d6536d45ec4742605dccf38d6698e1351b5cc98c85b8a36544a705a57f3f74c3",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731050000_user_message_deletes.sql.txt",
+          "sha256": "d6536d45ec4742605dccf38d6698e1351b5cc98c85b8a36544a705a57f3f74c3"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731051000_user_pinned_messages.sql",
+      "original_sha256": "3419454860cd1d4e3c7398007f27337484b345283bc5b3e40023139f6d0f4b59",
+      "intake_sha256": "3419454860cd1d4e3c7398007f27337484b345283bc5b3e40023139f6d0f4b59",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731051000_user_pinned_messages.sql.txt",
+          "sha256": "3419454860cd1d4e3c7398007f27337484b345283bc5b3e40023139f6d0f4b59"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731052000_enable_realtime_communities.sql",
+      "original_sha256": "0778de96e04160bfc64534b1c21e491b874174b3bc9aa59938a8f1cd2e4c3fa2",
+      "intake_sha256": "0778de96e04160bfc64534b1c21e491b874174b3bc9aa59938a8f1cd2e4c3fa2",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731052000_enable_realtime_communities.sql.txt",
+          "sha256": "0778de96e04160bfc64534b1c21e491b874174b3bc9aa59938a8f1cd2e4c3fa2"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731053000_community_events.sql",
+      "original_sha256": "e848e519a62308ec90fa6ea1ec06049bbe42884f723f733ccddde2b8f85c2f7e",
+      "intake_sha256": "e848e519a62308ec90fa6ea1ec06049bbe42884f723f733ccddde2b8f85c2f7e",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731053000_community_events.sql.txt",
+          "sha256": "e848e519a62308ec90fa6ea1ec06049bbe42884f723f733ccddde2b8f85c2f7e"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250731054000_community_attachments.sql",
+      "original_sha256": "318e44bf132bfc6aa9f1479b3947c493e1d59b52d43a36ba8a83bfd490145e92",
+      "intake_sha256": "318e44bf132bfc6aa9f1479b3947c493e1d59b52d43a36ba8a83bfd490145e92",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250731054000_community_attachments.sql.txt",
+          "sha256": "318e44bf132bfc6aa9f1479b3947c493e1d59b52d43a36ba8a83bfd490145e92"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "supabase/migrations/20250818_billing_subscriptions.sql",
+      "original_sha256": "77c1c15ecfd7d631bf5b059079b4a04d9fb359b0707505843c6dcab6ecc7ad65",
+      "intake_sha256": "77c1c15ecfd7d631bf5b059079b4a04d9fb359b0707505843c6dcab6ecc7ad65",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "docs/legacy/supabase/migrations/20250818_billing_subscriptions.sql.txt",
+          "sha256": "77c1c15ecfd7d631bf5b059079b4a04d9fb359b0707505843c6dcab6ecc7ad65"
+        }
+      ],
+      "reason": "Verbatim non-runnable legacy SQL/schema reference, outside migration and route discovery; no SQL executed."
+    },
+    {
+      "original_path": "test_auth.js",
+      "original_sha256": "622003fa245825520e86500fe52020414a5eac682523e24a72a7b9e7ec115f35",
+      "intake_sha256": "622003fa245825520e86500fe52020414a5eac682523e24a72a7b9e7ec115f35",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "test_auth.js",
+          "sha256": "4f771a91605f288efac20b854c2254fb4de9585650bebdfa149e9eb9a2a354c4"
+        },
+        {
+          "path": "docs/legacy/test_auth.js.txt",
+          "sha256": "622003fa245825520e86500fe52020414a5eac682523e24a72a7b9e7ec115f35"
+        }
+      ],
+      "reason": "Fail-closed executable entry point; original body retained verbatim as non-runnable reference. Offline assertions replace live diagnostic execution."
+    },
+    {
+      "original_path": "tsconfig.json",
+      "original_sha256": "a5bad6d659350b8f9a3ebd07b71a1a26a8f49877f0cd68e817f00c70eb758ef4",
+      "intake_sha256": "a5bad6d659350b8f9a3ebd07b71a1a26a8f49877f0cd68e817f00c70eb758ef4",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "tsconfig.json",
+          "sha256": "650a3fa0439097ebf8cee7a5e322680e3b743c8fc2b3b91529e6d31b59ea0ede"
+        }
+      ],
+      "reason": "Strict TypeScript remains enabled. SDK57-supported TS6 removes implicit ambient-type inclusion, so node/react types are explicit for existing app/server/tests. Deprecated baseUrl is removed; the unchanged relative paths alias resolves from the config directory. No ignoreDeprecations flag or check weakening."
+    },
+    {
+      "original_path": "types/index.ts",
+      "original_sha256": "771fcfc4dcf39e70ad73dc4d6f0cb0869ef3990954d0a8f6b64a667a068a5e13",
+      "intake_sha256": "771fcfc4dcf39e70ad73dc4d6f0cb0869ef3990954d0a8f6b64a667a068a5e13",
+      "intake_targeted_replacements": 0,
+      "current": [
+        {
+          "path": "types/index.ts",
+          "sha256": "b407aeecd5117b58eb47c08303fae166f26874aafb22713d7d49b2cd61e22f3c"
+        }
+      ],
+      "reason": "Original feature/source contract retained; targeted type/API, diagnostics and lifecycle repairs where hashes differ."
+    }
+  ]
+}

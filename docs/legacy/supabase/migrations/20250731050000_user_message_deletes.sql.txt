@@ -1,0 +1,30 @@
+-- Per-user message delete visibility for direct messages
+
+CREATE TABLE IF NOT EXISTS public.user_message_deletes (
+  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  message_id UUID NOT NULL REFERENCES public.messages(id) ON DELETE CASCADE,
+  deleted_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, message_id)
+);
+
+-- Enable RLS and add permissive policies for now
+ALTER TABLE public.user_message_deletes ENABLE ROW LEVEL SECURITY;
+
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname = 'public' 
+      AND tablename = 'user_message_deletes' 
+      AND policyname = 'Allow all on user_message_deletes'
+  ) THEN
+    DROP POLICY "Allow all on user_message_deletes" ON public.user_message_deletes;
+  END IF;
+END $$;
+
+CREATE POLICY "Allow all on user_message_deletes"
+  ON public.user_message_deletes FOR ALL
+  USING (true)
+  WITH CHECK (true);
+
+

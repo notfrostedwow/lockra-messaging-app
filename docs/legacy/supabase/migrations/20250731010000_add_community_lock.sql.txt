@@ -1,0 +1,85 @@
+-- Add lock fields to communities and update policies to enforce chat lock
+
+-- Add columns for locking state
+ALTER TABLE communities
+  ADD COLUMN IF NOT EXISTS is_locked BOOLEAN NOT NULL DEFAULT FALSE,
+  ADD COLUMN IF NOT EXISTS locked_at TIMESTAMPTZ NULL,
+  ADD COLUMN IF NOT EXISTS locked_by UUID NULL REFERENCES public.users(id) ON DELETE SET NULL;
+
+-- Make sure new columns are accessible under existing SELECT policies (select * already covers it)
+
+-- Update insert policy on community_messages to respect lock state
+DO $$
+BEGIN
+  -- Drop old policy if it exists
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname = 'public' 
+      AND tablename = 'community_messages' 
+      AND policyname = 'Members can send messages to their communities'
+  ) THEN
+    DROP POLICY "Members can send messages to their communities" ON community_messages;
+  END IF;
+END $$;
+
+-- Recreate insert policy with lock-aware checks
+CREATE POLICY "Members can send messages to their communities"
+  ON community_messages FOR INSERT
+  WITH CHECK (
+    user_id = auth.uid()
+    AND EXISTS (
+      SELECT 1 FROM community_members
+      WHERE community_id = community_messages.community_id
+        AND user_id = auth.uid()
+    )
+    AND (
+      -- If community is not locked, allow
+      NOT EXISTS (
+        SELECT 1 FROM communities c
+        WHERE c.id = community_messages.community_id
+          AND c.is_locked = TRUE
+      )
+      OR 
+      -- If locked, only allow owner/admin
+      EXISTS (
+        SELECT 1 FROM community_members cm
+        WHERE cm.community_id = community_messages.community_id
+          AND cm.user_id = auth.uid()
+          AND cm.role IN ('owner','admin')
+      )
+    )
+  );
+
+-- Allow admins to update communities as well (e.g., to toggle lock)
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname = 'public' 
+      AND tablename = 'communities' 
+      AND policyname = 'Owners can update their communities'
+  ) THEN
+    DROP POLICY "Owners can update their communities" ON communities;
+  END IF;
+END $$;
+
+CREATE POLICY "Owners and admins can update their communities"
+  ON communities FOR UPDATE
+  USING (
+    owner_id = auth.uid() OR EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = communities.id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  )
+  WITH CHECK (
+    owner_id = auth.uid() OR EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = communities.id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+

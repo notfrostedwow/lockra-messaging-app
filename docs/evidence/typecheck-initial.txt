@@ -1,0 +1,54 @@
+
+> lockra-messaging-app@1.0.0 typecheck
+> tsc --noEmit
+
+app/(clerk-auth)/_layout.tsx(11,17): error TS2339: Property 'isSessionLoaded' does not exist on type 'AuthContextType'.
+app/(tabs)/_layout.tsx(15,29): error TS7031: Binding element 'focused' implicitly has an 'any' type.
+app/(tabs)/_layout.tsx(15,38): error TS7031: Binding element 'color' implicitly has an 'any' type.
+app/(tabs)/_layout.tsx(15,45): error TS7031: Binding element 'size' implicitly has an 'any' type.
+app/(tabs)/_layout.tsx(15,57): error TS7031: Binding element 'Icon' implicitly has an 'any' type.
+app/(tabs)/_layout.tsx(25,24): error TS7031: Binding element 'focused' implicitly has an 'any' type.
+app/(tabs)/_layout.tsx(25,33): error TS7031: Binding element 'color' implicitly has an 'any' type.
+app/(tabs)/_layout.tsx(25,40): error TS7031: Binding element 'size' implicitly has an 'any' type.
+app/(tabs)/index.tsx(96,32): error TS2339: Property 'addListener' does not exist on type 'Router'.
+app/(tabs)/index.tsx(843,15): error TS2322: Type '{ size: number; name: string; style: { borderRadius: number; }; }' is not assignable to type 'IntrinsicAttributes & AvatarProps'.
+  Property 'name' does not exist on type 'IntrinsicAttributes & AvatarProps'.
+app/admin/analytics.tsx(140,44): error TS18047: 'newUsersWeek' is possibly 'null'.
+app/admin/analytics.tsx(194,11): error TS18046: 'error' is of type 'unknown'.
+app/admin/analytics.tsx(194,45): error TS18046: 'error' is of type 'unknown'.
+app/auth/callback.tsx(13,20): error TS2305: Module '"@/lib/supabase"' has no exported member 'verifyEmailToken'.
+app/chat/[username].tsx(38,33): error TS2307: Cannot find module '@/lib/email' or its corresponding type declarations.
+app/chat/[username].tsx(643,15): error TS7006: Parameter 'error' implicitly has an 'any' type.
+app/community/[id].tsx(266,32): error TS2322: Type 'string | null | undefined' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+app/community/members/[id].tsx(140,61): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/community/members/[id].tsx(297,11): error TS2322: Type '{ name: string; size: number; fontSize: number; }' is not assignable to type 'IntrinsicAttributes & AvatarProps'.
+  Property 'name' does not exist on type 'IntrinsicAttributes & AvatarProps'.
+app/community/members/[id].tsx(698,3): error TS1117: An object literal cannot have multiple properties with the same name.
+app/invite.tsx(132,13): error TS2322: Type '"success" | "primary"' is not assignable to type '"text" | "primary" | "secondary" | "outline" | "gradient" | undefined'.
+  Type '"success"' is not assignable to type '"text" | "primary" | "secondary" | "outline" | "gradient" | undefined'.
+app/security.tsx(640,13): error TS2322: Type '"destructive"' is not assignable to type '"text" | "primary" | "secondary" | "outline" | "gradient" | undefined'.
+app/signup.tsx(130,21): error TS2339: Property 'userData' does not exist on type 'SignUpResource'.
+app/signup.tsx(130,50): error TS2339: Property 'userData' does not exist on type 'SignUpResource'.
+app/signup.tsx(234,17): error TS2322: Type '{ placeholder: string; value: string; onChangeText: Dispatch<SetStateAction<string>>; keyboardType: "email-address"; autoCapitalize: "none"; leftIcon: Element; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'leftIcon' does not exist on type 'IntrinsicAttributes & InputProps'.
+app/signup.tsx(244,17): error TS2322: Type '{ placeholder: string; value: string; onChangeText: Dispatch<SetStateAction<string>>; autoCapitalize: "none"; leftIcon: Element; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'leftIcon' does not exist on type 'IntrinsicAttributes & InputProps'.
+app/signup.tsx(254,17): error TS2322: Type '{ placeholder: string; value: string; onChangeText: Dispatch<SetStateAction<string>>; secureTextEntry: true; leftIcon: Element; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'leftIcon' does not exist on type 'IntrinsicAttributes & InputProps'.
+app/signup.tsx(264,17): error TS2322: Type '{ placeholder: string; value: string; onChangeText: Dispatch<SetStateAction<string>>; secureTextEntry: true; leftIcon: Element; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'leftIcon' does not exist on type 'IntrinsicAttributes & InputProps'.
+app/storage.tsx(432,19): error TS2322: Type '(() => Promise<void>) | null' is not assignable to type '((event: GestureResponderEvent) => void) | undefined'.
+  Type 'null' is not assignable to type '((event: GestureResponderEvent) => void) | undefined'.
+app/terms.tsx(23,15): error TS2322: Type '"ghost"' is not assignable to type '"text" | "primary" | "secondary" | "outline" | "gradient" | undefined'.
+components/ClerkSignOutButton.tsx(32,50): error TS2339: Property 'buttonText' does not exist on type '{ background: string; card: string; text: string; textSecondary: string; textTertiary: string; border: string; primary: string; primaryLight: string; accent: string; error: string; success: string; ... 13 more ...; tabBarActiveIcon: string; }'.
+components/NotificationListener.tsx(34,31): error TS2339: Property 'message' does not exist on type '{} | { [key: string]: any; }'.
+  Property 'message' does not exist on type '{}'.
+components/Sidebar.tsx(199,22): error TS2339: Property 'type' does not exist on type '{ title: string; icon: Element; onPress: () => void; } | { type: string; title?: undefined; icon?: undefined; onPress?: undefined; }'.
+  Property 'type' does not exist on type '{ title: string; icon: Element; onPress: () => void; }'.
+lib/demo/client.ts(83,83): error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ id: `${string}-${string}-${string}-${string}-${string}`; created_at: string; timestamp: string; read: boolean; }'.
+  No index signature with a parameter of type 'string' was found on type '{ id: `${string}-${string}-${string}-${string}-${string}`; created_at: string; timestamp: string; read: boolean; }'.
+lib/demo/client.ts(90,65): error TS2339: Property 'owner_id' does not exist on type '{ id: `${string}-${string}-${string}-${string}-${string}`; created_at: string; timestamp: string; read: boolean; }'.
+lib/networkGuard.ts(23,38): error TS2345: Argument of type 'string | URL' is not assignable to parameter of type 'string'.
+  Type 'URL' is not assignable to type 'string'.

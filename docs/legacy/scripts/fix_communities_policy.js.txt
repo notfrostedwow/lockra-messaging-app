@@ -1,0 +1,49 @@
+// Script to fix the communities policy recursion issue
+const { createClient } = require('@supabase/supabase-js');
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config();
+
+// Initialize Supabase client
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  console.error('Error: SUPABASE_URL and SUPABASE_SERVICE_KEY must be defined in .env file');
+  process.exit(1);
+}
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+async function fixCommunitiesPolicy() {
+  try {
+    console.log('Starting to fix communities policy...');
+    
+    // Read the SQL file
+    const sqlFilePath = path.join(__dirname, '..', 'SQL', 'fix_communities_policy.sql');
+    const sqlContent = fs.readFileSync(sqlFilePath, 'utf8');
+    
+    // Split the SQL content into individual statements
+    const statements = sqlContent
+      .split(';')
+      .map(stmt => stmt.trim())
+      .filter(stmt => stmt.length > 0);
+    
+    // Execute each statement
+    for (const statement of statements) {
+      console.log(`Executing: ${statement.substring(0, 50)}...`);
+      const { error } = await supabase.rpc('exec_sql', { sql: statement });
+      
+      if (error) {
+        console.error('Error executing SQL statement:', error);
+      }
+    }
+    
+    console.log('Communities policy fixed successfully!');
+  } catch (error) {
+    console.error('Error fixing communities policy:', error);
+  }
+}
+
+// Run the function
+fixCommunitiesPolicy(); 

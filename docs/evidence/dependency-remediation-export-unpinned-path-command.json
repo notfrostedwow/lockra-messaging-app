@@ -1,0 +1,12 @@
+{
+  "command": "npm run build:web",
+  "date": "2026-10-16T07:44:29.944Z",
+  "node": "v22.23.3",
+  "ci": "1",
+  "noDotenv": "1",
+  "telemetryDisabled": "1",
+  "demoMode": "demo",
+  "officialMetadataNetworkAllowed": false,
+  "exit": 0,
+  "seconds": 43.55
+}

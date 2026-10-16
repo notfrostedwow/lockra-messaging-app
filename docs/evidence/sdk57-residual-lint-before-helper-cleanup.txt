@@ -1,0 +1,11 @@
+﻿
+> lockra-messaging-app@1.0.0 lint
+> eslint . --max-warnings=0
+
+
+<WORKSPACE>\.cache\residual-research.cjs
+  2:7  warning  'path' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+ESLint found too many warnings (maximum: 0).

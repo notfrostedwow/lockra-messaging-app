@@ -1,0 +1,152 @@
+-- Drop existing policies and triggers if they exist
+DROP POLICY IF EXISTS "Users can view their own sessions" ON user_sessions;
+DROP POLICY IF EXISTS "Users can insert their own sessions" ON user_sessions;
+DROP POLICY IF EXISTS "Users can update their own sessions" ON user_sessions;
+DROP POLICY IF EXISTS "Users can delete their own sessions" ON user_sessions;
+DROP TRIGGER IF EXISTS set_session_ip_address ON user_sessions;
+DROP TRIGGER IF EXISTS update_session_last_active ON user_sessions;
+DROP TRIGGER IF EXISTS set_user_sessions_updated_at ON user_sessions;
+DROP FUNCTION IF EXISTS set_session_ip_address();
+DROP FUNCTION IF EXISTS update_session_last_active();
+DROP FUNCTION IF EXISTS get_location_from_ip(TEXT);
+DROP FUNCTION IF EXISTS get_client_ip();
+
+-- Create user_sessions table
+DROP TABLE IF EXISTS user_sessions;
+CREATE TABLE IF NOT EXISTS user_sessions (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  device_type TEXT NOT NULL,
+  ip_address TEXT,
+  city TEXT,
+  country TEXT,
+  is_current BOOLEAN DEFAULT FALSE,
+  last_active TIMESTAMPTZ DEFAULT NOW(),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Enable Row Level Security
+ALTER TABLE user_sessions ENABLE ROW LEVEL SECURITY;
+
+-- Create indexes
+CREATE INDEX IF NOT EXISTS idx_user_sessions_user_id ON user_sessions(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_sessions_last_active ON user_sessions(last_active);
+
+-- Create updated_at trigger
+CREATE TRIGGER set_user_sessions_updated_at
+  BEFORE UPDATE ON user_sessions
+  FOR EACH ROW
+  EXECUTE FUNCTION handle_updated_at();
+
+-- RLS Policies
+-- Users can view their own sessions
+CREATE POLICY "Users can view their own sessions"
+  ON user_sessions FOR SELECT
+  TO authenticated
+  USING (auth.uid() = user_id);
+
+-- Users can insert their own sessions
+CREATE POLICY "Users can insert their own sessions"
+  ON user_sessions FOR INSERT
+  TO authenticated
+  WITH CHECK (auth.uid() = user_id);
+
+-- Users can update their own sessions
+CREATE POLICY "Users can update their own sessions"
+  ON user_sessions FOR UPDATE
+  TO authenticated
+  USING (auth.uid() = user_id)
+  WITH CHECK (auth.uid() = user_id);
+
+-- Users can delete their own sessions
+CREATE POLICY "Users can delete their own sessions"
+  ON user_sessions FOR DELETE
+  TO authenticated
+  USING (auth.uid() = user_id);
+
+-- Enable realtime for user_sessions table
+ALTER PUBLICATION supabase_realtime ADD TABLE user_sessions;
+
+-- Function to update last_active timestamp
+CREATE OR REPLACE FUNCTION update_session_last_active()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.last_active = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Trigger to update last_active on session update
+CREATE TRIGGER update_session_last_active
+  BEFORE UPDATE ON user_sessions
+  FOR EACH ROW
+  EXECUTE FUNCTION update_session_last_active();
+
+-- Function to get client IP address
+CREATE OR REPLACE FUNCTION get_client_ip()
+RETURNS TEXT AS $$
+BEGIN
+  RETURN current_setting('request.headers')::json->>'x-real-ip';
+EXCEPTION
+  WHEN OTHERS THEN
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Function to get location from IP using ipapi.co
+CREATE OR REPLACE FUNCTION get_location_from_ip(ip TEXT)
+RETURNS JSON AS $$
+DECLARE
+  api_url TEXT;
+  response JSON;
+BEGIN
+  -- Only process if IP is not null and not a private IP
+  IF ip IS NULL OR ip ~ '^(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.)' THEN
+    RETURN json_build_object('city', NULL, 'country', NULL);
+  END IF;
+
+  -- Construct API URL (using ipapi.co free service)
+  api_url := 'http://ipapi.co/' || ip || '/json/';
+  
+  -- Make HTTP request
+  SELECT content::json INTO response
+  FROM http_get(api_url);
+
+  -- Return location data
+  RETURN json_build_object(
+    'city', response->>'city',
+    'country', response->>'country_name'
+  );
+EXCEPTION
+  WHEN OTHERS THEN
+    -- Return null values if any error occurs
+    RETURN json_build_object('city', NULL, 'country', NULL);
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Modify the set_session_ip_address function to also set location
+CREATE OR REPLACE FUNCTION set_session_ip_address()
+RETURNS TRIGGER AS $$
+DECLARE
+  location_data JSON;
+BEGIN
+  -- Set IP address (can be null)
+  NEW.ip_address = get_client_ip();
+  
+  -- Get and set location data if IP is available
+  IF NEW.ip_address IS NOT NULL THEN
+    location_data = get_location_from_ip(NEW.ip_address);
+    NEW.city = location_data->>'city';
+    NEW.country = location_data->>'country';
+  END IF;
+  
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Add trigger to set IP address on insert
+CREATE TRIGGER set_session_ip_address
+  BEFORE INSERT ON user_sessions
+  FOR EACH ROW
+  EXECUTE FUNCTION set_session_ip_address(); 

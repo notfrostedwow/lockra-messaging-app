@@ -1,0 +1,68 @@
+-- Fix for infinite recursion in community_members policy
+-- This script modifies the policy that's causing the recursion error
+
+-- First, let's check the existing policies on community_members
+SELECT 
+  tablename,
+  policyname,
+  permissive,
+  roles,
+  cmd,
+  qual,
+  with_check
+FROM pg_policies
+WHERE tablename = 'community_members';
+
+-- Drop the problematic policy that's causing recursion
+DROP POLICY IF EXISTS "Members can see who else is in their communities" ON community_members;
+
+-- Create a new policy that avoids self-referencing recursion
+CREATE POLICY "Anyone can view public community members" 
+  ON community_members FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM communities c
+      WHERE c.id = community_members.community_id 
+      AND c.type = 'public'
+    )
+  );
+
+-- Create a policy for private communities
+CREATE POLICY "Members can see private community members" 
+  ON community_members FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM communities c
+      JOIN community_members cm ON c.id = cm.community_id
+      WHERE c.id = community_members.community_id
+      AND c.type = 'private'
+      AND cm.user_id = auth.uid()
+    )
+  );
+
+-- The other policies should be fine, but let's double check them
+-- Users can join communities
+DROP POLICY IF EXISTS "Users can join communities" ON community_members;
+CREATE POLICY "Users can join communities" 
+  ON community_members FOR INSERT 
+  WITH CHECK (user_id = auth.uid());
+
+-- Only owners and admins can update member roles
+DROP POLICY IF EXISTS "Owners and admins can update member roles" ON community_members;
+CREATE POLICY "Owners and admins can update member roles" 
+  ON community_members FOR UPDATE 
+  USING (
+    EXISTS (
+      SELECT 1 FROM communities c
+      JOIN community_members cm ON c.id = cm.community_id
+      WHERE c.id = community_members.community_id
+      AND cm.user_id = auth.uid()
+      AND cm.role IN ('owner', 'admin')
+    )
+  );
+
+-- Members can leave communities (delete themselves)
+DROP POLICY IF EXISTS "Members can leave communities" ON community_members;
+CREATE POLICY "Members can leave communities" 
+  ON community_members FOR DELETE 
+  USING (user_id = auth.uid()); 

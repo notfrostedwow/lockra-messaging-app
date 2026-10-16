@@ -1,0 +1,14 @@
+﻿{
+  "command": "npm run build:web",
+  "date": "2026-10-16T08:07:56.528Z",
+  "node": "v22.23.3",
+  "nodeExecutable": "<WORKSPACE>\\.tools\\node-v22.23.3-win-x64\\node.exe",
+  "childPathPinnedToNodeDirectory": true,
+  "ci": "1",
+  "noDotenv": "1",
+  "telemetryDisabled": "1",
+  "demoMode": "demo",
+  "officialMetadataNetworkAllowed": false,
+  "exit": 0,
+  "seconds": 60.261
+}

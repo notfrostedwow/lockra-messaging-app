@@ -1,0 +1,20 @@
+-- Enable RLS on messages table if not already enabled
+ALTER TABLE messages ENABLE ROW LEVEL SECURITY;
+
+-- Drop existing delete policy if it exists
+DROP POLICY IF EXISTS "Users can delete their own messages" ON messages;
+
+-- Create policy to allow users to delete their own messages
+CREATE POLICY "Users can delete their own messages"
+  ON messages
+  FOR DELETE
+  TO authenticated
+  USING (auth.uid() = sender_id);
+
+-- Add cascade delete for file_attachments if not already set
+ALTER TABLE file_attachments
+  DROP CONSTRAINT IF EXISTS file_attachments_message_id_fkey,
+  ADD CONSTRAINT file_attachments_message_id_fkey
+    FOREIGN KEY (message_id)
+    REFERENCES messages(id)
+    ON DELETE CASCADE; 

@@ -1,0 +1,115 @@
+-- NONRUNNABLE REVIEW DRAFT, NOT AN ACTIVE MIGRATION.
+-- Never apply to an existing/live project. No SQL was executed or RLS tested here.
+-- The first guard deliberately aborts. Only an independently reviewed isolated
+-- migration may remove it, after resolving legacy identity/FK/policy conflicts.
+BEGIN;
+DO $$ BEGIN
+  RAISE EXCEPTION 'Lockra draft disabled: independent isolated schema, authorization and migration tests required';
+END $$;
+
+-- Required reviewed preconditions: public.users.id is a provisioned UUID profile,
+-- clerk_id is UNIQUE/immutable and bound by a signed server provisioner; users'
+-- role, verified, identity and moderation columns cannot be changed by clients.
+-- Legacy SECURITY DEFINER executors, broad grants and permissive policies must
+-- already be removed in the ISOLATED schema. Do not run legacy SQL references.
+-- Legacy messages need a reviewed immutable recipient-ID backfill, resolving
+-- renamed usernames and old auth.users FK assumptions. Do not guess ownership.
+-- pgcrypto must be installed by the isolated database operator in extensions.
+
+CREATE SCHEMA lockra_private;
+REVOKE ALL ON SCHEMA lockra_private FROM PUBLIC, anon, authenticated;
+GRANT USAGE ON SCHEMA lockra_private TO authenticated;
+
+-- Narrow read-only policy helpers, not exposed RPCs. These do not accept a JWT,
+-- caller ID, SQL text, role or verified flag from a client. auth.jwt() must be
+-- supplied by Supabase after cryptographic Clerk-token verification.
+CREATE FUNCTION lockra_private.profile_id() RETURNS uuid
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path = pg_catalog
+AS $$
+  SELECT u.id FROM public.users AS u
+  WHERE u.clerk_id = (SELECT auth.jwt() ->> 'sub')
+$$;
+REVOKE ALL ON FUNCTION lockra_private.profile_id() FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION lockra_private.profile_id() TO authenticated;
+
+CREATE FUNCTION lockra_private.can_send_dm(sender uuid, recipient uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path = pg_catalog
+AS $$
+  SELECT sender = lockra_private.profile_id()
+    AND sender <> recipient
+    AND EXISTS (SELECT 1 FROM public.users u WHERE u.id = sender
+      AND coalesce(u.can_send, false) AND NOT coalesce(u.banned, true)
+      AND (u.timeout_until IS NULL OR u.timeout_until <= pg_catalog.now()))
+    AND EXISTS (SELECT 1 FROM public.users u WHERE u.id = recipient AND NOT coalesce(u.banned, true))
+    AND NOT EXISTS (SELECT 1 FROM public.user_blocks b
+      WHERE (b.blocker_id = sender AND b.blocked_id = recipient)
+         OR (b.blocker_id = recipient AND b.blocked_id = sender))
+$$;
+REVOKE ALL ON FUNCTION lockra_private.can_send_dm(uuid, uuid) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION lockra_private.can_send_dm(uuid, uuid) TO authenticated;
+-- Function ownership must be an operator-controlled role with only the reviewed
+-- read privileges needed above, never a client-writable/searchable object owner.
+-- Keep lockra_private out of the REST-exposed schema list. Independently audit
+-- helper owner/search_path/grants, row ownership, JWT mapping and block visibility.
+
+CREATE TABLE public.dm_public_keys (
+  user_id uuid NOT NULL REFERENCES public.users(id),
+  key_id text NOT NULL CHECK (key_id ~ '^[a-f0-9]{64}$'),
+  public_key text NOT NULL CHECK (public_key ~ '^[a-f0-9]{64}$'),
+  created_at timestamptz NOT NULL DEFAULT clock_timestamp(),
+  PRIMARY KEY (user_id, key_id),
+  CHECK (key_id = encode(extensions.digest(decode(public_key, 'hex'), 'sha256'), 'hex'))
+);
+ALTER TABLE public.dm_public_keys ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.dm_public_keys FORCE ROW LEVEL SECURITY;
+REVOKE ALL ON public.dm_public_keys FROM PUBLIC, anon, authenticated;
+GRANT SELECT ON public.dm_public_keys TO authenticated;
+GRANT INSERT (user_id, key_id, public_key) ON public.dm_public_keys TO authenticated;
+CREATE POLICY dm_public_directory ON public.dm_public_keys FOR SELECT TO authenticated
+  USING (lockra_private.profile_id() IS NOT NULL);
+CREATE POLICY dm_register_own_key ON public.dm_public_keys FOR INSERT TO authenticated
+  WITH CHECK (user_id = lockra_private.profile_id());
+-- No client UPDATE/DELETE policy or grant: historical public keys are immutable.
+CREATE INDEX dm_keys_by_owner_time ON public.dm_public_keys(user_id, created_at DESC);
+
+ALTER TABLE public.messages
+  ADD COLUMN recipient_id uuid REFERENCES public.users(id),
+  ADD COLUMN encryption_version smallint,
+  ADD COLUMN ciphertext text;
+-- Isolated reviewer must backfill recipient_id for EVERY old row before this.
+ALTER TABLE public.messages ALTER COLUMN recipient_id SET NOT NULL;
+ALTER TABLE public.messages ADD CONSTRAINT dm_distinct_people CHECK (sender_id <> recipient_id);
+ALTER TABLE public.messages ADD CONSTRAINT dm_encoding CHECK (
+  (encryption_version IS NULL AND ciphertext IS NULL)
+  OR (encryption_version = 1 AND content = '' AND ciphertext IS NOT NULL
+      AND octet_length(ciphertext) BETWEEN 200 AND 100000)
+);
+-- The application validates the envelope version/hex/nonce/tag, authenticated
+-- context and key availability. Database bounded text is not AEAD verification.
+ALTER TABLE public.messages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.messages FORCE ROW LEVEL SECURITY;
+-- Abort rather than silently combine new restrictive intent with old OR policies.
+DO $$ BEGIN
+  IF EXISTS (SELECT 1 FROM pg_catalog.pg_policies WHERE schemaname = 'public' AND tablename = 'messages') THEN
+    RAISE EXCEPTION 'Review and remove every legacy messages policy in isolation first';
+  END IF;
+END $$;
+REVOKE ALL ON public.messages FROM PUBLIC, anon, authenticated;
+GRANT SELECT, DELETE ON public.messages TO authenticated;
+GRANT INSERT (id, sender_id, recipient_id, receiver_username, content, timestamp, read, encryption_version, ciphertext)
+  ON public.messages TO authenticated;
+GRANT UPDATE (read) ON public.messages TO authenticated;
+CREATE POLICY dm_participant_read ON public.messages FOR SELECT TO authenticated
+  USING (lockra_private.profile_id() IN (sender_id, recipient_id));
+CREATE POLICY dm_encrypted_insert ON public.messages FOR INSERT TO authenticated
+  WITH CHECK (encryption_version = 1 AND content = '' AND ciphertext IS NOT NULL
+    AND read = false AND lockra_private.can_send_dm(sender_id, recipient_id));
+CREATE POLICY dm_recipient_receipt ON public.messages FOR UPDATE TO authenticated
+  USING (recipient_id = lockra_private.profile_id())
+  WITH CHECK (recipient_id = lockra_private.profile_id());
+CREATE POLICY dm_sender_delete ON public.messages FOR DELETE TO authenticated
+  USING (sender_id = lockra_private.profile_id());
+-- Immutable content/identity/context comes from column grants, not a frontend role.
+-- Primary id must already be unique. New plaintext INSERT/upsert rewrites denied.
+-- No keys/private messages are logged or uploaded by these schema definitions.
+COMMIT;

@@ -1,0 +1,14 @@
+﻿{
+  "command": "npx --no-install expo install --check",
+  "date": "2026-10-16T08:08:06.832Z",
+  "node": "v22.23.3",
+  "nodeExecutable": "<WORKSPACE>\\.tools\\node-v22.23.3-win-x64\\node.exe",
+  "childPathPinnedToNodeDirectory": true,
+  "ci": "1",
+  "noDotenv": "1",
+  "telemetryDisabled": "1",
+  "demoMode": "demo",
+  "officialMetadataNetworkAllowed": true,
+  "exit": 1,
+  "seconds": 5.149
+}

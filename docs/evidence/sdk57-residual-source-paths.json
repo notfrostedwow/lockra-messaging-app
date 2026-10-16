@@ -1,0 +1,704 @@
+{
+  "date": "2026-10-16T09:12:27.379Z",
+  "node": "v22.23.3",
+  "scope": "Installed package import/call sites plus resolved dependency/optional ancestry from the synchronized lock. Runtime inventories are separate; no exploit test or native execution.",
+  "ancestryMethod": "npm explain --json exceeded a 5MiB output buffer twice (ENOBUFS), so no truncated tree is used as evidence. Lock ancestry resolves installed node_modules ancestors, excludes peer backreferences, and retains all incoming edges to each vulnerable instance.",
+  "traces": [
+    {
+      "file": "node_modules/micromatch/index.js",
+      "sha256": "6a56366fcf3ae8e678e574900a0acb2ea6f118ea030d09bcc1b1053ccab916bb",
+      "matches": [
+        {
+          "line": 4,
+          "code": "const braces = require('braces');"
+        },
+        {
+          "line": 456,
+          "code": "return braces(pattern, options);"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/metro-file-map/src/watchers/common.js",
+      "sha256": "fd54d0713d2066eb474652dcdf3f88ff67f66d84600d1d8013ecbf6c7fdc3c47",
+      "matches": [
+        {
+          "line": 14,
+          "code": "var _micromatch = _interopRequireDefault(require(\"micromatch\"));"
+        },
+        {
+          "line": 23,
+          "code": "function includedByGlob(type, globs, dot, relativePath) {"
+        },
+        {
+          "line": 24,
+          "code": "if (globs.length === 0 || type !== \"f\") {"
+        },
+        {
+          "line": 25,
+          "code": "return dot || _micromatch.default.some(relativePath, \"**/*\");"
+        },
+        {
+          "line": 27,
+          "code": "return _micromatch.default.some(relativePath, globs, {"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/@expo/code-signing-certificates/build/main.js",
+      "sha256": "3670cfbd69934b475257649886517d0314890ca4139708d2c812efaab04bc6d1",
+      "matches": [
+        {
+          "line": 8,
+          "code": "const node_forge_1 = require(\"node-forge\");"
+        },
+        {
+          "line": 176,
+          "code": "const isValid = certificate.verify(certificate);"
+        },
+        {
+          "line": 203,
+          "code": "const isValidSignature = certificate.publicKey.verify(digest.digest().getBytes(), digestSignature);"
+        },
+        {
+          "line": 246,
+          "code": "(0, assert_1.default)(csr.verify(csr), 'CSR not self-signed');"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/expo/node_modules/@expo/cli/build/src/utils/codesigning.js",
+      "sha256": "935fadac6f1dc56bc088acb04416d1fc83bd70505f368b87dd210d0aa4617de2",
+      "matches": [
+        {
+          "line": 26,
+          "code": "const data = require(\"@expo/code-signing-certificates\");"
+        },
+        {
+          "line": 308,
+          "code": "(0, _codesigningcertificates().validateSelfSignedCertificate)(certificate, {"
+        },
+        {
+          "line": 329,
+          "code": "// TODO(wschurman): maybe move to @expo/code-signing-certificates"
+        },
+        {
+          "line": 401,
+          "code": "return (0, _codesigningcertificates().signBufferRSASHA256AndVerify)(privateKey, certificate, Buffer.from(stringifiedManifest, 'utf8'));"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/expo/node_modules/@expo/cli/build/src/run/ios/codeSigning/Security.js",
+      "sha256": "af3f12dfb57ef87ae4cb3903af4398eeb034750c08d4fe523bc6a7d3062998b2",
+      "matches": [
+        {
+          "line": 42,
+          "code": "const data = /*#__PURE__*/ _interop_require_default(require(\"node-forge\"));"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/xcode/lib/pbxProject.js",
+      "sha256": "c4e97f21f0c4aed9a818b3f011ee0ad577a7899db8af2be243d1d7c08ba403fc",
+      "matches": [
+        {
+          "line": 22,
+          "code": "uuid = require('uuid'),"
+        },
+        {
+          "line": 90,
+          "code": "var id = uuid.v4()"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/query-string/index.js",
+      "sha256": "caa3f2c8b45dfe1e91db22ae10743af68de8d96f26515132bb52485ec0f037fa",
+      "matches": [
+        {
+          "line": 3,
+          "code": "const decodeComponent = require('decode-uri-component');"
+        },
+        {
+          "line": 233,
+          "code": "return decodeComponent(value);"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/expo-router/build/fork/getStateFromPath.js",
+      "sha256": "c047c4b86b90b75a616d28978043afec5dc8caadddbdf1a8bc9483676d36f569",
+      "matches": [
+        {
+          "line": 538,
+          "code": "//   const params = queryString.parse(query);"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/expo-router/build/react-navigation/core/getStateFromPath.js",
+      "sha256": "52b4b0f01dd87c2753dfa4ef907566117d38eed2654e348afc9e0547277fd024",
+      "matches": [
+        {
+          "line": 41,
+          "code": "const queryString = __importStar(require(\"query-string\"));"
+        },
+        {
+          "line": 499,
+          "code": "const params = queryString.parse(query);"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/expo-router/entry.js",
+      "sha256": "ea66107fc284c5c991ac111284b55cce89f521dc633d9faa8c78cbd307c08a4c",
+      "matches": [
+        {
+          "line": 3,
+          "code": "import 'expo-router/entry-classic';"
+        }
+      ]
+    },
+    {
+      "file": "node_modules/expo-router/build/rsc/router/host.js",
+      "sha256": "33b04b727126cbdd421cfe28b1771e6b30dc0fff78d151ea7d63d0e9521ad595",
+      "matches": [
+        {
+          "line": 29,
+          "code": "const client_1 = __importDefault(require(\"react-server-dom-webpack/client\"));"
+        }
+      ]
+    }
+  ],
+  "ancestry": {
+    "node_modules/braces": {
+      "version": "3.0.3",
+      "npmDevFlag": false,
+      "incomingAncestryEdges": [
+        {
+          "parent": "node_modules/micromatch",
+          "target": "node_modules/braces",
+          "name": "braces",
+          "range": "^3.0.3",
+          "parentVersion": "4.0.8",
+          "targetVersion": "3.0.3"
+        },
+        {
+          "parent": "node_modules/metro-config/node_modules/metro-file-map",
+          "target": "node_modules/micromatch",
+          "name": "micromatch",
+          "range": "^4.0.4",
+          "parentVersion": "0.84.6",
+          "targetVersion": "4.0.8"
+        },
+        {
+          "parent": "node_modules/metro-file-map",
+          "target": "node_modules/micromatch",
+          "name": "micromatch",
+          "range": "^4.0.4",
+          "parentVersion": "0.84.5",
+          "targetVersion": "4.0.8"
+        },
+        {
+          "parent": "node_modules/metro-config/node_modules/metro",
+          "target": "node_modules/metro-config/node_modules/metro-file-map",
+          "name": "metro-file-map",
+          "range": "0.84.6",
+          "parentVersion": "0.84.6",
+          "targetVersion": "0.84.6"
+        },
+        {
+          "parent": "node_modules/@expo/metro",
+          "target": "node_modules/metro-file-map",
+          "name": "metro-file-map",
+          "range": "0.84.5",
+          "parentVersion": "56.0.2",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/metro",
+          "target": "node_modules/metro-file-map",
+          "name": "metro-file-map",
+          "range": "0.84.5",
+          "parentVersion": "0.84.5",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/metro-config",
+          "target": "node_modules/metro-config/node_modules/metro",
+          "name": "metro",
+          "range": "0.84.6",
+          "parentVersion": "0.84.6",
+          "targetVersion": "0.84.6"
+        },
+        {
+          "parent": "node_modules/metro-config/node_modules/metro-transform-worker",
+          "target": "node_modules/metro-config/node_modules/metro",
+          "name": "metro",
+          "range": "0.84.6",
+          "parentVersion": "0.84.6",
+          "targetVersion": "0.84.6"
+        },
+        {
+          "parent": "node_modules/@expo/metro-config",
+          "target": "node_modules/@expo/metro",
+          "name": "@expo/metro",
+          "range": "~56.0.2",
+          "parentVersion": "57.0.13",
+          "targetVersion": "56.0.2"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/@expo/metro",
+          "name": "@expo/metro",
+          "range": "~56.0.2",
+          "parentVersion": "57.0.30",
+          "targetVersion": "56.0.2"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/metro",
+          "name": "@expo/metro",
+          "range": "~56.0.2",
+          "parentVersion": "57.0.31",
+          "targetVersion": "56.0.2"
+        },
+        {
+          "parent": "node_modules/@expo/metro",
+          "target": "node_modules/metro",
+          "name": "metro",
+          "range": "0.84.5",
+          "parentVersion": "56.0.2",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/@expo/metro/node_modules/metro-config",
+          "target": "node_modules/metro",
+          "name": "metro",
+          "range": "0.84.5",
+          "parentVersion": "0.84.5",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/@react-native/community-cli-plugin",
+          "target": "node_modules/metro",
+          "name": "metro",
+          "range": "^0.84.3",
+          "parentVersion": "0.86.3",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/metro-transform-worker",
+          "target": "node_modules/metro",
+          "name": "metro",
+          "range": "0.84.5",
+          "parentVersion": "0.84.5",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/metro/node_modules/metro-config",
+          "target": "node_modules/metro",
+          "name": "metro",
+          "range": "0.84.5",
+          "parentVersion": "0.84.5",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/@react-native/community-cli-plugin",
+          "target": "node_modules/metro-config",
+          "name": "metro-config",
+          "range": "^0.84.3",
+          "parentVersion": "0.86.3",
+          "targetVersion": "0.84.6"
+        },
+        {
+          "parent": "node_modules/@react-native/metro-config",
+          "target": "node_modules/metro-config",
+          "name": "metro-config",
+          "range": "^0.84.3",
+          "parentVersion": "0.86.3",
+          "targetVersion": "0.84.6"
+        },
+        {
+          "parent": "node_modules/metro-config/node_modules/metro",
+          "target": "node_modules/metro-config",
+          "name": "metro-config",
+          "range": "0.84.6",
+          "parentVersion": "0.84.6",
+          "targetVersion": "0.84.6"
+        },
+        {
+          "parent": "node_modules/metro-config/node_modules/metro",
+          "target": "node_modules/metro-config/node_modules/metro-transform-worker",
+          "name": "metro-transform-worker",
+          "range": "0.84.6",
+          "parentVersion": "0.84.6",
+          "targetVersion": "0.84.6"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/@expo/metro-config",
+          "name": "@expo/metro-config",
+          "range": "~57.0.13",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.13"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/metro-config",
+          "name": "@expo/metro-config",
+          "range": "~57.0.13",
+          "parentVersion": "57.0.31",
+          "targetVersion": "57.0.13"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/expo",
+          "name": "expo",
+          "range": "57.0.30",
+          "parentVersion": "1.0.0",
+          "targetVersion": "57.0.30"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/expo/node_modules/@expo/cli",
+          "name": "@expo/cli",
+          "range": "^57.0.31",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.31"
+        },
+        {
+          "parent": "node_modules/@expo/metro",
+          "target": "node_modules/@expo/metro/node_modules/metro-config",
+          "name": "metro-config",
+          "range": "0.84.5",
+          "parentVersion": "56.0.2",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/react-native",
+          "target": "node_modules/@react-native/community-cli-plugin",
+          "name": "@react-native/community-cli-plugin",
+          "range": "0.86.3",
+          "parentVersion": "0.86.3",
+          "targetVersion": "0.86.3"
+        },
+        {
+          "parent": "node_modules/@expo/metro",
+          "target": "node_modules/metro-transform-worker",
+          "name": "metro-transform-worker",
+          "range": "0.84.5",
+          "parentVersion": "56.0.2",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/metro",
+          "target": "node_modules/metro-transform-worker",
+          "name": "metro-transform-worker",
+          "range": "0.84.5",
+          "parentVersion": "0.84.5",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "node_modules/metro",
+          "target": "node_modules/metro/node_modules/metro-config",
+          "name": "metro-config",
+          "range": "0.84.5",
+          "parentVersion": "0.84.5",
+          "targetVersion": "0.84.5"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/react-native",
+          "name": "react-native",
+          "range": "0.86.3",
+          "parentVersion": "1.0.0",
+          "targetVersion": "0.86.3"
+        }
+      ]
+    },
+    "node_modules/node-forge": {
+      "version": "1.4.0",
+      "npmDevFlag": false,
+      "incomingAncestryEdges": [
+        {
+          "parent": "node_modules/@expo/code-signing-certificates",
+          "target": "node_modules/node-forge",
+          "name": "node-forge",
+          "range": "^1.3.3",
+          "parentVersion": "0.0.6",
+          "targetVersion": "1.4.0"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/node-forge",
+          "name": "node-forge",
+          "range": "^1.3.3",
+          "parentVersion": "57.0.31",
+          "targetVersion": "1.4.0"
+        },
+        {
+          "parent": "node_modules/expo-updates",
+          "target": "node_modules/@expo/code-signing-certificates",
+          "name": "@expo/code-signing-certificates",
+          "range": "^0.0.6",
+          "parentVersion": "57.0.26",
+          "targetVersion": "0.0.6"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/code-signing-certificates",
+          "name": "@expo/code-signing-certificates",
+          "range": "^0.0.6",
+          "parentVersion": "57.0.31",
+          "targetVersion": "0.0.6"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/expo/node_modules/@expo/cli",
+          "name": "@expo/cli",
+          "range": "^57.0.31",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.31"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/expo-updates",
+          "name": "expo-updates",
+          "range": "~57.0.26",
+          "parentVersion": "1.0.0",
+          "targetVersion": "57.0.26"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/expo",
+          "name": "expo",
+          "range": "57.0.30",
+          "parentVersion": "1.0.0",
+          "targetVersion": "57.0.30"
+        }
+      ]
+    },
+    "node_modules/xcode/node_modules/uuid": {
+      "version": "7.0.3",
+      "npmDevFlag": false,
+      "incomingAncestryEdges": [
+        {
+          "parent": "node_modules/xcode",
+          "target": "node_modules/xcode/node_modules/uuid",
+          "name": "uuid",
+          "range": "^7.0.3",
+          "parentVersion": "3.0.1",
+          "targetVersion": "7.0.3"
+        },
+        {
+          "parent": "node_modules/@expo/config-plugins",
+          "target": "node_modules/xcode",
+          "name": "xcode",
+          "range": "^3.0.1",
+          "parentVersion": "57.0.10",
+          "targetVersion": "3.0.1"
+        },
+        {
+          "parent": "node_modules/@expo/config",
+          "target": "node_modules/@expo/config-plugins",
+          "name": "@expo/config-plugins",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.10",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/@expo/inline-modules",
+          "target": "node_modules/@expo/config-plugins",
+          "name": "@expo/config-plugins",
+          "range": "~57.0.10",
+          "parentVersion": "0.1.8",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/@expo/prebuild-config",
+          "target": "node_modules/@expo/config-plugins",
+          "name": "@expo/config-plugins",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.19",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/@expo/config-plugins",
+          "name": "@expo/config-plugins",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo-sharing",
+          "target": "node_modules/@expo/config-plugins",
+          "name": "@expo/config-plugins",
+          "range": "^57.0.10",
+          "parentVersion": "57.0.23",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo-splash-screen",
+          "target": "node_modules/@expo/config-plugins",
+          "name": "@expo/config-plugins",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.10",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/config-plugins",
+          "name": "@expo/config-plugins",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.31",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/@expo/local-build-cache-provider",
+          "target": "node_modules/@expo/config",
+          "name": "@expo/config",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.9",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/@expo/metro-config",
+          "target": "node_modules/@expo/config",
+          "name": "@expo/config",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.13",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/@expo/prebuild-config",
+          "target": "node_modules/@expo/config",
+          "name": "@expo/config",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.19",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/@expo/config",
+          "name": "@expo/config",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/config",
+          "name": "@expo/config",
+          "range": "~57.0.10",
+          "parentVersion": "57.0.31",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/inline-modules",
+          "name": "@expo/inline-modules",
+          "range": "^0.1.8",
+          "parentVersion": "57.0.31",
+          "targetVersion": "0.1.8"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/prebuild-config",
+          "name": "@expo/prebuild-config",
+          "range": "^57.0.19",
+          "parentVersion": "57.0.31",
+          "targetVersion": "57.0.19"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/expo",
+          "name": "expo",
+          "range": "57.0.30",
+          "parentVersion": "1.0.0",
+          "targetVersion": "57.0.30"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/expo-sharing",
+          "name": "expo-sharing",
+          "range": "~57.0.23",
+          "parentVersion": "1.0.0",
+          "targetVersion": "57.0.23"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/expo-splash-screen",
+          "name": "expo-splash-screen",
+          "range": "~57.0.10",
+          "parentVersion": "1.0.0",
+          "targetVersion": "57.0.10"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/expo/node_modules/@expo/cli",
+          "name": "@expo/cli",
+          "range": "^57.0.31",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.31"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/@expo/local-build-cache-provider",
+          "name": "@expo/local-build-cache-provider",
+          "range": "^57.0.9",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.9"
+        },
+        {
+          "parent": "node_modules/expo",
+          "target": "node_modules/@expo/metro-config",
+          "name": "@expo/metro-config",
+          "range": "~57.0.13",
+          "parentVersion": "57.0.30",
+          "targetVersion": "57.0.13"
+        },
+        {
+          "parent": "node_modules/expo/node_modules/@expo/cli",
+          "target": "node_modules/@expo/metro-config",
+          "name": "@expo/metro-config",
+          "range": "~57.0.13",
+          "parentVersion": "57.0.31",
+          "targetVersion": "57.0.13"
+        }
+      ]
+    },
+    "node_modules/decode-uri-component": {
+      "version": "0.2.2",
+      "npmDevFlag": false,
+      "incomingAncestryEdges": [
+        {
+          "parent": "node_modules/query-string",
+          "target": "node_modules/decode-uri-component",
+          "name": "decode-uri-component",
+          "range": "^0.2.2",
+          "parentVersion": "7.1.3",
+          "targetVersion": "0.2.2"
+        },
+        {
+          "parent": "node_modules/expo-router",
+          "target": "node_modules/query-string",
+          "name": "query-string",
+          "range": "^7.1.3",
+          "parentVersion": "57.0.28",
+          "targetVersion": "7.1.3"
+        },
+        {
+          "parent": "",
+          "target": "node_modules/expo-router",
+          "name": "expo-router",
+          "range": "~57.0.28",
+          "parentVersion": "1.0.0",
+          "targetVersion": "57.0.28"
+        }
+      ]
+    }
+  }
+}

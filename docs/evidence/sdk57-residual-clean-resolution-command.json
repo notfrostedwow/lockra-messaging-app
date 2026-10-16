@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-16T08:56:09.749Z",
+  "node": "v22.23.3",
+  "command": "npm install --package-lock-only --ignore-scripts --registry=https://registry.npmjs.org --no-audit --no-fund",
+  "scope": "Fresh lock generation in ignored in-workspace manifest review directory; no installed dependency mutation",
+  "exit": 0
+}

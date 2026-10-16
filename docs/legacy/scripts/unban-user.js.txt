@@ -1,0 +1,105 @@
+// Unban User Script
+// This script demonstrates how to unban a user directly in the database
+// Usage: node unban-user.js <user_id>
+
+const { createClient } = require('@supabase/supabase-js');
+require('dotenv').config();
+
+// Get Supabase credentials from environment variables
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+// Create Supabase client with service role key for admin operations
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+async function unbanUser(userId) {
+  if (!userId) {
+    console.error('Error: User ID is required');
+    console.log('Usage: node unban-user.js <user_id>');
+    process.exit(1);
+  }
+  
+  try {
+    console.log(`Unbanning user ${userId}`);
+    
+    // 1. Update the user's banned status
+    const { data, error } = await supabase
+      .from('users')
+      .update({
+        banned: false,
+        banned_at: null,
+        banned_reason: null
+      })
+      .eq('id', userId)
+      .select();
+    
+    if (error) {
+      throw error;
+    }
+    
+    console.log('User unbanned successfully:', data);
+    
+    // 2. Create a system message (optional)
+    try {
+      const systemMessageData = {
+        user_id: userId,
+        type: 'unban',
+        message: 'You have been unbanned from the platform.',
+        created_at: new Date().toISOString(),
+        action_required: false,
+        action: null
+      };
+      
+      const { data: msgData, error: msgError } = await supabase
+        .from('system_messages')
+        .insert(systemMessageData);
+      
+      if (msgError) {
+        console.error('Warning: Could not create system message:', msgError);
+      } else {
+        console.log('System message created');
+      }
+    } catch (err) {
+      console.error('Error creating system message:', err);
+    }
+    
+    // 3. Create a notification (optional)
+    try {
+      const notificationData = {
+        user_id: userId,
+        type: 'unban',
+        message: 'You have been unbanned from the platform.',
+        created_at: new Date().toISOString(),
+        content: JSON.stringify({
+          action: 'unban',
+          timestamp: new Date().toISOString()
+        }),
+        read: false
+      };
+      
+      const { data: notifData, error: notifError } = await supabase
+        .from('notifications')
+        .insert(notificationData);
+      
+      if (notifError) {
+        console.error('Warning: Could not create notification:', notifError);
+      } else {
+        console.log('Notification created');
+      }
+    } catch (err) {
+      console.error('Error creating notification:', err);
+    }
+    
+    console.log('Unban process completed successfully');
+    
+  } catch (err) {
+    console.error('Error unbanning user:', err);
+    process.exit(1);
+  }
+}
+
+// Get command line arguments
+const userId = process.argv[2];
+
+// Execute the unban
+unbanUser(userId); 

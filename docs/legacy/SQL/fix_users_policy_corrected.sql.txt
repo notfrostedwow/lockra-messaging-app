@@ -1,0 +1,63 @@
+-- Fix the users table RLS policy to prevent recursion
+BEGIN;
+  -- Get all existing policies on the users table
+  CREATE TEMP TABLE user_policies AS
+  SELECT policyname
+  FROM pg_policies
+  WHERE tablename = 'users' AND schemaname = 'public';
+  
+  -- Drop all existing policies on the users table
+  DO $$
+  DECLARE
+    policy_name text;
+  BEGIN
+    FOR policy_name IN SELECT policyname FROM user_policies LOOP
+      EXECUTE 'DROP POLICY IF EXISTS "' || policy_name || '" ON public.users';
+    END LOOP;
+  END $$;
+  
+  -- Create basic policies without recursion
+  
+  -- Select policy - users can read their own data, admins can read all
+  CREATE POLICY "Users can read own data and admins can read all"
+    ON public.users
+    FOR SELECT
+    USING (
+      auth.uid() = id 
+      OR 
+      EXISTS (SELECT 1 FROM public.users WHERE users.id = auth.uid() AND users.role = 'admin')
+    );
+  
+  -- Update policy - users can update their own data, admins can update all
+  CREATE POLICY "Users can update own data and admins can update all"
+    ON public.users
+    FOR UPDATE
+    USING (
+      auth.uid() = id
+      OR 
+      EXISTS (SELECT 1 FROM public.users WHERE users.id = auth.uid() AND users.role = 'admin')
+      OR
+      auth.jwt() ->> 'role' = 'service_role'
+    );
+  
+  -- Insert policy - authenticated users can insert their own data, service role can insert any
+  CREATE POLICY "Authenticated users can insert own data"
+    ON public.users
+    FOR INSERT
+    WITH CHECK (
+      auth.uid() = id
+      OR
+      auth.jwt() ->> 'role' = 'service_role'
+    );
+  
+  -- Delete policy - only admins can delete users
+  CREATE POLICY "Only admins can delete users"
+    ON public.users
+    FOR DELETE
+    USING (
+      EXISTS (SELECT 1 FROM public.users WHERE users.id = auth.uid() AND users.role = 'admin')
+    );
+  
+  -- Drop the temporary table
+  DROP TABLE user_policies;
+COMMIT; 

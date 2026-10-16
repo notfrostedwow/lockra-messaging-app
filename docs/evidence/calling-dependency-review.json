@@ -1,0 +1,185 @@
+﻿[
+    {
+        "name":  "livekit-client",
+        "version":  "2.22.4",
+        "engines":  null,
+        "peers":  {
+                      "@types/dom-mediacapture-record":  "^1"
+                  },
+        "dependencies":  {
+                             "jose":  "^6.1.0",
+                             "tslib":  "2.8.1",
+                             "events":  "^3.3.0",
+                             "machina":  "^7.0.0",
+                             "loglevel":  "^1.9.2",
+                             "sdp-transform":  "^2.15.0",
+                             "typed-emitter":  "^2.1.0",
+                             "@livekit/mutex":  "1.1.1",
+                             "webrtc-adapter":  "9.0.6",
+                             "@livekit/protocol":  "1.52.1"
+                         },
+        "scripts":  {
+                        "dev":  "pnpm examples:demo",
+                        "lint":  "eslint src",
+                        "test":  "vitest run src",
+                        "build":  "rollup --config --bundleConfigAsCjs \u0026\u0026 rollup --config rollup.config.worker.js --bundleConfigAsCjs \u0026\u0026 rollup --config rollup.config.fm-worker.js --bundleConfigAsCjs \u0026\u0026 pnpm downlevel-dts",
+                        "proto":  "protoc --es_out src/proto --es_opt target=ts -I./protocol ./protocol/livekit_rtc.proto ./protocol/livekit_models.proto",
+                        "compat":  "eslint --config ./eslint.config.dist.mjs --no-inline-config  ./dist/livekit-client.esm.mjs",
+                        "deploy":  "gh-pages -d examples/demo/dist",
+                        "format":  "prettier --write src examples/**/*.ts",
+                        "test:e2e":  "vitest run --config vitest.e2e.config.mts",
+                        "build-docs":  "typedoc \u0026\u0026 mkdir -p docs/assets/github \u0026\u0026 cp .github/*.png docs/assets/github/ \u0026\u0026 find docs -name \u0027*.html\u0027 -type f -exec sed -i.bak \u0027s|=\"/.github/|=\"assets/github/|g\u0027 {} + \u0026\u0026 find docs -name \u0027*.bak\u0027 -delete",
+                        "ci:publish":  "pnpm type:check \u0026\u0026 pnpm build \u0026\u0026 pnpm compat \u0026\u0026 changeset publish",
+                        "size-limit":  "size-limit",
+                        "type:check":  "tsc --noEmit",
+                        "build:clean":  "rm -rf ./dist \u0026\u0026 pnpm build",
+                        "build:watch":  "rollup --watch --config --bundleConfigAsCjs",
+                        "format:check":  "prettier --check src examples/**/*.ts",
+                        "throws:check":  "pnpm throws-check \u0027src/!(*.test).ts\u0027 \u0027src/**/!(*.test).ts\u0027",
+                        "downlevel-dts":  "downlevel-dts ./dist/src ./dist/ts4.2 --to=4.2",
+                        "examples:demo":  "vite examples/demo -c vite.config.mjs",
+                        "examples:machine":  "vite examples/state-machine -c vite.config.mjs",
+                        "build:worker:watch":  "rollup --watch --config rollup.config.worker.js --bundleConfigAsCjs"
+                    },
+        "license":  "Apache-2.0"
+    },
+    {
+        "name":  "livekit-server-sdk",
+        "version":  "2.19.1",
+        "engines":  {
+                        "node":  "\u003e=19"
+                    },
+        "peers":  null,
+        "dependencies":  {
+                             "jose":  "^5.1.2",
+                             "@livekit/protocol":  "1.51.0",
+                             "@bufbuild/protobuf":  "^1.10.1"
+                         },
+        "scripts":  {
+                        "lint":  "eslint src",
+                        "test":  "vitest --environment node run",
+                        "build":  "tsup --onSuccess \"tsc -p tsconfig.json --declaration --emitDeclarationOnly --skipLibCheck\"",
+                        "format":  "prettier --write src",
+                        "prebuild":  "node -p \"\u0027export const SDK_VERSION = \u0027 + JSON.stringify(require(\u0027./package.json\u0027).version) + \u0027;\u0027\" \u003e src/version.ts",
+                        "changeset":  "changeset",
+                        "test:edge":  "vitest --environment edge-runtime run",
+                        "build-docs":  "typedoc",
+                        "ci:publish":  "pnpm build \u0026\u0026 changeset publish",
+                        "build:watch":  "tsc --watch",
+                        "format:check":  "prettier --check src",
+                        "test:browser":  "vitest --environment happy-dom run"
+                    },
+        "license":  "Apache-2.0"
+    },
+    {
+        "name":  "@livekit/react-native",
+        "version":  "3.0.0",
+        "engines":  {
+                        "node":  "\u003e=20"
+                    },
+        "peers":  {
+                      "react":  "*",
+                      "react-native":  "*",
+                      "livekit-client":  "^2.19.0",
+                      "@livekit/react-native-webrtc":  "^144.2.0"
+                  },
+        "dependencies":  {
+                             "events":  "^3.3.0",
+                             "loglevel":  "^1.8.0",
+                             "base64-js":  "1.5.1",
+                             "typed-emitter":  "^2.1.0",
+                             "@livekit/mutex":  "^1.1.1",
+                             "array.prototype.at":  "^1.1.1",
+                             "promise.allsettled":  "^1.0.5",
+                             "well-known-symbols":  "^4.1.0",
+                             "web-streams-polyfill":  "^4.3.0",
+                             "@livekit/components-react":  "^2.9.17",
+                             "react-native-url-polyfill":  "^3.0.0"
+                         },
+        "scripts":  {
+                        "lint":  "eslint \"**/*.{js,ts,tsx}\"",
+                        "pods":  "cd example \u0026\u0026 pod-install --verbose",
+                        "test":  "jest",
+                        "example":  "yarn --cwd example",
+                        "prepare":  "bob build",
+                        "bootstrap":  "yarn example \u0026\u0026 yarn \u0026\u0026 yarn pods",
+                        "build-docs":  "typedoc  --tsconfig tsconfig.build.json",
+                        "ci:publish":  "changeset publish",
+                        "ci:version":  "changeset version \u0026\u0026 yarn build-docs",
+                        "typescript":  "tsc --noemit -p tsconfig.build.json"
+                    },
+        "license":  "Apache-2.0"
+    },
+    {
+        "name":  "@livekit/react-native-webrtc",
+        "version":  "144.2.0",
+        "engines":  null,
+        "peers":  {
+                      "react-native":  "\u003e=0.60.0"
+                  },
+        "dependencies":  {
+                             "debug":  "4.3.4",
+                             "base64-js":  "1.5.1"
+                         },
+        "scripts":  {
+                        "lint":  "eslint --max-warnings 0 . \u0026\u0026 tsc --noEmit",
+                        "build":  "bob build \u0026\u0026 npm run copy-vendor-types",
+                        "format":  "tools/format.sh",
+                        "lintfix":  "eslint --max-warnings 0 --fix . \u0026\u0026 tsc --noEmit",
+                        "prepare":  "husky install \u0026\u0026 npm run build",
+                        "copy-vendor-types":  "node scripts/copy-vendor-types.js"
+                    },
+        "license":  "MIT"
+    },
+    {
+        "name":  "@livekit/react-native-expo-plugin",
+        "version":  "1.0.3",
+        "engines":  null,
+        "peers":  {
+                      "expo":  "*",
+                      "react":  "*",
+                      "react-native":  "*",
+                      "@livekit/react-native":  "^2.1.0 || ^3.0.0"
+                  },
+        "dependencies":  null,
+        "scripts":  {
+                        "lint":  "expo-module lint",
+                        "test":  "expo-module test",
+                        "build":  "expo-module build",
+                        "clean":  "expo-module clean",
+                        "prepare":  "expo-module prepare",
+                        "open:ios":  "open -a \"Xcode\" example/ios",
+                        "ci:publish":  "changeset version \u0026\u0026 changeset publish",
+                        "expo-module":  "expo-module",
+                        "open:android":  "open -a \"Android Studio\" example/android",
+                        "prepublishOnly":  "expo-module prepublishOnly"
+                    },
+        "license":  "Apache-2.0"
+    },
+    {
+        "name":  "@config-plugins/react-native-webrtc",
+        "version":  "15.0.2",
+        "engines":  null,
+        "peers":  {
+                      "expo":  "\u003e=56"
+                  },
+        "dependencies":  null,
+        "scripts":  {
+                        "lint":  "expo-module lint",
+                        "test":  "expo-module test",
+                        "build":  "expo-module build",
+                        "clean":  "expo-module clean",
+                        "expo-module":  "expo-module"
+                    },
+        "license":  "MIT"
+    },
+    {
+        "name":  "jose",
+        "version":  "6.2.12",
+        "engines":  null,
+        "peers":  null,
+        "dependencies":  null,
+        "scripts":  null,
+        "license":  "MIT"
+    }
+]

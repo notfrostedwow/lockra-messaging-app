@@ -1,0 +1,1022 @@
+{
+  "date": "2026-10-16T09:17:16.454Z",
+  "counts": {
+    "info": 0,
+    "low": 0,
+    "moderate": 12,
+    "high": 21,
+    "critical": 0,
+    "total": 33
+  },
+  "uniqueAdvisories": 4,
+  "source": "Current fresh full/production reports and synchronized supported SDK57 lock; propagated parent findings retain their actual severity.",
+  "findings": [
+    {
+      "name": "@clerk/expo",
+      "severity": "high",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@clerk/expo",
+          "version": "4.12.0",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "node-forge",
+          "ghsa": "GHSA-86w9-cpqp-85rv",
+          "cve": "CVE-2026-85393",
+          "severity": "high",
+          "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+          "range": "<=1.4.0",
+          "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+        },
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        },
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "@config-plugins/react-native-webrtc",
+      "severity": "high",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@config-plugins/react-native-webrtc",
+          "version": "15.0.2",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "@config-plugins/react-native-webrtc",
+        "version": "3.0.0",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "node-forge",
+          "ghsa": "GHSA-86w9-cpqp-85rv",
+          "cve": "CVE-2026-85393",
+          "severity": "high",
+          "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+          "range": "<=1.4.0",
+          "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+        },
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        },
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "@expo/cli",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/expo/node_modules/@expo/cli",
+          "version": "57.0.31",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "node-forge",
+          "ghsa": "GHSA-86w9-cpqp-85rv",
+          "cve": "CVE-2026-85393",
+          "severity": "high",
+          "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+          "range": "<=1.4.0",
+          "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+        },
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        },
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "@expo/code-signing-certificates",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/code-signing-certificates",
+          "version": "0.0.6",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "expo-updates",
+        "version": "0.11.7",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "node-forge",
+          "ghsa": "GHSA-86w9-cpqp-85rv",
+          "cve": "CVE-2026-85393",
+          "severity": "high",
+          "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+          "range": "<=1.4.0",
+          "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+        }
+      ]
+    },
+    {
+      "name": "@expo/config",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/config",
+          "version": "57.0.10",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "@expo/config-plugins",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/config-plugins",
+          "version": "57.0.10",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "@expo/inline-modules",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/inline-modules",
+          "version": "0.1.8",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "@expo/local-build-cache-provider",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/local-build-cache-provider",
+          "version": "57.0.9",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "@expo/metro",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/metro",
+          "version": "56.0.2",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "@expo/metro-config",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/metro-config",
+          "version": "57.0.13",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        },
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "@expo/prebuild-config",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/prebuild-config",
+          "version": "57.0.19",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": true,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "@react-native/community-cli-plugin",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@react-native/community-cli-plugin",
+          "version": "0.86.3",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "@react-native/metro-config",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@react-native/metro-config",
+          "version": "0.86.3",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "@react-native/virtualized-lists",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@react-native/virtualized-lists",
+          "version": "0.86.3",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "braces",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/braces",
+          "version": "3.0.3",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "decode-uri-component",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/decode-uri-component",
+          "version": "0.2.2",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "expo-router",
+        "version": "58.0.21",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "decode-uri-component",
+          "ghsa": "GHSA-vcc3-ghjq-m6fr",
+          "cve": "CVE-2026-45822",
+          "severity": "moderate",
+          "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+          "range": "<=0.4.2",
+          "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr"
+        }
+      ]
+    },
+    {
+      "name": "expo",
+      "severity": "high",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/expo",
+          "version": "57.0.30",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "node-forge",
+          "ghsa": "GHSA-86w9-cpqp-85rv",
+          "cve": "CVE-2026-85393",
+          "severity": "high",
+          "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+          "range": "<=1.4.0",
+          "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+        },
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        },
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "expo-router",
+      "severity": "moderate",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/expo-router",
+          "version": "57.0.28",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "expo-router",
+        "version": "58.0.21",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "decode-uri-component",
+          "ghsa": "GHSA-vcc3-ghjq-m6fr",
+          "cve": "CVE-2026-45822",
+          "severity": "moderate",
+          "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+          "range": "<=0.4.2",
+          "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr"
+        }
+      ]
+    },
+    {
+      "name": "expo-sharing",
+      "severity": "moderate",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/expo-sharing",
+          "version": "57.0.23",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "expo-sharing",
+        "version": "14.0.8",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "expo-splash-screen",
+      "severity": "moderate",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/expo-splash-screen",
+          "version": "57.0.10",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "expo-splash-screen",
+        "version": "55.0.25",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "expo-updates",
+      "severity": "high",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/expo-updates",
+          "version": "57.0.26",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "expo-updates",
+        "version": "0.11.7",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "node-forge",
+          "ghsa": "GHSA-86w9-cpqp-85rv",
+          "cve": "CVE-2026-85393",
+          "severity": "high",
+          "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+          "range": "<=1.4.0",
+          "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+        }
+      ]
+    },
+    {
+      "name": "metro",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/metro",
+          "version": "0.84.5",
+          "npmDevFlag": false
+        },
+        {
+          "path": "node_modules/metro-config/node_modules/metro",
+          "version": "0.84.6",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "metro-config",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/@expo/metro/node_modules/metro-config",
+          "version": "0.84.5",
+          "npmDevFlag": false
+        },
+        {
+          "path": "node_modules/metro-config",
+          "version": "0.84.6",
+          "npmDevFlag": false
+        },
+        {
+          "path": "node_modules/metro/node_modules/metro-config",
+          "version": "0.84.5",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "metro-file-map",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/metro-config/node_modules/metro-file-map",
+          "version": "0.84.6",
+          "npmDevFlag": false
+        },
+        {
+          "path": "node_modules/metro-file-map",
+          "version": "0.84.5",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "metro-transform-worker",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/metro-config/node_modules/metro-transform-worker",
+          "version": "0.84.6",
+          "npmDevFlag": false
+        },
+        {
+          "path": "node_modules/metro-transform-worker",
+          "version": "0.84.5",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": true,
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "micromatch",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/micromatch",
+          "version": "4.0.8",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "node-forge",
+      "severity": "high",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/node-forge",
+          "version": "1.4.0",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "node-forge",
+          "ghsa": "GHSA-86w9-cpqp-85rv",
+          "cve": "CVE-2026-85393",
+          "severity": "high",
+          "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+          "range": "<=1.4.0",
+          "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+        }
+      ]
+    },
+    {
+      "name": "query-string",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/query-string",
+          "version": "7.1.3",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "expo-router",
+        "version": "58.0.21",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "decode-uri-component",
+          "ghsa": "GHSA-vcc3-ghjq-m6fr",
+          "cve": "CVE-2026-45822",
+          "severity": "moderate",
+          "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+          "range": "<=0.4.2",
+          "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr"
+        }
+      ]
+    },
+    {
+      "name": "react-native",
+      "severity": "high",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/react-native",
+          "version": "0.86.3",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native",
+        "version": "0.72.17",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "react-native-reanimated",
+      "severity": "high",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/react-native-reanimated",
+          "version": "4.5.1",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native-reanimated",
+        "version": "4.2.2",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "react-native-worklets",
+      "severity": "high",
+      "isDirect": true,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/react-native-worklets",
+          "version": "0.10.1",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": {
+        "name": "react-native-worklets",
+        "version": "0.7.4",
+        "isSemVerMajor": true
+      },
+      "causes": [
+        {
+          "name": "braces",
+          "ghsa": "GHSA-vfj7-8cjw-p6xm",
+          "cve": "CVE-2026-93687",
+          "severity": "high",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "range": "<=3.0.3",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+        }
+      ]
+    },
+    {
+      "name": "uuid",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/xcode/node_modules/uuid",
+          "version": "7.0.3",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    },
+    {
+      "name": "xcode",
+      "severity": "moderate",
+      "isDirect": false,
+      "presentWithOmitDev": true,
+      "nodes": [
+        {
+          "path": "node_modules/xcode",
+          "version": "3.0.1",
+          "npmDevFlag": false
+        }
+      ],
+      "npmFixSuggestion": false,
+      "causes": [
+        {
+          "name": "uuid",
+          "ghsa": "GHSA-w5hq-g745-h8pq",
+          "cve": "CVE-2026-41907",
+          "severity": "moderate",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "range": "<11.1.1",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+        }
+      ]
+    }
+  ]
+}

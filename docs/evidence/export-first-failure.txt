@@ -1,0 +1,65 @@
+﻿
+> lockra-messaging-app@1.0.0 build:web
+> node scripts/export.cjs
+
+Starting Metro Bundler
+Web .\index.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web .\index.js ░░░░░░░░░░░░░░░░  1.0% (1/1)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% ( 30/111)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% ( 87/234)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (143/300)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (178/379)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (202/398)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (284/459)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (348/515)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (365/539)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% ( 406/2483)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% ( 502/2529)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% ( 657/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% ( 844/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (1028/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (1216/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (1391/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (1553/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (1716/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 56.3% (1862/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓░░░░░░ 64.8% (2049/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 77.3% (2239/2546)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 90.7% (2426/2548)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 90.8% (2444/2809)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 90.8% (2529/2862)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 90.8% (2612/2922)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 90.8% (2783/2931)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 91.4% (2839/2974)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 92.7% (2872/2983)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 92.9% (2882/2991)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 93.8% (2903/2999)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 93.8% (2923/3063)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 93.8% (2953/3105)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 93.8% (2978/3124)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 93.8% (3022/3138)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 94.5% (3067/3172)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 96.3% (3142/3202)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 98.7% (3196/3217)
+Web Bundling failed 141864ms index.js (3219 modules)
+node.exe : Error: Unable to resolve module query-string from 
+<WORKSPACE>\node_modules\expo-router\build\fork\getPathFromState.js: 
+query-string could not be found within the project or in these directories:
+At line:1 char:1
++ & "<WORKSPACE>\.tools\no ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error: Unable t...se directories::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  node_modules\expo-router\node_modules
+  node_modules
+  ..\..\..\node_modules
+[0m [90m 37 |[39m exports[33m.[39mgetPathDataFromState [33m=[39m getPathDataFromState[33m;[39m
+ [90m 38 |[39m exports[33m.[39mappendBaseUrl [33m=[39m appendBaseUrl[33m;[39m
+[31m[1m>[22m[39m[90m 39 |[39m [36mconst[39m queryString [33m=[39m 
+__importStar(require([32m"query-string"[39m))[33m;[39m
+ [90m    |[39m                                           [31m[1m^[22m[39m
+ [90m 40 |[39m [36mconst[39m expo [33m=[39m 
+__importStar(require([32m"./getPathFromState-forks"[39m))[33m;[39m
+ [90m 41 |[39m [90m// END FORK[39m
+ [90m 42 |[39m [36mconst[39m getActiveRoute [33m=[39m (state) [33m=>[39m {[0m

@@ -1,0 +1,52 @@
+-- Fix for infinite recursion in communities policy
+-- This script modifies the policy that's causing the recursion error
+
+-- First, let's check the existing policies on communities
+SELECT 
+  tablename,
+  policyname,
+  permissive,
+  roles,
+  cmd,
+  qual,
+  with_check
+FROM pg_policies
+WHERE tablename = 'communities';
+
+-- The issue is likely in the policy for private communities
+-- Let's drop and recreate the problematic policies
+
+-- Drop the problematic policy that's causing recursion
+DROP POLICY IF EXISTS "Members can view their private communities" ON communities;
+
+-- Create a new policy that avoids self-referencing recursion
+-- This uses a direct join instead of an EXISTS clause with a subquery
+CREATE POLICY "Members can view their private communities" 
+  ON communities FOR SELECT 
+  USING (
+    type = 'public' OR 
+    EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = communities.id 
+      AND cm.user_id = auth.uid()
+      -- Avoid using any conditions that would reference communities again
+    )
+  );
+
+-- Make sure the public communities policy is correct
+DROP POLICY IF EXISTS "Anyone can view public communities" ON communities;
+CREATE POLICY "Anyone can view public communities" 
+  ON communities FOR SELECT 
+  USING (type = 'public');
+
+-- Verify the policies after changes
+SELECT 
+  tablename,
+  policyname,
+  permissive,
+  roles,
+  cmd,
+  qual,
+  with_check
+FROM pg_policies
+WHERE tablename = 'communities'; 

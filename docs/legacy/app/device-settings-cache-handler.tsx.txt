@@ -1,0 +1,27 @@
+NONRUNNABLE LEGACY SAMPLE CALLBACK (did not delete files; simulated success)
+const handleClearCache = () => {
+    Alert.alert(
+      'Clear Cache',
+      'This will clear all cached data including images, files, and temporary data. Continue?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Clear',
+          style: 'destructive',
+          onPress: async () => {
+            setLoading(true);
+            try {
+              // Mock cache clearing
+              await new Promise(resolve => setTimeout(resolve, 2000));
+              setCacheSize('0 MB');
+              Alert.alert('Success', 'Cache cleared successfully');
+            } catch {
+              Alert.alert('Error', 'Failed to clear cache');
+            } finally {
+              setLoading(false);
+            }
+          },
+        },
+      ]
+    );
+  };

@@ -1,0 +1,46 @@
+-- Create chat_settings table to store user-specific chat settings
+CREATE TABLE IF NOT EXISTS public.chat_settings (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    chat_with UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    muted BOOLEAN NOT NULL DEFAULT false,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT now() NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT now() NOT NULL,
+    UNIQUE(user_id, chat_with)
+);
+
+-- Add RLS policies
+ALTER TABLE public.chat_settings ENABLE ROW LEVEL SECURITY;
+
+-- Policy to allow users to view their own chat settings
+CREATE POLICY "Users can view their own chat settings" 
+    ON public.chat_settings 
+    FOR SELECT 
+    USING (auth.uid() = user_id);
+
+-- Policy to allow users to insert their own chat settings
+CREATE POLICY "Users can insert their own chat settings" 
+    ON public.chat_settings 
+    FOR INSERT 
+    WITH CHECK (auth.uid() = user_id);
+
+-- Policy to allow users to update their own chat settings
+CREATE POLICY "Users can update their own chat settings" 
+    ON public.chat_settings 
+    FOR UPDATE 
+    USING (auth.uid() = user_id);
+
+-- Create an updated_at trigger
+CREATE OR REPLACE FUNCTION public.handle_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = now();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Add trigger to chat_settings table
+CREATE TRIGGER set_chat_settings_updated_at
+BEFORE UPDATE ON public.chat_settings
+FOR EACH ROW
+EXECUTE FUNCTION public.handle_updated_at();

@@ -1,0 +1,85 @@
+
+> lockra-messaging-app@1.0.0 test
+> node scripts/test.cjs
+
+✔ web confirmation cancels without executing a destructive callback (1.1369ms)
+✔ web action callbacks execute once, queued messages retain order and clear revokes stale actions (0.3119ms)
+✔ all nonpublic routes require a session, including deeply nested admin/settings routes (2.7576ms)
+✔ admin routes deny ordinary users; synthetic admin may inspect demo architecture (1.5539ms)
+✔ unreviewed real admin execution stays denied even with a client-side admin profile (0.2044ms)
+✔ mode defaults to demo and rejects misspellings; config fails before client initialization (0.8106ms)
+✔ synthetic identities are explicit and signout revokes access immediately (1.1341ms)
+✔ an ordinary profile cannot assign itself admin, verified, or a different identity (0.7711ms)
+✔ profile edits cannot impersonate another username to read its conversations (0.4363ms)
+✔ a valid local rename retains incoming history without changing the account identity (0.5407ms)
+✔ arbitrary SQL and schema-creation RPCs are always denied (0.4078ms)
+✔ actual legacy unsigned JWT helper cannot authorize a callback (0.5565ms)
+✔ actual send helper enforces synthetic session and sender identity without service traffic (16.9897ms)
+✔ offline/missing configuration fails before token lookup, network, SDK initialization or media permission (2.7603ms)
+✔ caller cannot join before acceptance; actual SDK bridge joins, toggles media and stops tracks/listeners/audio on leave (1.4562ms)
+✔ incoming recipient can reject without token/media; accepting an invite invokes authenticated join lifecycle (0.7556ms)
+✔ denied permissions and failed SDK connections clean tracks/audio and end signaling without an active state (0.6354ms)
+✔ leaving during a pending connection prevents late activation and cleans the eventual SDK result (6.5622ms)
+✔ remote disconnection and signaling authorization failure clean the local SDK session (2.5845ms)
+✔ cancelled pending invitations are ended when they resolve; repeated clicks do not create duplicate invites (0.3544ms)
+✔ leaving while a camera toggle is pending stops late tracks and cannot re-enable ended call state (0.4309ms)
+✔ actual client API -> signed-session handler -> invite authorization -> scoped provider JWT -> mocked media lifecycle (82.5265ms)
+✔ actual JWT verifier validates signature, issuer, audience, expiry and session; unsigned decoding never authorizes (151.6455ms)
+✔ actual provider SDK mints a signed short-lived token restricted to caller and server-selected room/media sources (5.057ms)
+✔ actual HTTP signaling denies unsigned sessions, foreign callers, forged room/identity and tokens before acceptance (29.5927ms)
+✔ invites reject, expire, prevent busy/racing acceptance and revoke accepted calls on permission loss (1.0189ms)
+✔ provider cleanup failure is reported and retried; mint cannot race a cancelled call (0.5873ms)
+✔ signed calling JWT denies missing azp (110.2773ms)
+✔ signed calling JWT denies empty azp (2.8625ms)
+✔ signed calling JWT denies whitespace azp (1.8427ms)
+✔ signed calling JWT denies null azp (1.6751ms)
+✔ signed calling JWT denies number azp (1.6789ms)
+✔ signed calling JWT denies array azp (1.6464ms)
+✔ signed calling JWT denies object azp (1.6118ms)
+✔ signed calling JWT denies unauthorized azp (1.4899ms)
+✔ signed calling JWT denies lookalike origin azp (1.6407ms)
+✔ signed calling JWT denies missing sid (1.9992ms)
+✔ signed calling JWT denies empty sid (2.0317ms)
+✔ signed calling JWT denies whitespace sid (1.4477ms)
+✔ signed calling JWT denies null sid (1.4267ms)
+✔ signed calling JWT denies number sid (1.4746ms)
+✔ signed calling JWT accepts an authorized nonempty azp and nonempty sid with a mocked public key (1.7555ms)
+✔ HTTP calling API denies missing Origin before JWT verification, including preflight (25.3018ms)
+✔ HTTP calling API denies empty Origin before JWT verification, including preflight (2.361ms)
+✔ HTTP calling API denies opaque null Origin before JWT verification, including preflight (2.0789ms)
+✔ HTTP calling API denies unauthorized Origin before JWT verification, including preflight (3.8213ms)
+✔ authorized HTTP Origin cannot replace a required signed azp claim (2.7465ms)
+✔ authorized signed browser session and HTTP Origin reach only the permitted synthetic call listing (4.749ms)
+✔ authorized browser preflight permits declared headers without authorizing a session (0.3825ms)
+✔ existing random slash-command outcomes stay in range; malformed/unsafe roll bounds are rejected (1.2987ms)
+Creating community with user ID: [details redacted]
+Community created successfully: [details redacted]
+Error locking community: [details redacted]
+Error changing user role: [details redacted]
+Error sending message: [details redacted]
+Error joining community by invite code: [details redacted]
+✔ existing community service creates, lists and sends through an explicit mock integration (22.0413ms)
+✔ existing service denied admin/member operations do not become fake success (1.2142ms)
+✔ existing invite/public joins and leaving exercise actual service logic (1.2314ms)
+✔ real-client boundary prevents legacy SQL RPC execution before any SDK/network invocation (1.1327ms)
+✔ maintained primitives encrypt a DM that sender and recipient can decrypt; nonce is fresh (70.4081ms)
+✔ tamper, wrong private key, changed message ID, participant, timestamp and key fingerprint fail (26.9755ms)
+✔ repeated history is idempotent; conflicting ciphertext replay is rejected (14.5412ms)
+✔ missing/unverified keys never fall back to plaintext; explicit rotation invalidates trust (30.4307ms)
+✔ legacy plaintext is explicitly labelled; malformed/versioned ciphertext is never shown as plaintext (2.5857ms)
+✔ actual query/realtime adapter stores ciphertext, decodes send/history/events and enforces authorization (40.2833ms)
+✔ send, read marking, subscription delivery, pagination and deletion use actual query contract (76.429ms)
+✔ sender spoofing, empty content, cross-user reads and foreign settings writes fail (0.5953ms)
+✔ community ownership, public joins, private invite, locked sends and role escalation (0.9184ms)
+✔ community creation creates owner membership and disallows owner spoofing (0.3898ms)
+✔ existing signup validation accepts intended inputs and rejects malformed values (1.3344ms)
+✔ existing image compression preserves aspect ratio and never upscales (0.3914ms)
+✔ existing avatars have deterministic initials/color and tolerate empty usernames (0.3667ms)
+ℹ tests 67
+ℹ suites 0
+ℹ pass 67
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5010.1528

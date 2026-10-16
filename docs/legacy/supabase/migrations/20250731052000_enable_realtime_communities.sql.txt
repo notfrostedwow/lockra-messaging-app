@@ -1,0 +1,20 @@
+-- Ensure realtime is enabled for community tables
+
+-- Add communities and community_members to the realtime publication
+DO $$
+BEGIN
+  BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.communities';
+  EXCEPTION WHEN others THEN
+    -- ignore if already added
+    NULL;
+  END;
+
+  BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.community_members';
+  EXCEPTION WHEN others THEN
+    NULL;
+  END;
+END $$;
+
+

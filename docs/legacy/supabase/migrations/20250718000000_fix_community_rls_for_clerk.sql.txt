@@ -1,0 +1,167 @@
+-- Fix community tables to work with Clerk authentication
+-- The main issue is that communities table references auth.users but we use public.users with Clerk
+
+-- First, disable RLS temporarily to make changes
+ALTER TABLE communities DISABLE ROW LEVEL SECURITY;
+ALTER TABLE community_members DISABLE ROW LEVEL SECURITY;
+ALTER TABLE community_messages DISABLE ROW LEVEL SECURITY;
+
+-- Drop all existing policies
+DROP POLICY IF EXISTS "Anyone can view public communities" ON communities;
+DROP POLICY IF EXISTS "Members can view their private communities" ON communities;
+DROP POLICY IF EXISTS "Authenticated users can create communities" ON communities;
+DROP POLICY IF EXISTS "Owners can update their communities" ON communities;
+DROP POLICY IF EXISTS "Owners can delete their communities" ON communities;
+
+DROP POLICY IF EXISTS "Members can see who else is in their communities" ON community_members;
+DROP POLICY IF EXISTS "Users can join communities" ON community_members;
+DROP POLICY IF EXISTS "Owners and admins can update member roles" ON community_members;
+DROP POLICY IF EXISTS "Members can leave communities" ON community_members;
+
+DROP POLICY IF EXISTS "Members can see messages in their communities" ON community_messages;
+DROP POLICY IF EXISTS "Members can send messages to their communities" ON community_messages;
+DROP POLICY IF EXISTS "Users can delete their own messages" ON community_messages;
+
+-- Drop the trigger that adds owner to community_members (we'll recreate it)
+DROP TRIGGER IF EXISTS add_creator_as_owner ON communities;
+DROP FUNCTION IF EXISTS add_owner_to_community();
+
+-- Fix the foreign key constraints to reference public.users instead of auth.users
+ALTER TABLE communities DROP CONSTRAINT IF EXISTS communities_owner_id_fkey;
+ALTER TABLE community_members DROP CONSTRAINT IF EXISTS community_members_user_id_fkey;
+ALTER TABLE community_messages DROP CONSTRAINT IF EXISTS community_messages_user_id_fkey;
+
+-- Add new foreign key constraints referencing public.users
+ALTER TABLE communities ADD CONSTRAINT communities_owner_id_fkey 
+  FOREIGN KEY (owner_id) REFERENCES public.users(id) ON DELETE CASCADE;
+
+ALTER TABLE community_members ADD CONSTRAINT community_members_user_id_fkey 
+  FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
+
+ALTER TABLE community_messages ADD CONSTRAINT community_messages_user_id_fkey 
+  FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
+
+-- Recreate the trigger to add owner to community_members
+CREATE OR REPLACE FUNCTION add_owner_to_community()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO community_members (community_id, user_id, role)
+  VALUES (NEW.id, NEW.owner_id, 'owner');
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER add_creator_as_owner
+AFTER INSERT ON communities
+FOR EACH ROW
+EXECUTE FUNCTION add_owner_to_community();
+
+-- Create a helper function to get current user ID from Clerk context
+-- This will be used in RLS policies
+CREATE OR REPLACE FUNCTION get_current_user_id()
+RETURNS UUID AS $$
+DECLARE
+  user_id UUID;
+BEGIN
+  -- Try to get user ID from JWT claims (Clerk integration)
+  SELECT (current_setting('request.jwt.claims', true)::json->>'sub')::uuid INTO user_id;
+  
+  -- If that fails, try to get from custom header
+  IF user_id IS NULL THEN
+    SELECT (current_setting('request.headers', true)::json->>'x-user-id')::uuid INTO user_id;
+  END IF;
+  
+  RETURN user_id;
+EXCEPTION
+  WHEN OTHERS THEN
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Re-enable RLS and create new policies that work with Clerk
+ALTER TABLE communities ENABLE ROW LEVEL SECURITY;
+ALTER TABLE community_members ENABLE ROW LEVEL SECURITY;
+ALTER TABLE community_messages ENABLE ROW LEVEL SECURITY;
+
+-- Communities policies
+CREATE POLICY "Anyone can view public communities" 
+  ON communities FOR SELECT 
+  USING (type = 'public');
+
+CREATE POLICY "Members can view their private communities" 
+  ON communities FOR SELECT 
+  USING (
+    type = 'private' AND 
+    EXISTS (
+      SELECT 1 FROM community_members 
+      WHERE community_id = communities.id AND user_id = get_current_user_id()
+    )
+  );
+
+CREATE POLICY "Authenticated users can create communities" 
+  ON communities FOR INSERT 
+  WITH CHECK (get_current_user_id() IS NOT NULL AND owner_id = get_current_user_id());
+
+CREATE POLICY "Owners can update their communities" 
+  ON communities FOR UPDATE 
+  USING (owner_id = get_current_user_id());
+
+CREATE POLICY "Owners can delete their communities" 
+  ON communities FOR DELETE 
+  USING (owner_id = get_current_user_id());
+
+-- Community members policies
+CREATE POLICY "Members can see who else is in their communities" 
+  ON community_members FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM community_members AS cm
+      WHERE cm.community_id = community_members.community_id 
+      AND cm.user_id = get_current_user_id()
+    )
+  );
+
+CREATE POLICY "Users can join communities" 
+  ON community_members FOR INSERT 
+  WITH CHECK (user_id = get_current_user_id());
+
+CREATE POLICY "Owners and admins can update member roles" 
+  ON community_members FOR UPDATE 
+  USING (
+    EXISTS (
+      SELECT 1 FROM community_members AS cm
+      WHERE cm.community_id = community_members.community_id 
+      AND cm.user_id = get_current_user_id()
+      AND cm.role IN ('owner', 'admin')
+    )
+  );
+
+CREATE POLICY "Members can leave communities" 
+  ON community_members FOR DELETE 
+  USING (user_id = get_current_user_id());
+
+-- Community messages policies
+CREATE POLICY "Members can see messages in their communities" 
+  ON community_messages FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM community_members
+      WHERE community_id = community_messages.community_id 
+      AND user_id = get_current_user_id()
+    )
+  );
+
+CREATE POLICY "Members can send messages to their communities" 
+  ON community_messages FOR INSERT 
+  WITH CHECK (
+    user_id = get_current_user_id() AND
+    EXISTS (
+      SELECT 1 FROM community_members
+      WHERE community_id = community_messages.community_id 
+      AND user_id = get_current_user_id()
+    )
+  );
+
+CREATE POLICY "Users can delete their own messages" 
+  ON community_messages FOR DELETE 
+  USING (user_id = get_current_user_id());

@@ -1,0 +1,30 @@
+-- Allow owners/admins to delete any community message; users can delete their own
+
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname = 'public' 
+      AND tablename = 'community_messages' 
+      AND policyname = 'Users can delete their own messages'
+  ) THEN
+    DROP POLICY "Users can delete their own messages" ON community_messages;
+  END IF;
+END $$;
+
+CREATE POLICY "Delete own or admin/owner"
+  ON community_messages FOR DELETE
+  USING (
+    -- Allow deleting own message
+    user_id = auth.uid()
+    OR
+    -- Or if user is owner/admin of the community
+    EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = community_messages.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+

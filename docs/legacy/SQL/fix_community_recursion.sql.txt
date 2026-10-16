@@ -1,0 +1,161 @@
+-- Fix for infinite recursion in community tables
+-- This script fixes the recursion issues in both the communities and community_members policies
+
+-----------------------
+-- Fix community_members
+-----------------------
+
+-- Drop the problematic policies that could be causing recursion
+DROP POLICY IF EXISTS "Members can see who else is in their communities" ON community_members;
+DROP POLICY IF EXISTS "Anyone can view public community members" ON community_members;
+DROP POLICY IF EXISTS "Members can see private community members" ON community_members;
+
+-- Create new policies that avoid self-referencing recursion
+-- Policy for public communities
+CREATE POLICY "Anyone can view public community members" 
+  ON community_members FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM communities c
+      WHERE c.id = community_members.community_id 
+      AND c.type = 'public'
+    )
+  );
+
+-- Policy for private communities
+CREATE POLICY "Members can see private community members" 
+  ON community_members FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM communities c
+      WHERE c.id = community_members.community_id
+      AND c.type = 'private'
+      AND EXISTS (
+        SELECT 1 FROM community_members cm
+        WHERE cm.community_id = c.id
+        AND cm.user_id = auth.uid()
+      )
+    )
+  );
+
+-- Update other policies to avoid recursion
+-- Users can join communities
+DROP POLICY IF EXISTS "Users can join communities" ON community_members;
+CREATE POLICY "Users can join communities" 
+  ON community_members FOR INSERT 
+  WITH CHECK (user_id = auth.uid());
+
+-- Only owners and admins can update member roles
+DROP POLICY IF EXISTS "Owners and admins can update member roles" ON community_members;
+CREATE POLICY "Owners and admins can update member roles" 
+  ON community_members FOR UPDATE 
+  USING (
+    EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = community_members.community_id
+      AND cm.user_id = auth.uid()
+      AND cm.role IN ('owner', 'admin')
+    )
+  );
+
+-- Members can leave communities (delete themselves)
+DROP POLICY IF EXISTS "Members can leave communities" ON community_members;
+CREATE POLICY "Members can leave communities" 
+  ON community_members FOR DELETE 
+  USING (user_id = auth.uid());
+
+--------------------
+-- Fix communities
+--------------------
+
+-- Drop the problematic policies
+DROP POLICY IF EXISTS "Members can view their private communities" ON communities;
+DROP POLICY IF EXISTS "Anyone can view public communities" ON communities;
+
+-- Create new policies that avoid self-referencing recursion
+-- Anyone can view public communities
+CREATE POLICY "Anyone can view public communities" 
+  ON communities FOR SELECT 
+  USING (type = 'public');
+
+-- Members can view their private communities
+CREATE POLICY "Members can view their private communities" 
+  ON communities FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = communities.id 
+      AND cm.user_id = auth.uid()
+    )
+  );
+
+-- Fix other policies as needed
+-- Only authenticated users can create communities
+DROP POLICY IF EXISTS "Authenticated users can create communities" ON communities;
+CREATE POLICY "Authenticated users can create communities" 
+  ON communities FOR INSERT 
+  WITH CHECK (auth.uid() IS NOT NULL);
+
+-- Only community owners can update their communities
+DROP POLICY IF EXISTS "Owners can update their communities" ON communities;
+CREATE POLICY "Owners can update their communities" 
+  ON communities FOR UPDATE 
+  USING (owner_id = auth.uid());
+
+-- Only community owners can delete their communities
+DROP POLICY IF EXISTS "Owners can delete their communities" ON communities;
+CREATE POLICY "Owners can delete their communities" 
+  ON communities FOR DELETE 
+  USING (owner_id = auth.uid());
+
+--------------------
+-- Fix community_messages
+--------------------
+
+-- Drop any problematic policies
+DROP POLICY IF EXISTS "Members can see messages in their communities" ON community_messages;
+DROP POLICY IF EXISTS "Members can send messages to their communities" ON community_messages;
+
+-- Members can see messages in their communities
+CREATE POLICY "Members can see messages in their communities" 
+  ON community_messages FOR SELECT 
+  USING (
+    EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = community_messages.community_id 
+      AND cm.user_id = auth.uid()
+    )
+  );
+
+-- Members can send messages to their communities
+CREATE POLICY "Members can send messages to their communities" 
+  ON community_messages FOR INSERT 
+  WITH CHECK (
+    user_id = auth.uid() AND
+    EXISTS (
+      SELECT 1 FROM community_members cm
+      WHERE cm.community_id = community_messages.community_id 
+      AND cm.user_id = auth.uid()
+    )
+  );
+
+-- Users can only delete their own messages
+DROP POLICY IF EXISTS "Users can delete their own messages" ON community_messages;
+CREATE POLICY "Users can delete their own messages" 
+  ON community_messages FOR DELETE 
+  USING (user_id = auth.uid());
+
+-- Enable realtime for community_messages if not already enabled
+DO
+$$
+BEGIN
+  IF NOT EXISTS (
+    SELECT FROM pg_publication_tables
+    WHERE pubname = 'supabase_realtime'
+    AND schemaname = 'public'
+    AND tablename = 'community_messages'
+  ) THEN
+    ALTER PUBLICATION supabase_realtime ADD TABLE community_messages;
+  END IF;
+END
+$$; 

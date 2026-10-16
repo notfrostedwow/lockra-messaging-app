@@ -1,0 +1,64 @@
+-- Add profile_visibility column to user_privacy_settings
+ALTER TABLE user_privacy_settings 
+ADD COLUMN IF NOT EXISTS profile_visibility TEXT DEFAULT 'public' CHECK (profile_visibility IN ('public', 'private'));
+
+-- Create index for faster queries
+CREATE INDEX IF NOT EXISTS idx_user_privacy_settings_visibility ON user_privacy_settings(profile_visibility);
+
+-- Update the existing policies
+DROP POLICY IF EXISTS "Users can search other users" ON users;
+
+-- New policy that respects privacy settings
+CREATE POLICY "Users can search other users"
+  ON users
+  FOR SELECT
+  TO authenticated
+  USING (
+    auth.uid() IS NOT NULL AND (
+      -- User can always see their own profile
+      auth.uid() = id
+      OR
+      -- Can see other users only if their profile is public
+      EXISTS (
+        SELECT 1 FROM user_privacy_settings
+        WHERE user_privacy_settings.user_id = users.id
+        AND (
+          user_privacy_settings.profile_visibility = 'public'
+          OR NOT EXISTS (SELECT 1 FROM user_privacy_settings WHERE user_id = users.id) -- Default to public if no settings
+        )
+      )
+    )
+  );
+
+-- Function to get visible users
+CREATE OR REPLACE FUNCTION get_visible_users(search_query TEXT)
+RETURNS TABLE (
+  id UUID,
+  username TEXT,
+  is_verified BOOLEAN,
+  created_at TIMESTAMPTZ
+) AS $$
+BEGIN
+  RETURN QUERY
+  SELECT 
+    u.id,
+    u.username,
+    u.is_verified,
+    u.created_at
+  FROM users u
+  LEFT JOIN user_privacy_settings ps ON u.id = ps.user_id
+  WHERE (
+    -- User is public or has no privacy settings (defaults to public)
+    ps.profile_visibility = 'public' 
+    OR ps.profile_visibility IS NULL
+  )
+  AND (
+    -- Search by username if query is provided
+    search_query IS NULL 
+    OR u.username ILIKE '%' || search_query || '%'
+  )
+  ORDER BY 
+    u.username ILIKE (search_query || '%') DESC, -- Exact matches first
+    u.username;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER; 

@@ -1,0 +1,89 @@
+NONRUNNABLE LEGACY SAMPLES. These fabricated capacity/permission/cache figures are not device measurements. Original callbacks retained for source review; current app does not execute them.
+
+const loadDeviceInfo = async () => {
+    try {
+      const deviceName = Device.deviceName || 'Unknown Device';
+      const deviceType = Device.deviceType ? Device.DeviceType[Device.deviceType] : 'Unknown';
+      const osName = Device.osName || Platform.OS;
+      const osVersion = Device.osVersion || Platform.Version.toString();
+
+      let appVersion = '1.0.0';
+      let buildNumber = '1';
+
+      try {
+        appVersion = Application.nativeApplicationVersion || '1.0.0';
+        buildNumber = Application.nativeBuildVersion || '1';
+      } catch {
+        console.warn("Could not get app version info: [details redacted]");
+      }
+
+      // Mock memory and storage info (would need native modules for real data)
+      const totalMemory = '4 GB';
+      const freeMemory = '2.1 GB';
+      const totalStorage = '64 GB';
+      const freeStorage = '32.5 GB';
+
+      setDeviceInfo({
+        deviceName,
+        deviceType,
+        osName,
+        osVersion,
+        appVersion,
+        buildNumber,
+        totalMemory,
+        freeMemory,
+        totalStorage,
+        freeStorage,
+      });
+    } catch {
+      console.error("Error loading device info: [details redacted]");
+    }
+  };
+
+const loadPermissions = async () => {
+    // Mock permission status (would need expo-permissions for real data)
+    setPermissions({
+      camera: true,
+      microphone: true,
+      location: false,
+      notifications: true,
+      storage: true,
+    });
+  };
+
+const calculateCacheSize = async () => {
+    try {
+      // Mock cache size calculation
+      setCacheSize('45.2 MB');
+    } catch {
+      console.error("Error calculating cache size: [details redacted]");
+      setCacheSize('Unknown');
+    }
+  };
+
+const handleClearCache = () => {
+    Alert.alert(
+      'Clear Cache',
+      'This will clear all cached data including images, files, and temporary data. Continue?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Clear',
+          style: 'destructive',
+          onPress: async () => {
+            setLoading(true);
+            try {
+              // Mock cache clearing
+              await new Promise(resolve => setTimeout(resolve, 2000));
+              setCacheSize('0 MB');
+              Alert.alert('Success', 'Cache cleared successfully');
+            } catch {
+              Alert.alert('Error', 'Failed to clear cache');
+            } finally {
+              setLoading(false);
+            }
+          },
+        },
+      ]
+    );
+  };

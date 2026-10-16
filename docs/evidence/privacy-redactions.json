@@ -1,0 +1,21 @@
+{
+  "scope": "Post-intake privacy redaction; original/intake hashes stay unchanged. Diagnostic source echoes were redacted without changing results.",
+  "records": [
+    {
+      "path": "app/terms.tsx",
+      "category": "legacy support contact",
+      "replacement": "support@example.invalid",
+      "count": 1,
+      "before_sha256": "8e2d0947b3c4cdac3e5c5c1113a2481f1dea76485b8174165dbf781ff0a87029",
+      "after_sha256": "bc4e1e9674ccd7ee81038ca99ce77921e2b1a45bdfe1d44f5b60f36da28ab9ce"
+    },
+    {
+      "path": "docs/evidence/lint-initial.json",
+      "category": "legacy support contact",
+      "replacement": "support@example.invalid",
+      "count": 1,
+      "before_sha256": "8120e5c121caebafe31cd966f185593767019fff924f0c87f91a965efcb3b55f",
+      "after_sha256": "c768a09cf1033da7ff605e03905f2ced559b15c53fe40cef6740701ee92ce3d6"
+    }
+  ]
+}

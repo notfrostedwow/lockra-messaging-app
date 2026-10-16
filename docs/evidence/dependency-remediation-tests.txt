@@ -1,0 +1,422 @@
+
+> lockra-messaging-app@1.0.0 test
+> node scripts/test.cjs
+
+TAP version 13
+# Subtest: web confirmation cancels without executing a destructive callback
+ok 1 - web confirmation cancels without executing a destructive callback
+  ---
+  duration_ms: 1.7673
+  type: 'test'
+  ...
+# Subtest: web action callbacks execute once, queued messages retain order and clear revokes stale actions
+ok 2 - web action callbacks execute once, queued messages retain order and clear revokes stale actions
+  ---
+  duration_ms: 0.3357
+  type: 'test'
+  ...
+# Subtest: all nonpublic routes require a session, including deeply nested admin/settings routes
+ok 3 - all nonpublic routes require a session, including deeply nested admin/settings routes
+  ---
+  duration_ms: 4.6254
+  type: 'test'
+  ...
+# Subtest: admin routes deny ordinary users; synthetic admin may inspect demo architecture
+ok 4 - admin routes deny ordinary users; synthetic admin may inspect demo architecture
+  ---
+  duration_ms: 2.4676
+  type: 'test'
+  ...
+# Subtest: unreviewed real admin execution stays denied even with a client-side admin profile
+ok 5 - unreviewed real admin execution stays denied even with a client-side admin profile
+  ---
+  duration_ms: 0.2321
+  type: 'test'
+  ...
+# Subtest: mode defaults to demo and rejects misspellings; config fails before client initialization
+ok 6 - mode defaults to demo and rejects misspellings; config fails before client initialization
+  ---
+  duration_ms: 0.8877
+  type: 'test'
+  ...
+# Subtest: synthetic identities are explicit and signout revokes access immediately
+ok 7 - synthetic identities are explicit and signout revokes access immediately
+  ---
+  duration_ms: 1.3844
+  type: 'test'
+  ...
+# Subtest: an ordinary profile cannot assign itself admin, verified, or a different identity
+ok 8 - an ordinary profile cannot assign itself admin, verified, or a different identity
+  ---
+  duration_ms: 0.9431
+  type: 'test'
+  ...
+# Subtest: profile edits cannot impersonate another username to read its conversations
+ok 9 - profile edits cannot impersonate another username to read its conversations
+  ---
+  duration_ms: 0.8361
+  type: 'test'
+  ...
+# Subtest: a valid local rename retains incoming history without changing the account identity
+ok 10 - a valid local rename retains incoming history without changing the account identity
+  ---
+  duration_ms: 0.5581
+  type: 'test'
+  ...
+# Subtest: arbitrary SQL and schema-creation RPCs are always denied
+ok 11 - arbitrary SQL and schema-creation RPCs are always denied
+  ---
+  duration_ms: 0.7704
+  type: 'test'
+  ...
+# Subtest: actual legacy unsigned JWT helper cannot authorize a callback
+ok 12 - actual legacy unsigned JWT helper cannot authorize a callback
+  ---
+  duration_ms: 0.8628
+  type: 'test'
+  ...
+# Subtest: actual send helper enforces synthetic session and sender identity without service traffic
+ok 13 - actual send helper enforces synthetic session and sender identity without service traffic
+  ---
+  duration_ms: 30.0243
+  type: 'test'
+  ...
+# Subtest: offline/missing configuration fails before token lookup, network, SDK initialization or media permission
+ok 14 - offline/missing configuration fails before token lookup, network, SDK initialization or media permission
+  ---
+  duration_ms: 5.6361
+  type: 'test'
+  ...
+# Subtest: caller cannot join before acceptance; actual SDK bridge joins, toggles media and stops tracks/listeners/audio on leave
+ok 15 - caller cannot join before acceptance; actual SDK bridge joins, toggles media and stops tracks/listeners/audio on leave
+  ---
+  duration_ms: 2.6122
+  type: 'test'
+  ...
+# Subtest: incoming recipient can reject without token/media; accepting an invite invokes authenticated join lifecycle
+ok 16 - incoming recipient can reject without token/media; accepting an invite invokes authenticated join lifecycle
+  ---
+  duration_ms: 1.0425
+  type: 'test'
+  ...
+# Subtest: denied permissions and failed SDK connections clean tracks/audio and end signaling without an active state
+ok 17 - denied permissions and failed SDK connections clean tracks/audio and end signaling without an active state
+  ---
+  duration_ms: 1.0388
+  type: 'test'
+  ...
+# Subtest: leaving during a pending connection prevents late activation and cleans the eventual SDK result
+ok 18 - leaving during a pending connection prevents late activation and cleans the eventual SDK result
+  ---
+  duration_ms: 11.8272
+  type: 'test'
+  ...
+# Subtest: remote disconnection and signaling authorization failure clean the local SDK session
+ok 19 - remote disconnection and signaling authorization failure clean the local SDK session
+  ---
+  duration_ms: 1.9932
+  type: 'test'
+  ...
+# Subtest: cancelled pending invitations are ended when they resolve; repeated clicks do not create duplicate invites
+ok 20 - cancelled pending invitations are ended when they resolve; repeated clicks do not create duplicate invites
+  ---
+  duration_ms: 0.618
+  type: 'test'
+  ...
+# Subtest: leaving while a camera toggle is pending stops late tracks and cannot re-enable ended call state
+ok 21 - leaving while a camera toggle is pending stops late tracks and cannot re-enable ended call state
+  ---
+  duration_ms: 0.9174
+  type: 'test'
+  ...
+# Subtest: actual client API -> signed-session handler -> invite authorization -> scoped provider JWT -> mocked media lifecycle
+ok 22 - actual client API -> signed-session handler -> invite authorization -> scoped provider JWT -> mocked media lifecycle
+  ---
+  duration_ms: 292.5245
+  type: 'test'
+  ...
+# Subtest: actual JWT verifier validates signature, issuer, audience, expiry and session; unsigned decoding never authorizes
+ok 23 - actual JWT verifier validates signature, issuer, audience, expiry and session; unsigned decoding never authorizes
+  ---
+  duration_ms: 140.3791
+  type: 'test'
+  ...
+# Subtest: actual provider SDK mints a signed short-lived token restricted to caller and server-selected room/media sources
+ok 24 - actual provider SDK mints a signed short-lived token restricted to caller and server-selected room/media sources
+  ---
+  duration_ms: 7.6532
+  type: 'test'
+  ...
+# Subtest: actual HTTP signaling denies unsigned sessions, foreign callers, forged room/identity and tokens before acceptance
+ok 25 - actual HTTP signaling denies unsigned sessions, foreign callers, forged room/identity and tokens before acceptance
+  ---
+  duration_ms: 43.4239
+  type: 'test'
+  ...
+# Subtest: invites reject, expire, prevent busy/racing acceptance and revoke accepted calls on permission loss
+ok 26 - invites reject, expire, prevent busy/racing acceptance and revoke accepted calls on permission loss
+  ---
+  duration_ms: 1.4907
+  type: 'test'
+  ...
+# Subtest: provider cleanup failure is reported and retried; mint cannot race a cancelled call
+ok 27 - provider cleanup failure is reported and retried; mint cannot race a cancelled call
+  ---
+  duration_ms: 0.9602
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies missing azp
+ok 28 - signed calling JWT denies missing azp
+  ---
+  duration_ms: 136.849
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies empty azp
+ok 29 - signed calling JWT denies empty azp
+  ---
+  duration_ms: 3.936
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies whitespace azp
+ok 30 - signed calling JWT denies whitespace azp
+  ---
+  duration_ms: 2.9329
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies null azp
+ok 31 - signed calling JWT denies null azp
+  ---
+  duration_ms: 2.4342
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies number azp
+ok 32 - signed calling JWT denies number azp
+  ---
+  duration_ms: 2.6709
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies array azp
+ok 33 - signed calling JWT denies array azp
+  ---
+  duration_ms: 2.3222
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies object azp
+ok 34 - signed calling JWT denies object azp
+  ---
+  duration_ms: 2.3445
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies unauthorized azp
+ok 35 - signed calling JWT denies unauthorized azp
+  ---
+  duration_ms: 2.0608
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies lookalike origin azp
+ok 36 - signed calling JWT denies lookalike origin azp
+  ---
+  duration_ms: 3.3616
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies missing sid
+ok 37 - signed calling JWT denies missing sid
+  ---
+  duration_ms: 2.664
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies empty sid
+ok 38 - signed calling JWT denies empty sid
+  ---
+  duration_ms: 2.0419
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies whitespace sid
+ok 39 - signed calling JWT denies whitespace sid
+  ---
+  duration_ms: 1.8156
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies null sid
+ok 40 - signed calling JWT denies null sid
+  ---
+  duration_ms: 1.8912
+  type: 'test'
+  ...
+# Subtest: signed calling JWT denies number sid
+ok 41 - signed calling JWT denies number sid
+  ---
+  duration_ms: 2.0361
+  type: 'test'
+  ...
+# Subtest: signed calling JWT accepts an authorized nonempty azp and nonempty sid with a mocked public key
+ok 42 - signed calling JWT accepts an authorized nonempty azp and nonempty sid with a mocked public key
+  ---
+  duration_ms: 1.8827
+  type: 'test'
+  ...
+# Subtest: HTTP calling API denies missing Origin before JWT verification, including preflight
+ok 43 - HTTP calling API denies missing Origin before JWT verification, including preflight
+  ---
+  duration_ms: 33.6511
+  type: 'test'
+  ...
+# Subtest: HTTP calling API denies empty Origin before JWT verification, including preflight
+ok 44 - HTTP calling API denies empty Origin before JWT verification, including preflight
+  ---
+  duration_ms: 6.6282
+  type: 'test'
+  ...
+# Subtest: HTTP calling API denies opaque null Origin before JWT verification, including preflight
+ok 45 - HTTP calling API denies opaque null Origin before JWT verification, including preflight
+  ---
+  duration_ms: 2.9496
+  type: 'test'
+  ...
+# Subtest: HTTP calling API denies unauthorized Origin before JWT verification, including preflight
+ok 46 - HTTP calling API denies unauthorized Origin before JWT verification, including preflight
+  ---
+  duration_ms: 4.6758
+  type: 'test'
+  ...
+# Subtest: authorized HTTP Origin cannot replace a required signed azp claim
+ok 47 - authorized HTTP Origin cannot replace a required signed azp claim
+  ---
+  duration_ms: 3.9325
+  type: 'test'
+  ...
+# Subtest: authorized signed browser session and HTTP Origin reach only the permitted synthetic call listing
+ok 48 - authorized signed browser session and HTTP Origin reach only the permitted synthetic call listing
+  ---
+  duration_ms: 5.9678
+  type: 'test'
+  ...
+# Subtest: authorized browser preflight permits declared headers without authorizing a session
+ok 49 - authorized browser preflight permits declared headers without authorizing a session
+  ---
+  duration_ms: 0.4604
+  type: 'test'
+  ...
+# Subtest: existing random slash-command outcomes stay in range; malformed/unsafe roll bounds are rejected
+ok 50 - existing random slash-command outcomes stay in range; malformed/unsafe roll bounds are rejected
+  ---
+  duration_ms: 1.7745
+  type: 'test'
+  ...
+# Creating community with user ID: [details redacted]
+# Community created successfully: [details redacted]
+# Error locking community: [details redacted]
+# Error changing user role: [details redacted]
+# Error sending message: [details redacted]
+# Error joining community by invite code: [details redacted]
+# Subtest: existing community service creates, lists and sends through an explicit mock integration
+ok 51 - existing community service creates, lists and sends through an explicit mock integration
+  ---
+  duration_ms: 28.3074
+  type: 'test'
+  ...
+# Subtest: existing service denied admin/member operations do not become fake success
+ok 52 - existing service denied admin/member operations do not become fake success
+  ---
+  duration_ms: 1.6358
+  type: 'test'
+  ...
+# Subtest: existing invite/public joins and leaving exercise actual service logic
+ok 53 - existing invite/public joins and leaving exercise actual service logic
+  ---
+  duration_ms: 1.3999
+  type: 'test'
+  ...
+# Subtest: real-client boundary prevents legacy SQL RPC execution before any SDK/network invocation
+ok 54 - real-client boundary prevents legacy SQL RPC execution before any SDK/network invocation
+  ---
+  duration_ms: 1.5382
+  type: 'test'
+  ...
+# Subtest: maintained primitives encrypt a DM that sender and recipient can decrypt; nonce is fresh
+ok 55 - maintained primitives encrypt a DM that sender and recipient can decrypt; nonce is fresh
+  ---
+  duration_ms: 115.3916
+  type: 'test'
+  ...
+# Subtest: tamper, wrong private key, changed message ID, participant, timestamp and key fingerprint fail
+ok 56 - tamper, wrong private key, changed message ID, participant, timestamp and key fingerprint fail
+  ---
+  duration_ms: 46.2574
+  type: 'test'
+  ...
+# Subtest: repeated history is idempotent; conflicting ciphertext replay is rejected
+ok 57 - repeated history is idempotent; conflicting ciphertext replay is rejected
+  ---
+  duration_ms: 25.5804
+  type: 'test'
+  ...
+# Subtest: missing/unverified keys never fall back to plaintext; explicit rotation invalidates trust
+ok 58 - missing/unverified keys never fall back to plaintext; explicit rotation invalidates trust
+  ---
+  duration_ms: 45.653
+  type: 'test'
+  ...
+# Subtest: legacy plaintext is explicitly labelled; malformed/versioned ciphertext is never shown as plaintext
+ok 59 - legacy plaintext is explicitly labelled; malformed/versioned ciphertext is never shown as plaintext
+  ---
+  duration_ms: 3.6924
+  type: 'test'
+  ...
+# Subtest: actual query/realtime adapter stores ciphertext, decodes send/history/events and enforces authorization
+ok 60 - actual query/realtime adapter stores ciphertext, decodes send/history/events and enforces authorization
+  ---
+  duration_ms: 67.6591
+  type: 'test'
+  ...
+# Subtest: send, read marking, subscription delivery, pagination and deletion use actual query contract
+ok 61 - send, read marking, subscription delivery, pagination and deletion use actual query contract
+  ---
+  duration_ms: 128.6788
+  type: 'test'
+  ...
+# Subtest: sender spoofing, empty content, cross-user reads and foreign settings writes fail
+ok 62 - sender spoofing, empty content, cross-user reads and foreign settings writes fail
+  ---
+  duration_ms: 1.0788
+  type: 'test'
+  ...
+# Subtest: community ownership, public joins, private invite, locked sends and role escalation
+ok 63 - community ownership, public joins, private invite, locked sends and role escalation
+  ---
+  duration_ms: 1.2755
+  type: 'test'
+  ...
+# Subtest: community creation creates owner membership and disallows owner spoofing
+ok 64 - community creation creates owner membership and disallows owner spoofing
+  ---
+  duration_ms: 0.7269
+  type: 'test'
+  ...
+# Subtest: existing signup validation accepts intended inputs and rejects malformed values
+ok 65 - existing signup validation accepts intended inputs and rejects malformed values
+  ---
+  duration_ms: 3.1972
+  type: 'test'
+  ...
+# Subtest: existing image compression preserves aspect ratio and never upscales
+ok 66 - existing image compression preserves aspect ratio and never upscales
+  ---
+  duration_ms: 1.2101
+  type: 'test'
+  ...
+# Subtest: existing avatars have deterministic initials/color and tolerate empty usernames
+ok 67 - existing avatars have deterministic initials/color and tolerate empty usernames
+  ---
+  duration_ms: 0.9816
+  type: 'test'
+  ...
+1..67
+# tests 67
+# suites 0
+# pass 67
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 22055.1877

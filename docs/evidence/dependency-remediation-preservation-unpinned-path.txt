@@ -1,0 +1,5 @@
+
+> lockra-messaging-app@1.0.0 verify:preservation
+> node scripts/verify-preservation.cjs
+
+Verified all 151 original source mappings, 41 original app paths, original/intake hash agreement and current target hashes.

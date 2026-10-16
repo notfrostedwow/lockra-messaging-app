@@ -1,0 +1,80 @@
+// Run this script with: npm run test:auth
+// This script is set up to work with ts-node to handle TypeScript imports
+
+require('dotenv').config();
+const { createClient } = require('@supabase/supabase-js');
+
+// Get environment variables from .env file or from Expo's config
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+
+// Check if credentials are available
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.log('Missing Supabase credentials.');
+  console.log('Please create a .env file with:');
+  console.log('EXPO_PUBLIC_SUPABASE_URL=your-supabase-url');
+  console.log('EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key');
+  process.exit(1);
+}
+
+// Create a test Supabase client
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Test authentication flow
+async function testAuth() {
+  console.log('Starting authentication test...');
+  console.log(`Using Supabase URL: ${SUPABASE_URL}`);
+  
+  try {
+    // Check if we have an existing session
+    const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+    
+    if (sessionError) {
+      console.error('Error getting session:', sessionError);
+    } else if (sessionData?.session) {
+      console.log('Existing session found:', {
+        user_id: sessionData.session.user.id,
+        email: sessionData.session.user.email,
+        expires_at: new Date(sessionData.session.expires_at * 1000).toISOString(),
+      });
+      
+      // Check if user exists in users table
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('*')
+        .eq('id', sessionData.session.user.id)
+        .single();
+        
+      if (userError) {
+        console.error('Error getting user data:', userError);
+        console.log('Checking if users table exists...');
+        
+        // Check if the users table exists
+        const { data: tablesData, error: tablesError } = await supabase
+          .from('information_schema.tables')
+          .select('table_name')
+          .eq('table_schema', 'public')
+          .eq('table_name', 'users');
+          
+        if (tablesError) {
+          console.error('Error checking tables:', tablesError);
+        } else {
+          console.log('Tables check result:', tablesData);
+        }
+      } else {
+        console.log('User data found:', userData);
+      }
+    } else {
+      console.log('No session found');
+    }
+  } catch (error) {
+    console.error('Error in testAuth:', error);
+  }
+}
+
+// Run the test
+testAuth();
+
+export default function TestAuth() {
+  return null;
+} 

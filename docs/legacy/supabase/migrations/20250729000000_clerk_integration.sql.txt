@@ -1,0 +1,151 @@
+-- Migration for Clerk integration
+-- This migration removes the foreign key constraint on users table
+-- and adds a function to create users without requiring auth.users entries
+
+-- 1. Drop the foreign key constraint on the users table
+ALTER TABLE public.users DROP CONSTRAINT IF EXISTS users_id_fkey;
+
+-- Add a comment explaining what we did
+COMMENT ON TABLE public.users IS 'User profiles - no longer constrained to auth.users since we use Clerk for authentication';
+
+-- 2. Add clerk_id column if it doesn't exist
+DO $$ 
+BEGIN
+  IF NOT EXISTS (
+    SELECT FROM information_schema.columns 
+    WHERE table_schema = 'public' 
+    AND table_name = 'users' 
+    AND column_name = 'clerk_id'
+  ) THEN
+    ALTER TABLE public.users ADD COLUMN clerk_id TEXT;
+    CREATE INDEX idx_users_clerk_id ON public.users(clerk_id);
+  END IF;
+END $$;
+
+-- 3. Add display_name column if it doesn't exist
+DO $$ 
+BEGIN
+  IF NOT EXISTS (
+    SELECT FROM information_schema.columns 
+    WHERE table_schema = 'public' 
+    AND table_name = 'users' 
+    AND column_name = 'display_name'
+  ) THEN
+    ALTER TABLE public.users ADD COLUMN display_name TEXT;
+  END IF;
+END $$;
+
+-- 4. Add last_seen column if it doesn't exist
+DO $$ 
+BEGIN
+  IF NOT EXISTS (
+    SELECT FROM information_schema.columns 
+    WHERE table_schema = 'public' 
+    AND table_name = 'users' 
+    AND column_name = 'last_seen'
+  ) THEN
+    ALTER TABLE public.users ADD COLUMN last_seen TIMESTAMPTZ DEFAULT NOW();
+  END IF;
+END $$;
+
+-- 5. Add avatar_url column if it doesn't exist
+DO $$ 
+BEGIN
+  IF NOT EXISTS (
+    SELECT FROM information_schema.columns 
+    WHERE table_schema = 'public' 
+    AND table_name = 'users' 
+    AND column_name = 'avatar_url'
+  ) THEN
+    ALTER TABLE public.users ADD COLUMN avatar_url TEXT;
+  END IF;
+END $$;
+
+-- 6. Create a function to insert a user without the foreign key constraint
+CREATE OR REPLACE FUNCTION public.create_user_without_constraint(
+  user_id UUID,
+  user_email TEXT,
+  user_username TEXT,
+  user_display_name TEXT,
+  user_avatar_url TEXT,
+  user_clerk_id TEXT
+) RETURNS SETOF public.users AS $$
+DECLARE
+  timestamp TIMESTAMPTZ := now();
+  result public.users;
+BEGIN
+  -- Insert the user directly using an INSERT statement
+  INSERT INTO public.users (
+    id, 
+    email, 
+    username, 
+    display_name, 
+    is_verified, 
+    banned, 
+    can_send, 
+    role, 
+    avatar_url, 
+    created_at, 
+    updated_at, 
+    last_seen,
+    clerk_id
+  ) VALUES (
+    user_id,
+    user_email,
+    user_username,
+    user_display_name,
+    TRUE, -- is_verified
+    FALSE, -- banned
+    TRUE, -- can_send
+    'user', -- role
+    user_avatar_url,
+    timestamp,
+    timestamp,
+    timestamp,
+    user_clerk_id
+  ) RETURNING * INTO result;
+  
+  -- Create privacy settings if the table exists
+  IF EXISTS (SELECT FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'privacy_settings') THEN
+    INSERT INTO public.privacy_settings (
+      user_id,
+      allow_direct_messages,
+      profile_visibility,
+      created_at,
+      updated_at
+    ) VALUES (
+      user_id,
+      TRUE,
+      'everyone',
+      timestamp,
+      timestamp
+    );
+  END IF;
+  
+  -- Create chat settings if the table exists
+  IF EXISTS (SELECT FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'chat_settings') THEN
+    INSERT INTO public.chat_settings (
+      user_id,
+      read_receipts,
+      typing_indicators,
+      created_at,
+      updated_at
+    ) VALUES (
+      user_id,
+      TRUE,
+      TRUE,
+      timestamp,
+      timestamp
+    );
+  END IF;
+  
+  RETURN NEXT result;
+  RETURN;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Grant execute permission to the anon and authenticated roles
+GRANT EXECUTE ON FUNCTION public.create_user_without_constraint TO anon, authenticated;
+
+-- Add a comment explaining the function
+COMMENT ON FUNCTION public.create_user_without_constraint IS 'Creates a user in the users table without requiring a corresponding auth.users record. Used for Clerk authentication integration.'; 

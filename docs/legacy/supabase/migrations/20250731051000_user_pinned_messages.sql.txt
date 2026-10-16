@@ -1,0 +1,29 @@
+-- Per-user pinned messages for direct messages
+
+CREATE TABLE IF NOT EXISTS public.user_pinned_messages (
+  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  message_id UUID NOT NULL REFERENCES public.messages(id) ON DELETE CASCADE,
+  pinned_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, message_id)
+);
+
+ALTER TABLE public.user_pinned_messages ENABLE ROW LEVEL SECURITY;
+
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname = 'public' 
+      AND tablename = 'user_pinned_messages' 
+      AND policyname = 'Allow all on user_pinned_messages'
+  ) THEN
+    DROP POLICY "Allow all on user_pinned_messages" ON public.user_pinned_messages;
+  END IF;
+END $$;
+
+CREATE POLICY "Allow all on user_pinned_messages"
+  ON public.user_pinned_messages FOR ALL
+  USING (true)
+  WITH CHECK (true);
+
+

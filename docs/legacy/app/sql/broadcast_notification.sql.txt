@@ -1,0 +1,21 @@
+-- Function to broadcast a notification to a user via Supabase realtime
+CREATE OR REPLACE FUNCTION public.broadcast_notification(
+  user_id_param UUID,
+  notification_type TEXT,
+  notification_message TEXT
+) RETURNS VOID AS $$
+BEGIN
+  -- Broadcast the notification via pg_notify
+  PERFORM pg_notify(
+    'notification_channel', 
+    json_build_object(
+      'user_id', user_id_param,
+      'type', notification_type,
+      'message', notification_message,
+      'timestamp', now()
+    )::text
+  );
+  
+  RETURN;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER; 

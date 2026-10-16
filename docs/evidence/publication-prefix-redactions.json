@@ -1,0 +1,191 @@
+{
+  "scope": "Exact workspace prefixes only; original source unchanged",
+  "files": [
+    {
+      "path": "docs/REMEDIATION-REPORT.md",
+      "before_sha256": "50d1fa88bd264a52c65c79b622e0f7e5435881c5a41d0bb0ea0a12dcaba37bc8",
+      "after_sha256": "939576adf84cd453b808f475cdf40d109063ceea03c3634b300e456527f7eeb1",
+      "replacements": 1
+    },
+    {
+      "path": "docs/RESTORATION-REPORT.md",
+      "before_sha256": "78608a3279a6611857eca373e9552fdde09785af6a5c6b4341c91173e0628248",
+      "after_sha256": "74c7076c62e6c6fee75f4f2aa48e229e852cadcea594eb8144837024d0070daa",
+      "replacements": 1
+    },
+    {
+      "path": "docs/SDK57-RESIDUAL-REVIEW.md",
+      "before_sha256": "7faa27f868c49b8c06fea19b3dc3698d2fac3738a17df367e9f6554c319306f7",
+      "after_sha256": "05c09059caa5f8a5d5ddeaf3117c6cfef5275340c4bb75f780242068b9a75c66",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/calling-server-disabled.txt",
+      "before_sha256": "a97bf1c50f606ac3a2d102bb2fc8158a46e3dc23379202f5ab5f720795833a02",
+      "after_sha256": "6702b6193e2904e27f0d7f38f4d049c162264126cb58ba455372ebfcfcb0094a",
+      "replacements": 5
+    },
+    {
+      "path": "docs/evidence/calling-session-boundary-before.txt",
+      "before_sha256": "7d4f2f851e3625df6a4ab936495da5a1c251887269c69b6ce99bfb6e1887b758",
+      "after_sha256": "8c24b8f820f274ee94fad00169f0dc6315e3030eb392b85af5c171b396e132db",
+      "replacements": 12
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-audit-gate-command.json",
+      "before_sha256": "4d16dbb2d0974d7073cb53af37ec7956ff216ba75223f492c17d030742a573cc",
+      "after_sha256": "51b8881810af320e85253da248daececc51f0b8287446ad2ad21e874e0bc7853",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-expo-compat-command.json",
+      "before_sha256": "8afb72249ee467f5370349023613e493b6dba212c80456b917bd2b2994bda721",
+      "after_sha256": "3d5b97d80e81b3f808811ec0b9d1ba8cb2e353358cacf9be589c0462c5584309",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-expo-doctor-command.json",
+      "before_sha256": "34dc2fc2b4571046d3527246d1f5ad08d9648d766c3bd69650ddbb6637d586e3",
+      "after_sha256": "d625aba9ccb423f9a604be9260e07bfec156250c6a4264db9402ed766bb37157",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-expo-doctor-unpinned-path.txt",
+      "before_sha256": "48c8e577479446e369ea516606831e6a23506cf4cf9338c95bd885dba500df1d",
+      "after_sha256": "e266b8eca5642c74c0215a6ca6a1fc6ea84010162dce00e78b111c270c56aec1",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-expo-doctor.txt",
+      "before_sha256": "039d00e806caa30213bf9931524cd77312bf102ac50a61bbdb9d973a37c18fbe",
+      "after_sha256": "dd854919838d90705efafd1e4b5fece70e28e9bbcf1d7899b4a77aeacb9e48e1",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-export-command.json",
+      "before_sha256": "ae57b55c7a74417a09b300e3cd46eb70414795d76b60c3588e5a866f37cdeae7",
+      "after_sha256": "0ed305f33dc583d56993044bf0badda197088793629fc319669f293a12a5cd1d",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-lint-command.json",
+      "before_sha256": "71c7bf9dc77e3a81158a9209ab104a195c90b8e3568eacc72379a84db0dc3c32",
+      "after_sha256": "655dae3d66fae695920745b80db49e2a1af85267d7ae7b80a189c78f11fffad4",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-preservation-command.json",
+      "before_sha256": "d3333ce7073362187cdb34a37fefc2a96f6e2e15c15a40807930abf40dd319ab",
+      "after_sha256": "bf7146212faca3a0887dcd5b37c1e16e6a41a92053f0757f90b4bb2fd1fe76f9",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-tests-command.json",
+      "before_sha256": "fac060ca91f79d84614e408e1c16f46507073d8a08acb8efc58e9cc2ae18c1fa",
+      "after_sha256": "07b018174cd9c800c2a9806b8eeb8e4916e8c1fc4753e2387c4e340328f47275",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-tests-pre-fixture-update-unpinned-path.txt",
+      "before_sha256": "82154942a848f5d83b275bc7ed2b0a95791e153ba972c5fc63f4d853ac14c257",
+      "after_sha256": "b5d2efaad2ed7ef7edf1ebab263ef7b15280fcb5a3d8a5bd9dde0db6b898b985",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-tests-pre-fixture-update.txt",
+      "before_sha256": "82154942a848f5d83b275bc7ed2b0a95791e153ba972c5fc63f4d853ac14c257",
+      "after_sha256": "b5d2efaad2ed7ef7edf1ebab263ef7b15280fcb5a3d8a5bd9dde0db6b898b985",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/dependency-remediation-types-command.json",
+      "before_sha256": "29ab1480b228970ea8788c7d43369a43f8bcb4702632d4b9d4febff3646dd405",
+      "after_sha256": "962f2cc657fd0fde709f70332c1d49c440e6119cbafbe059ae892c363bf5a592",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/export-first-failure.txt",
+      "before_sha256": "367938fe080c0d8067641c0172f561af66cfb8a835f04382113803d8a4a3e25b",
+      "after_sha256": "687d871658a41bfeb65e40fe7fe49d52ddc961b5d5d6eb90f32daa5263845a1b",
+      "replacements": 2
+    },
+    {
+      "path": "docs/evidence/export-sdk57-navigation-failure.txt",
+      "before_sha256": "5b7c3d31c4a0cb1d0fa7437bdc16289bc46e27393d0382da85ff5912945b814d",
+      "after_sha256": "e99474c120b19949e9cc28f0985e263bba66ece71578444150ea31792092b194",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/export-sdk57.txt",
+      "before_sha256": "5b7c3d31c4a0cb1d0fa7437bdc16289bc46e27393d0382da85ff5912945b814d",
+      "after_sha256": "e99474c120b19949e9cc28f0985e263bba66ece71578444150ea31792092b194",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/lint-final-privacy-helper-failure.txt",
+      "before_sha256": "0f9e48116366d5de2f7febda5cb3feb375708305b09c33ea09f2a0ee22f53149",
+      "after_sha256": "93c33ab4f44a026c7e3d4678db3d47a0a654f550220220f6804e061b6110da24",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/lint-initial.json",
+      "before_sha256": "c768a09cf1033da7ff605e03905f2ced559b15c53fe40cef6740701ee92ce3d6",
+      "after_sha256": "b04631472b99d23c5561a8b3a6be9a7bd861febbf54104621c4bf25017123a73",
+      "replacements": 97
+    },
+    {
+      "path": "docs/evidence/lint-sdk57-first.txt",
+      "before_sha256": "e7e8b615491f95802f3eac01e4daafb39e5ca7aeef67fc45aa34d0f7b79aac98",
+      "after_sha256": "cee133e76069e157d2224a779311e5998335c3d561b97d57d72608778b325e96",
+      "replacements": 145
+    },
+    {
+      "path": "docs/evidence/lint-sdk57-second.txt",
+      "before_sha256": "5f206ad467b7b92ebd0280d8bf0f9ace183589905e55e0974bb79cecdc89ddeb",
+      "after_sha256": "440be114237b4841ba39c2406e0d2f2235bd25802de2767a3edb2c8e0b531551",
+      "replacements": 15
+    },
+    {
+      "path": "docs/evidence/npm-audit-compatible-fixes.txt",
+      "before_sha256": "dd2b72d1d2f4010f4fdc9ddedf443ec92484dcb1293d979e9ee193af2545e7af",
+      "after_sha256": "4a85de97be44c63acff36fb4ccacb5197c475ea6855bacdaada1908b50ca27b3",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/npm-ci-final-verified.txt",
+      "before_sha256": "80c8de21b4b55c6462e9e83c4f78ebc8fa056ea4c22802d905794a7e6875c1df",
+      "after_sha256": "542ad6904f6fc554546798b15dce6f8952fd84e97b67bb70fe21a084193a4a09",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/npm-ci-final.txt",
+      "before_sha256": "c7f31415794180457c275c30a951d3fdd12fd9304b2dfe06c970c85e3e3c2242",
+      "after_sha256": "02abb878f528a153c6b0e6572adf137c40bde585a3aa9b3e96bd2b8037838c71",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/preservation-stale-record-failure.txt",
+      "before_sha256": "23768ff14c7f7e488c6dd34238a4b72e21f8af53cc443acd9c71ff79be956357",
+      "after_sha256": "de37885dba31c0e4369a7c825839dd28c54c89f88e45e766b905cbf326d0bc06",
+      "replacements": 4
+    },
+    {
+      "path": "docs/evidence/sdk57-residual-lint-before-helper-cleanup.txt",
+      "before_sha256": "a000cf2c1e8e4ee3273aa7457823598f6c30b3d7e902223585b543648710698a",
+      "after_sha256": "718ad3e81e601086a1ae9cbffc1d255bbbba34d91ea8dd376e46628942e02b19",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/sdk57-residual-runtime-gate.txt",
+      "before_sha256": "d9299cf1b195ae4ceb73c8213df9708b4b7f74c20197012baf0dee1c2849df7e",
+      "after_sha256": "53b6503ec2fbef4c5f2b67f724161bd9cd23510c5f2b8d891cf2a9a950d6578a",
+      "replacements": 1
+    },
+    {
+      "path": "docs/evidence/start-final.txt",
+      "before_sha256": "0004f9a0e39cf0616a1a281fa5f8f4b918bb8b46973df28ac30ba60fbca0bdc4",
+      "after_sha256": "fdc4392b599fe4b676c6d9bd324cb43b969872191b2c0f9d20b211a1682d7ccf",
+      "replacements": 1
+    }
+  ]
+}

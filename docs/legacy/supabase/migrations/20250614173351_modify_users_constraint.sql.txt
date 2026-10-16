@@ -1,0 +1,18 @@
+-- First, identify the constraint name
+DO $$
+DECLARE
+    constraint_name text;
+BEGIN
+    SELECT conname INTO constraint_name
+    FROM pg_constraint
+    WHERE conrelid = 'public.users'::regclass
+    AND contype = 'f'
+    AND confrelid = 'auth.users'::regclass;
+
+    IF constraint_name IS NOT NULL THEN
+        EXECUTE 'ALTER TABLE public.users DROP CONSTRAINT ' || constraint_name;
+    END IF;
+END $$;
+
+-- Add a comment explaining what we did
+COMMENT ON TABLE public.users IS 'User profiles - no longer constrained to auth.users since we use Clerk for authentication'; 

@@ -1,0 +1,247 @@
+-- Moderation and utility features for communities
+
+-- 1) Add topic, rules, and pin fields to communities
+ALTER TABLE public.communities
+  ADD COLUMN IF NOT EXISTS topic TEXT NULL,
+  ADD COLUMN IF NOT EXISTS rules TEXT NULL,
+  ADD COLUMN IF NOT EXISTS pinned_message_id UUID NULL REFERENCES public.community_messages(id) ON DELETE SET NULL,
+  ADD COLUMN IF NOT EXISTS pinned_by UUID NULL REFERENCES public.users(id) ON DELETE SET NULL,
+  ADD COLUMN IF NOT EXISTS pinned_at TIMESTAMPTZ NULL;
+
+-- 2) Add reply_to_id to community_messages for message replies
+ALTER TABLE public.community_messages
+  ADD COLUMN IF NOT EXISTS reply_to_id UUID NULL REFERENCES public.community_messages(id) ON DELETE SET NULL;
+
+-- 3) Slowmode settings (per community)
+CREATE TABLE IF NOT EXISTS public.community_settings (
+  community_id UUID PRIMARY KEY REFERENCES public.communities(id) ON DELETE CASCADE,
+  slowmode_seconds INTEGER NOT NULL DEFAULT 0,
+  updated_by UUID NULL REFERENCES public.users(id) ON DELETE SET NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- 4) Community mutes
+CREATE TABLE IF NOT EXISTS public.community_mutes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  community_id UUID NOT NULL REFERENCES public.communities(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  muted_until TIMESTAMPTZ NOT NULL,
+  muted_by UUID NULL REFERENCES public.users(id) ON DELETE SET NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT unique_active_mute UNIQUE (community_id, user_id)
+);
+
+-- 5) Community bans
+CREATE TABLE IF NOT EXISTS public.community_bans (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  community_id UUID NOT NULL REFERENCES public.communities(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  reason TEXT NULL,
+  banned_by UUID NULL REFERENCES public.users(id) ON DELETE SET NULL,
+  banned_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  unbanned_at TIMESTAMPTZ NULL
+);
+
+-- 6) Community reports
+CREATE TABLE IF NOT EXISTS public.community_reports (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  community_id UUID NOT NULL REFERENCES public.communities(id) ON DELETE CASCADE,
+  reported_user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  reporter_user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  reason TEXT NULL,
+  status TEXT NOT NULL DEFAULT 'open',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- 7) RLS policies for new tables
+ALTER TABLE public.community_settings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.community_mutes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.community_bans ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.community_reports ENABLE ROW LEVEL SECURITY;
+
+-- Members can view settings; owners/admins can update
+DROP POLICY IF EXISTS "Members can view settings" ON public.community_settings;
+CREATE POLICY "Members can view settings"
+  ON public.community_settings FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_settings.community_id
+        AND cm.user_id = auth.uid()
+    )
+  );
+
+DROP POLICY IF EXISTS "Owners and admins can upsert settings" ON public.community_settings;
+CREATE POLICY "Owners and admins can upsert settings"
+  ON public.community_settings FOR INSERT
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_settings.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+CREATE POLICY "Owners and admins can update settings"
+  ON public.community_settings FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_settings.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+-- Community mutes policies
+DROP POLICY IF EXISTS "Members can view mutes" ON public.community_mutes;
+CREATE POLICY "Members can view mutes"
+  ON public.community_mutes FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_mutes.community_id
+        AND cm.user_id = auth.uid()
+    )
+  );
+
+CREATE POLICY "Owners and admins manage mutes"
+  ON public.community_mutes FOR ALL
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_mutes.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  )
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_mutes.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+-- Community bans policies
+DROP POLICY IF EXISTS "Members can view bans" ON public.community_bans;
+CREATE POLICY "Members can view bans"
+  ON public.community_bans FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_bans.community_id
+        AND cm.user_id = auth.uid()
+    )
+  );
+
+CREATE POLICY "Owners and admins manage bans"
+  ON public.community_bans FOR ALL
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_bans.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  )
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_bans.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+-- Community reports policies
+DROP POLICY IF EXISTS "Members can create reports" ON public.community_reports;
+CREATE POLICY "Members can create reports"
+  ON public.community_reports FOR INSERT
+  WITH CHECK (
+    reporter_user_id = auth.uid()
+    AND EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_reports.community_id
+        AND cm.user_id = auth.uid()
+    )
+  );
+
+CREATE POLICY "Owners and admins view reports"
+  ON public.community_reports FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_reports.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+-- 8) Update message insert policy to include lock, bans, mutes, and slowmode
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname = 'public' 
+      AND tablename = 'community_messages' 
+      AND policyname = 'Members can send messages to their communities'
+  ) THEN
+    DROP POLICY "Members can send messages to their communities" ON public.community_messages;
+  END IF;
+END $$;
+
+CREATE POLICY "Members can send messages to their communities"
+  ON public.community_messages FOR INSERT
+  WITH CHECK (
+    user_id = auth.uid()
+    AND EXISTS (
+      SELECT 1 FROM public.community_members
+      WHERE community_id = community_messages.community_id 
+        AND user_id = auth.uid()
+    )
+    AND (
+      -- If community is locked, only admins/owners can post
+      NOT EXISTS (
+        SELECT 1 FROM public.communities c
+        WHERE c.id = community_messages.community_id
+          AND c.is_locked = TRUE
+      )
+      OR EXISTS (
+        SELECT 1 FROM public.community_members cm
+        WHERE cm.community_id = community_messages.community_id
+          AND cm.user_id = auth.uid()
+          AND cm.role IN ('owner','admin')
+      )
+    )
+    AND NOT EXISTS (
+      -- Block banned users with active bans (unbanned_at is NULL)
+      SELECT 1 FROM public.community_bans b
+      WHERE b.community_id = community_messages.community_id
+        AND b.user_id = auth.uid()
+        AND b.unbanned_at IS NULL
+    )
+    AND NOT EXISTS (
+      -- Block muted users until mute expires
+      SELECT 1 FROM public.community_mutes m
+      WHERE m.community_id = community_messages.community_id
+        AND m.user_id = auth.uid()
+        AND m.muted_until > now()
+    )
+    AND NOT EXISTS (
+      -- Slowmode: if enabled, enforce interval between posts per user
+      SELECT 1 FROM public.community_settings cs
+      WHERE cs.community_id = community_messages.community_id
+        AND cs.slowmode_seconds > 0
+        AND EXISTS (
+          SELECT 1 FROM public.community_messages mm
+          WHERE mm.community_id = community_messages.community_id
+            AND mm.user_id = auth.uid()
+            AND EXTRACT(EPOCH FROM (now() - mm.created_at)) < cs.slowmode_seconds
+        )
+    )
+  );
+
+

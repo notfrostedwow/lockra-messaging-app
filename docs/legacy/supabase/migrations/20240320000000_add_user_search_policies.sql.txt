@@ -1,0 +1,30 @@
+-- Enable the pg_trgm extension first
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
+-- Drop existing policies if they exist
+DROP POLICY IF EXISTS "Users can read other users' basic info" ON users;
+DROP POLICY IF EXISTS "Users can search other users" ON users;
+
+-- Add policy to allow users to read basic information of other users
+CREATE POLICY "Users can read other users' basic info"
+  ON users
+  FOR SELECT
+  TO authenticated
+  USING (
+    -- Allow reading id and username for all users
+    -- This is needed for chat functionality
+    auth.uid() IS NOT NULL
+  );
+
+-- Add policy to allow users to search other users
+CREATE POLICY "Users can search other users"
+  ON users
+  FOR SELECT
+  TO authenticated
+  USING (
+    -- Allow searching by username
+    auth.uid() IS NOT NULL
+  );
+
+-- Add a simple index for username search
+CREATE INDEX IF NOT EXISTS idx_users_username_search ON users (username); 

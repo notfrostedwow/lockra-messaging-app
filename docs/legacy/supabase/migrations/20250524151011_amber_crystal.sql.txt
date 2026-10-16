@@ -1,0 +1,139 @@
+/*
+  # Initialize Lockra Messenger Database Schema
+
+  1. New Tables
+    - `users`
+      - `id` (uuid, primary key) - Matches auth.users.id
+      - `email` (text, unique)
+      - `username` (text, unique)
+      - `is_verified` (boolean)
+      - `banned` (boolean)
+      - `timeout_until` (timestamp)
+      - `can_send` (boolean)
+      - `role` (text) - 'user' or 'admin'
+      - `created_at` (timestamp)
+      - `updated_at` (timestamp)
+    
+    - `messages`
+      - `id` (uuid, primary key)
+      - `sender_id` (uuid, references users.id)
+      - `receiver_username` (text, references users.username)
+      - `content` (text)
+      - `timestamp` (timestamp)
+
+  2. Security
+    - Enable RLS on all tables
+    - Add policies for authenticated users to read/write their own data
+    - Add admin policies for moderation
+*/
+
+-- Drop everything first
+DROP TRIGGER IF EXISTS set_users_updated_at ON users;
+DROP TRIGGER IF EXISTS on_email_confirmation ON auth.users;
+
+-- Drop all policies first
+DROP POLICY IF EXISTS "Enable read access for authenticated users" ON users;
+DROP POLICY IF EXISTS "Enable insert for authenticated users" ON users;
+DROP POLICY IF EXISTS "Enable update for users based on id" ON users;
+DROP POLICY IF EXISTS "Enable insert for service role" ON users;
+DROP POLICY IF EXISTS "Enable read access for authenticated users" ON messages;
+DROP POLICY IF EXISTS "Enable insert for authenticated users" ON messages;
+DROP POLICY IF EXISTS "Enable read access for authenticated users" ON notifications;
+DROP POLICY IF EXISTS "Enable update for users based on user_id" ON notifications;
+DROP POLICY IF EXISTS "Enable insert for authenticated users" ON notifications;
+DROP POLICY IF EXISTS "Enable read access for admins" ON moderation_logs;
+
+-- Drop functions
+DROP FUNCTION IF EXISTS public.handle_updated_at();
+DROP FUNCTION IF EXISTS public.handle_email_confirmation();
+
+-- Drop tables with CASCADE
+DROP TABLE IF EXISTS moderation_logs CASCADE;
+DROP TABLE IF EXISTS notifications CASCADE;
+DROP TABLE IF EXISTS messages CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
+-- Enable necessary extensions
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Create users table
+CREATE TABLE IF NOT EXISTS users (
+  id UUID PRIMARY KEY REFERENCES auth.users(id),
+  email TEXT UNIQUE NOT NULL,
+  username TEXT UNIQUE NOT NULL,
+  is_verified BOOLEAN DEFAULT FALSE,
+  banned BOOLEAN DEFAULT FALSE,
+  timeout_until TIMESTAMPTZ DEFAULT NULL,
+  can_send BOOLEAN DEFAULT TRUE,
+  role TEXT DEFAULT 'user' CHECK (role IN ('user', 'admin')),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Enable Row Level Security
+ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+
+-- Create indexes
+CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);
+
+-- Create updated_at trigger function
+CREATE OR REPLACE FUNCTION public.handle_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Add updated_at trigger to users table
+CREATE TRIGGER set_users_updated_at
+  BEFORE UPDATE ON users
+  FOR EACH ROW
+  EXECUTE FUNCTION public.handle_updated_at();
+
+-- Create email confirmation trigger function
+CREATE OR REPLACE FUNCTION public.handle_email_confirmation()
+RETURNS TRIGGER AS $$
+BEGIN
+  UPDATE users
+  SET is_verified = TRUE
+  WHERE id = NEW.id AND email = NEW.email;
+  
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Add trigger for email confirmation
+CREATE TRIGGER on_email_confirmation
+  AFTER UPDATE OF email_confirmed_at ON auth.users
+  FOR EACH ROW
+  WHEN (OLD.email_confirmed_at IS NULL AND NEW.email_confirmed_at IS NOT NULL)
+  EXECUTE FUNCTION public.handle_email_confirmation();
+
+-- RLS Policies for users table
+CREATE POLICY "Enable read access for authenticated users"
+  ON users FOR SELECT
+  TO authenticated
+  USING (true);
+
+-- Allow users to insert their own profile
+CREATE POLICY "Enable insert for authenticated users"
+  ON users FOR INSERT
+  TO authenticated
+  WITH CHECK (auth.uid() = id);
+
+-- Allow users to update their own profile
+CREATE POLICY "Enable update for users based on id"
+  ON users FOR UPDATE
+  TO authenticated
+  USING (auth.uid() = id)
+  WITH CHECK (auth.uid() = id);
+
+-- Allow service role to insert users (needed for signup)
+CREATE POLICY "Enable insert for service role"
+  ON users FOR INSERT
+  TO service_role
+  WITH CHECK (true);
+
+-- Enable realtime for users table
+ALTER PUBLICATION supabase_realtime ADD TABLE users;

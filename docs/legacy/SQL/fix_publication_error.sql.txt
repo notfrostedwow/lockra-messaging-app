@@ -1,0 +1,35 @@
+-- Fix for "relation is already member of publication" error
+-- This script safely adds a table to a publication only if it's not already a member
+
+DO $$
+BEGIN
+    -- Check if the table is already a member of the publication
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_publication_tables
+        WHERE pubname = 'supabase_realtime'
+        AND schemaname = 'public'
+        AND tablename = 'messages'
+    ) THEN
+        -- If not a member, add it to the publication
+        EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.messages';
+    END IF;
+END
+$$;
+
+-- For any other tables you need to add, you can follow the same pattern:
+/*
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_publication_tables
+        WHERE pubname = 'supabase_realtime'
+        AND schemaname = 'public'
+        AND tablename = 'your_table_name'
+    ) THEN
+        EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.your_table_name';
+    END IF;
+END
+$$;
+*/ 

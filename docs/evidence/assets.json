@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-16T01:32:50.962Z",
+  "files": [
+    {
+      "path": "assets/images/icon.png",
+      "sha256": "74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de",
+      "bytes": 22380,
+      "width": 1024,
+      "height": 1024,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13
+        },
+        {
+          "type": "PLTE",
+          "bytes": 123
+        },
+        {
+          "type": "IDAT",
+          "bytes": 22188
+        },
+        {
+          "type": "IEND",
+          "bytes": 0
+        }
+      ],
+      "metadataChunks": [],
+      "trailingBytes": 0,
+      "visualInspection": "Generic gray grid/circle placeholder; no apparent personal subject.",
+      "authorship": "Unverified",
+      "redistributionRights": "Unverified; no blanket MIT license asserted",
+      "requiredBeforePublication": "Independent parent visual, privacy, provenance and license review; absence of metadata is not provenance proof."
+    },
+    {
+      "path": "assets/images/favicon.png",
+      "sha256": "24272cdaeff82cc5facdaccd982a6f05b60c4504704bbf94c19a6388659880bb",
+      "bytes": 1466,
+      "width": 48,
+      "height": 48,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13
+        },
+        {
+          "type": "IDAT",
+          "bytes": 1409
+        },
+        {
+          "type": "IEND",
+          "bytes": 0
+        }
+      ],
+      "metadataChunks": [],
+      "trailingBytes": 0,
+      "visualInspection": "Small cube mark; no apparent personal subject.",
+      "authorship": "Unverified",
+      "redistributionRights": "Unverified; no blanket MIT license asserted",
+      "requiredBeforePublication": "Independent parent visual, privacy, provenance and license review; absence of metadata is not provenance proof."
+    }
+  ]
+}

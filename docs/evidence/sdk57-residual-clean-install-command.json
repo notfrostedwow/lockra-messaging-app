@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-16T09:09:24.919Z",
+  "command": "npm ci --ignore-scripts --registry=https://registry.npmjs.org",
+  "node": "v22.23.3",
+  "childPathPinned": true,
+  "demo": "demo",
+  "noDotenv": "1",
+  "noTelemetry": "1",
+  "expoOffline": true,
+  "seconds": 747.151,
+  "exit": 0
+}

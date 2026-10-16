@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-16T09:23:41.736Z",
+  "command": "npm run audit:dependencies",
+  "node": "v22.23.3",
+  "childPathPinned": true,
+  "demo": "demo",
+  "noDotenv": "1",
+  "noTelemetry": "1",
+  "expoOffline": true,
+  "seconds": 338.612,
+  "exit": 0
+}

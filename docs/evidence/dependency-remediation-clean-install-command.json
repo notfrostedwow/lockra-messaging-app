@@ -1,0 +1,12 @@
+{
+  "command": "npm ci --ignore-scripts --registry=https://registry.npmjs.org",
+  "date": "2026-10-16T03:50:29.631Z",
+  "node": "v22.23.3",
+  "ci": "1",
+  "noDotenv": "1",
+  "telemetryDisabled": "1",
+  "demoMode": "demo",
+  "officialMetadataNetworkAllowed": false,
+  "exit": 0,
+  "seconds": 457.558
+}

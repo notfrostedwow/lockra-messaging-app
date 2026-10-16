@@ -1,0 +1,18 @@
+[
+  [
+    "app/contexts/AuthContext.tsx",
+    "contexts/AuthContext.tsx"
+  ],
+  [
+    "app/contexts/SecureBootContext.tsx",
+    "contexts/SecureBootContext.tsx"
+  ],
+  [
+    "app/components/NotificationListener.tsx",
+    "components/NotificationListener.tsx"
+  ],
+  [
+    "app/types.ts",
+    "types/user-profile.ts"
+  ]
+]

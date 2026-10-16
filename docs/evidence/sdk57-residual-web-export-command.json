@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-16T09:17:46.158Z",
+  "command": "npm run build:web",
+  "node": "v22.23.3",
+  "childPathPinned": true,
+  "demo": "demo",
+  "noDotenv": "1",
+  "noTelemetry": "1",
+  "expoOffline": true,
+  "seconds": 71.841,
+  "exit": 0
+}

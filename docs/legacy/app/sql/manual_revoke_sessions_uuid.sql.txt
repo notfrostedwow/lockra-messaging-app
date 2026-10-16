@@ -1,0 +1,13 @@
+-- Function to revoke all sessions for a user with UUID parameter
+CREATE OR REPLACE FUNCTION public.manual_revoke_sessions_uuid(
+  user_id_uuid UUID
+) RETURNS VOID AS $$
+BEGIN
+  -- Update the auth.users table to invalidate all sessions
+  UPDATE auth.users
+  SET invalidate_sessions = true
+  WHERE id::uuid = user_id_uuid::uuid;
+  
+  RETURN;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER; 

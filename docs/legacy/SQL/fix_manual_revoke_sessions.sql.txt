@@ -1,0 +1,35 @@
+-- Fix the manual_revoke_sessions function to handle UUID parameters correctly
+CREATE OR REPLACE FUNCTION public.manual_revoke_sessions(user_id_param UUID)
+RETURNS void
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+BEGIN
+  -- Delete all refresh tokens for the user
+  DELETE FROM auth.refresh_tokens
+  WHERE auth.refresh_tokens.user_id = user_id_param::uuid;
+  
+  -- Update the user's last_sign_in_at to invalidate existing sessions
+  UPDATE auth.users
+  SET last_sign_in_at = '1970-01-01 00:00:00+00'::timestamptz
+  WHERE id = user_id_param::uuid;
+END;
+$$;
+
+-- Also fix the original function for consistency
+CREATE OR REPLACE FUNCTION public.revoke_user_sessions(user_id_param UUID)
+RETURNS void
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+BEGIN
+  -- Delete all refresh tokens for the user
+  DELETE FROM auth.refresh_tokens
+  WHERE auth.refresh_tokens.user_id = user_id_param::uuid;
+  
+  -- Update the user's last_sign_in_at to invalidate existing sessions
+  UPDATE auth.users
+  SET last_sign_in_at = '1970-01-01 00:00:00+00'::timestamptz
+  WHERE id = user_id_param::uuid;
+END;
+$$; 

@@ -1,0 +1,78 @@
+-- Create privacy_settings table to store user privacy preferences
+CREATE TABLE IF NOT EXISTS public.privacy_settings (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    show_email BOOLEAN NOT NULL DEFAULT false,
+    show_online_status BOOLEAN NOT NULL DEFAULT true,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT now() NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT now() NOT NULL,
+    UNIQUE(user_id)
+);
+
+-- Add RLS policies
+ALTER TABLE public.privacy_settings ENABLE ROW LEVEL SECURITY;
+
+-- Policy to allow users to view their own privacy settings
+CREATE POLICY "Users can view their own privacy settings" 
+    ON public.privacy_settings 
+    FOR SELECT 
+    USING (auth.uid() = user_id);
+
+-- Policy to allow users to view others' privacy settings
+-- This is needed so that other users can see if they're allowed to view someone's email
+CREATE POLICY "Users can view others' privacy settings" 
+    ON public.privacy_settings 
+    FOR SELECT 
+    TO authenticated
+    USING (true);
+
+-- Policy to allow users to insert their own privacy settings
+CREATE POLICY "Users can insert their own privacy settings" 
+    ON public.privacy_settings 
+    FOR INSERT 
+    WITH CHECK (auth.uid() = user_id);
+
+-- Policy to allow users to update their own privacy settings
+CREATE POLICY "Users can update their own privacy settings" 
+    ON public.privacy_settings 
+    FOR UPDATE 
+    USING (auth.uid() = user_id);
+
+-- Add trigger to privacy_settings table
+CREATE TRIGGER set_privacy_settings_updated_at
+BEFORE UPDATE ON public.privacy_settings
+FOR EACH ROW
+EXECUTE FUNCTION public.handle_updated_at();
+
+-- Insert default privacy settings for existing users
+INSERT INTO public.privacy_settings (user_id, show_email, show_online_status)
+SELECT id, false, true
+FROM auth.users
+WHERE NOT EXISTS (
+    SELECT 1 FROM public.privacy_settings WHERE user_id = auth.users.id
+);
+
+-- Create a function to automatically create privacy settings for new users
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.privacy_settings (user_id, show_email, show_online_status)
+  VALUES (NEW.id, false, true);
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Check if trigger exists before creating it
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_trigger 
+    WHERE tgname = 'on_auth_user_created'
+  ) THEN
+    -- Create a trigger to call the function when a new user is created
+    CREATE TRIGGER on_auth_user_created
+      AFTER INSERT ON auth.users
+      FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+  END IF;
+END
+$$;

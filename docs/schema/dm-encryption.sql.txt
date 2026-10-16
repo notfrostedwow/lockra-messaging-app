@@ -1,0 +1,34 @@
+NONRUNNABLE SCHEMA CONTRACT -- REVIEW AND ISOLATED TESTS REQUIRED
+This is documentation, not a migration. Do not run against a live project.
+
+Required additions to existing messages:
+  recipient_id references public.users(id), nullable ONLY for legacy rows;
+  encryption_version smallint, ciphertext text;
+  existing content retained for legacy compatibility; new encrypted rows content=''.
+  CHECK new encoding: encryption_version=1, recipient_id NOT NULL,
+    content='', ciphertext IS NOT NULL, bounded JSON/version/key/nonce/tag sizes.
+  Sender/recipient IDs, ciphertext, timestamp, encryption_version immutable.
+  INSERT requires signed session -> provisioned users.clerk_id -> sender_id;
+    can_send, bans and bilateral blocks enforced by reviewed database policy.
+  SELECT only sender_id=current_user_profile_id OR recipient_id=current_user_profile_id.
+  Legacy SELECT uses reviewed immutable ownership backfill, NOT an editable username.
+  UPDATE column grants allow ONLY read; policy requires recipient ownership.
+  DELETE only sender (or a separately audited moderation policy).
+  Unique primary message ID; do not permit upsert overwrite of ciphertext.
+
+Required dm_public_keys:
+  user_id references users(id), key_id SHA256 hex fingerprint, public_key X25519 hex;
+  composite primary key(user_id,key_id), server-generated created_at.
+  signed authenticated users may SELECT public keys;
+  INSERT only for own provisioned user ID. Validate fingerprint and curve key;
+  UPDATE/DELETE denied to clients, immutable historical public records retained.
+  Current key selection by server ordering; concurrent rotation needs transaction/CAS
+  and independent-device policy before multi-device support (not implemented).
+  Absolutely no secret/private key column or server upload.
+
+Use SECURITY INVOKER or reviewed policy helpers with fixed search_path, explicit
+grants and no caller-controlled identity or arbitrary SQL execution. No assumption
+that legacy security-definer functions or policies are safe. Required isolated
+negative tests: anonymous/foreign JWT, forged sender, other recipient read,
+identity substitution, directory overwrite, ciphertext rewrite, read/delete abuse,
+blocked/banned sender, duplicate/replayed ID and legacy migration ownership.

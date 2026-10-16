@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-16T09:14:50.147Z",
+  "command": "npm run lint",
+  "node": "v22.23.3",
+  "childPathPinned": true,
+  "demo": "demo",
+  "noDotenv": "1",
+  "noTelemetry": "1",
+  "expoOffline": true,
+  "seconds": 82.472,
+  "exit": 1
+}

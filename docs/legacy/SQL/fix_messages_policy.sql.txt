@@ -1,0 +1,161 @@
+-- Fix messages table RLS policy
+-- This file addresses the error: "new row violates row-level security policy for table messages"
+
+-- First, check if the messages table exists and create it if not
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = 'messages') THEN
+    CREATE TABLE public.messages (
+      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+      sender_id UUID NOT NULL REFERENCES auth.users(id),
+      receiver_username TEXT NOT NULL REFERENCES users(username),
+      content TEXT NOT NULL,
+      timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      read BOOLEAN DEFAULT FALSE
+    );
+    
+    -- Create index for faster queries
+    CREATE INDEX idx_messages_sender_id ON public.messages(sender_id);
+    CREATE INDEX idx_messages_receiver_username ON public.messages(receiver_username);
+    CREATE INDEX idx_messages_timestamp ON public.messages(timestamp);
+    
+    -- Enable row level security
+    ALTER TABLE public.messages ENABLE ROW LEVEL SECURITY;
+  END IF;
+END
+$$;
+
+-- Check if file_attachments table exists and create it if not
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = 'file_attachments') THEN
+    CREATE TABLE public.file_attachments (
+      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+      message_id UUID NOT NULL REFERENCES public.messages(id) ON DELETE CASCADE,
+      file_name TEXT NOT NULL,
+      file_type TEXT NOT NULL,
+      file_size INTEGER NOT NULL,
+      storage_path TEXT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    
+    -- Create index for faster queries
+    CREATE INDEX idx_file_attachments_message_id ON public.file_attachments(message_id);
+    
+    -- Enable row level security
+    ALTER TABLE public.file_attachments ENABLE ROW LEVEL SECURITY;
+  END IF;
+END
+$$;
+
+-- Drop existing policies if they exist
+DROP POLICY IF EXISTS "Users can read messages they sent or received" ON public.messages;
+DROP POLICY IF EXISTS "Users can insert messages they send" ON public.messages;
+DROP POLICY IF EXISTS "Users can update messages they sent" ON public.messages;
+DROP POLICY IF EXISTS "Users can delete their own messages" ON public.messages;
+
+DROP POLICY IF EXISTS "Users can read their attachments" ON public.file_attachments;
+DROP POLICY IF EXISTS "Users can insert their attachments" ON public.file_attachments;
+DROP POLICY IF EXISTS "Users can delete their attachments" ON public.file_attachments;
+
+-- Create policies for the messages table
+-- 1. Users can read messages they sent or received
+CREATE POLICY "Users can read messages they sent or received"
+ON public.messages FOR SELECT
+USING (
+  auth.uid() = sender_id OR 
+  EXISTS (
+    SELECT 1 FROM users 
+    WHERE users.id = auth.uid() AND users.username = receiver_username
+  )
+);
+
+-- 2. Users can insert messages they send
+CREATE POLICY "Users can insert messages they send"
+ON public.messages FOR INSERT
+WITH CHECK (
+  auth.uid() = sender_id
+);
+
+-- 3. Users can update messages they sent (e.g., mark as read)
+CREATE POLICY "Users can update messages they sent"
+ON public.messages FOR UPDATE
+USING (
+  auth.uid() = sender_id
+);
+
+-- 4. Users can delete their own messages
+CREATE POLICY "Users can delete their own messages"
+ON public.messages FOR DELETE
+USING (
+  auth.uid() = sender_id
+);
+
+-- Create policies for the file_attachments table
+-- 1. Users can read attachments for messages they sent or received
+CREATE POLICY "Users can read their attachments"
+ON public.file_attachments FOR SELECT
+USING (
+  EXISTS (
+    SELECT 1 FROM messages
+    WHERE messages.id = file_attachments.message_id
+    AND (
+      messages.sender_id = auth.uid() OR
+      EXISTS (
+        SELECT 1 FROM users
+        WHERE users.id = auth.uid() AND users.username = messages.receiver_username
+      )
+    )
+  )
+);
+
+-- 2. Users can insert attachments for messages they send
+CREATE POLICY "Users can insert their attachments"
+ON public.file_attachments FOR INSERT
+WITH CHECK (
+  EXISTS (
+    SELECT 1 FROM messages
+    WHERE messages.id = file_attachments.message_id
+    AND messages.sender_id = auth.uid()
+  )
+);
+
+-- 3. Users can delete attachments for messages they sent
+CREATE POLICY "Users can delete their attachments"
+ON public.file_attachments FOR DELETE
+USING (
+  EXISTS (
+    SELECT 1 FROM messages
+    WHERE messages.id = file_attachments.message_id
+    AND messages.sender_id = auth.uid()
+  )
+);
+
+-- Safely enable realtime for messages and file_attachments tables
+DO $$
+BEGIN
+    -- Check if messages table is already a member of the publication
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_publication_tables
+        WHERE pubname = 'supabase_realtime'
+        AND schemaname = 'public'
+        AND tablename = 'messages'
+    ) THEN
+        -- If not a member, add it to the publication
+        EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.messages';
+    END IF;
+    
+    -- Check if file_attachments table is already a member of the publication
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_publication_tables
+        WHERE pubname = 'supabase_realtime'
+        AND schemaname = 'public'
+        AND tablename = 'file_attachments'
+    ) THEN
+        -- If not a member, add it to the publication
+        EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.file_attachments';
+    END IF;
+END
+$$; 

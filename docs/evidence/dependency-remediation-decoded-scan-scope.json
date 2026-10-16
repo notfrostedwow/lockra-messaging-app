@@ -1,0 +1,225 @@
+{
+  "scope": "All tracked/unignored UTF16LE BOM files, converted to UTF8 only in ignored scan cache; original evidence untouched. Dedicated scanner config uses default rules with no path allowlists.",
+  "converted": [
+    {
+      "originalPath": "docs/evidence/dependency-remediation-gitleaks-decoded.txt",
+      "decodedFile": "32f9be0af56d9bd7a9997cde140c574a6a6862d73c272f1de5c1636feb7ebf86.txt"
+    },
+    {
+      "originalPath": "docs/evidence/dependency-remediation-gitleaks-tree.txt",
+      "decodedFile": "36b024113d9040e838e9f4f50b0242b20df12064f050b09569fe562e6b4884d2.txt"
+    },
+    {
+      "originalPath": "docs/evidence/calling-server-disabled.txt",
+      "decodedFile": "fcf963a8b8b13f7bfd14b3a5e4a4c4ea2bf6908b583389b1ad2bbccb0f0b2c52.txt"
+    },
+    {
+      "originalPath": "docs/evidence/calling-session-boundary-after.txt",
+      "decodedFile": "b41d21eab6bd7ed6a1de5fd749af115c5f68e81249f732bda1e9dd09e3dd2365.txt"
+    },
+    {
+      "originalPath": "docs/evidence/calling-session-boundary-before.txt",
+      "decodedFile": "9fba574c2bce2ed097ac8efd80fd9f51ab95f472b298f90c04e3093d89b4acb8.txt"
+    },
+    {
+      "originalPath": "docs/evidence/dependency-prune.txt",
+      "decodedFile": "624731719bf82ff58af82cc4f558d40baf681fcaf9961e7d485f397d4a197a12.txt"
+    },
+    {
+      "originalPath": "docs/evidence/export-calling.txt",
+      "decodedFile": "2ef4d674c731ff0dfbc96eb562aaf2d70e3786222df80ff07b5d94dfc240bd01.txt"
+    },
+    {
+      "originalPath": "docs/evidence/export-e2ee.txt",
+      "decodedFile": "af272ea07cb6c93d76095d1d8d18b2f3b882a044f1b9e423bfbfe936658d0d1e.txt"
+    },
+    {
+      "originalPath": "docs/evidence/export-final-verified.txt",
+      "decodedFile": "ecd5f08c25cb853a50dcb874b04c9690dd48db94a61d6e1649216a7ff8a5aceb.txt"
+    },
+    {
+      "originalPath": "docs/evidence/export-final.txt",
+      "decodedFile": "912e0530d72ac2f51fafd8f0f9d326d663554413f08f6a2c37f5e99aadf3ba58.txt"
+    },
+    {
+      "originalPath": "docs/evidence/export-sdk57-navigation-failure.txt",
+      "decodedFile": "8115cb883f178277e3992e1a9bdce5c578bf7ba94b91bec7cea9f764e9798aa3.txt"
+    },
+    {
+      "originalPath": "docs/evidence/export-sdk57.txt",
+      "decodedFile": "ad6ae7ff5109d87943f6b66d7ee7c2bee884032a1b8d1b975f1a8f74348058aa.txt"
+    },
+    {
+      "originalPath": "docs/evidence/gitleaks-history-final.txt",
+      "decodedFile": "1593c9e3326554479c1c3f4e6d1777ea2fcce5f5982e1df9581e7e4a49d24bd4.txt"
+    },
+    {
+      "originalPath": "docs/evidence/gitleaks-history-post-implementation.txt",
+      "decodedFile": "a18a31301754b0d95cb3879a0378aea05e04accae33bbcb6a263ca325760da51.txt"
+    },
+    {
+      "originalPath": "docs/evidence/gitleaks-tree-baseline.txt",
+      "decodedFile": "65351acb3407ef15e071c9a80fba235ad90a13ae0e66cf4eed30bd5474ddc2cd.txt"
+    },
+    {
+      "originalPath": "docs/evidence/gitleaks-tree-calling.txt",
+      "decodedFile": "8d0d84b89e7f70029f5d812a88dab994e1607d2a9b1d8106bbd0f7c9bdd35173.txt"
+    },
+    {
+      "originalPath": "docs/evidence/gitleaks-tree-e2ee.txt",
+      "decodedFile": "902f0966824086eef7288e1c4cf066cbf757ccb92b8dc3cc71077c3052525240.txt"
+    },
+    {
+      "originalPath": "docs/evidence/gitleaks-tree-final.txt",
+      "decodedFile": "14c7440af8b21abd42d9bf8520ab2176d2a6550749643949eacc1915be88550e.txt"
+    },
+    {
+      "originalPath": "docs/evidence/gitleaks-tree-handoff.txt",
+      "decodedFile": "9b01daf25c95beb2bcc7789548838c06ba1d66b8ad9e524a19ba9ac435496892.txt"
+    },
+    {
+      "originalPath": "docs/evidence/install-calling.txt",
+      "decodedFile": "927651ffc7f7c99e9bf53e9f2dbc3bb3d2c92e31b2608a2b765b715c9bd0acdc.txt"
+    },
+    {
+      "originalPath": "docs/evidence/install-clerk-sdk57.txt",
+      "decodedFile": "cf37bd16e59be30f867dd14b38e67925bf614a83b2561c4800fc39244f19fa0a.txt"
+    },
+    {
+      "originalPath": "docs/evidence/install-e2ee.txt",
+      "decodedFile": "eff20787b23624801b2ea0feb7aeda10e273cb929844be08014f5555a5955136.txt"
+    },
+    {
+      "originalPath": "docs/evidence/install-eslint-explicit.txt",
+      "decodedFile": "93dbe40d87d9bb276505f8b9a6edd04773e53a2ec9fde4186bcc119d61c8dbda.txt"
+    },
+    {
+      "originalPath": "docs/evidence/install-sdk57.txt",
+      "decodedFile": "1e2e423a0dffb2f964c4cd99d02e6520a9ebe4fa7f9ca20a5666ee1b64974ae0.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-calling.txt",
+      "decodedFile": "9cb1012a35ae181120e9d322031c28a295d7d2bbc638785ee1b3b4001d6f3f1f.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-e2ee.txt",
+      "decodedFile": "0409455c43f62f160d85389dd1314b7182254dc515b521baedff25754469de94.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-final-privacy-helper-failure.txt",
+      "decodedFile": "f1728ca802924227d71db6cd349c3e667b7f7ed0fbfad34300f0c7fc33308361.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-final-verified.txt",
+      "decodedFile": "964c7bb8147b19dd89b67a2d7f42a82998903c9c2763a3971a6a7b6a4d9fb8d0.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-final.txt",
+      "decodedFile": "f0495694c7758d5d258bc1bc9e993cdcccbc573e690e9ec4ac56aa426a5ac5a8.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-sdk57-first.txt",
+      "decodedFile": "9afb2d9242fcf697ad1477a3c69798193e1a1fb3dccc5a1d60777c09ed07bc0d.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-sdk57-second.txt",
+      "decodedFile": "12a04fc8318fa7bacbcaa7d63f064f577c879a8e82488b6b8438f707b769548f.txt"
+    },
+    {
+      "originalPath": "docs/evidence/lint-sdk57.txt",
+      "decodedFile": "beabf5b49f6478d14e6299e82c319db9736bfd05807fa16476b349d885b4097c.txt"
+    },
+    {
+      "originalPath": "docs/evidence/navigation-sdk57.txt",
+      "decodedFile": "79e8cef7ae3275616e2dde996698b91ac9c2bbc49ab23246e6e869c703d439a1.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-audit-before.json",
+      "decodedFile": "877b7c69a679946b648877b1043a08a1b606320d9208f9db40e282c75ffe8b0a.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-audit-compatible-fixes.txt",
+      "decodedFile": "0cd09621c662cc3ad99b8b19acc4cba49c85df8e5a9b406736abf3f615022906.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-audit-final-verified.json",
+      "decodedFile": "4de15ec0f1e666e5a0c21b8d8890e7b601eff934941ca18ec276cf71b9dd4010.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-audit-final.json",
+      "decodedFile": "47d8a066147583cfb6f6ab3c25afc96b29729eece2358687eca8197ae46dfe0b.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-audit-sdk53.json",
+      "decodedFile": "6396c8172bc8964a8bf12c517eecb421b0d847ef4f2eebd9fd755681ab4c5307.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-audit-sdk57-compatible-fixes.txt",
+      "decodedFile": "c1fa7b2debe5cc0a490f8ab720708a8be372a7e2247d6dcf3f24ee6157b389ae.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-ci-final-verified.txt",
+      "decodedFile": "dd0d699adfe2f0dd4aead2214b77924bc8214d95a9d7ed366cf058c439626d3d.txt"
+    },
+    {
+      "originalPath": "docs/evidence/npm-ci-final.txt",
+      "decodedFile": "a512c04eb1f1349fd8e6e9e26052be3faf10923d690dfca65330ffbe21b15e3c.txt"
+    },
+    {
+      "originalPath": "docs/evidence/preservation-final-verified.txt",
+      "decodedFile": "dd34afbcc19d543c47403d44d7e6b0e4956ce499027f10310dd47049a8529f03.txt"
+    },
+    {
+      "originalPath": "docs/evidence/preservation-stale-record-failure.txt",
+      "decodedFile": "9c5fd33b3e5eff4a6c47717f40aa68a30c8bb90959496e1307d1459d8cc515a5.txt"
+    },
+    {
+      "originalPath": "docs/evidence/start-final.txt",
+      "decodedFile": "311110e87c6f0c7ec1a0a6afab70b04905a94d152e45cde4b1feebc84d1ea4c1.txt"
+    },
+    {
+      "originalPath": "docs/evidence/tests-calling.txt",
+      "decodedFile": "02e285713854264439951d1a845a8e08731120aef02a6cca469d3b5803dd0fcc.txt"
+    },
+    {
+      "originalPath": "docs/evidence/tests-e2ee.txt",
+      "decodedFile": "6a6c52c884380bd974c5d21b02cc1ecc42e74c59662f15a77ebac66a64bf973b.txt"
+    },
+    {
+      "originalPath": "docs/evidence/tests-final-verified.txt",
+      "decodedFile": "2139f8b650d7e680ac5614fa13cadd6fc72702a2947b64c7424756623cc1c7fe.txt"
+    },
+    {
+      "originalPath": "docs/evidence/tests-final.txt",
+      "decodedFile": "290c720be5320ed66f394958992d162e43eb94ad3a1e8eab9ccc202df1c8f4af.txt"
+    },
+    {
+      "originalPath": "docs/evidence/tests-sdk57.txt",
+      "decodedFile": "05f6e65ccd74447a065a9bcdd25f4864d58798a2f811ecac4b9e540632f0ed97.txt"
+    },
+    {
+      "originalPath": "docs/evidence/types-calling.txt",
+      "decodedFile": "49482d778b8567b339691bdc38a7cf5c9f5545177fdf7407580964d6a3f13a6a.txt"
+    },
+    {
+      "originalPath": "docs/evidence/types-e2ee.txt",
+      "decodedFile": "c995bf16951fcef9d918c3aade19dd096d1394eb19ef760b1c9beb6106ab665b.txt"
+    },
+    {
+      "originalPath": "docs/evidence/types-final-verified.txt",
+      "decodedFile": "95da58bccbe50457cae9debf540d5a24a038489d3fe6f75b47854b576bd295c0.txt"
+    },
+    {
+      "originalPath": "docs/evidence/types-final.txt",
+      "decodedFile": "60f3907e2bb3a2a1327a22f9e54ac9473e9a79c79875c86b82823f5cad0152d2.txt"
+    },
+    {
+      "originalPath": "docs/evidence/types-sdk57-first.txt",
+      "decodedFile": "75b31ea0ac66a188fa06d82633862121af6fce324f67ceff0d983e8ecc391134.txt"
+    },
+    {
+      "originalPath": "docs/evidence/types-sdk57.txt",
+      "decodedFile": "297e5497b065c4d9300c1fc9fbf8cfc7107bb26e5ed0edf90a3f91152b9b617c.txt"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+name: Offline verification
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EXPO_NO_DOTENV: "1"
+      EXPO_NO_TELEMETRY: "1"
+      EXPO_OFFLINE: "1"
+      EXPO_PUBLIC_LOCKRA_MODE: demo
+      NODE_OPTIONS: --max-old-space-size=2048
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "22.23.3"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build:web
+      - run: npm run verify:preservation
+  dependency-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: "1"
+      EXPO_NO_DOTENV: "1"
+      EXPO_NO_TELEMETRY: "1"
+      EXPO_PUBLIC_LOCKRA_MODE: demo
+      __UNSAFE_EXPO_HOME_DIRECTORY: ${{ github.workspace }}/.cache/expo
+      NODE_OPTIONS: --max-old-space-size=2048
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "22.23.3"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx --no-install expo install --check
+      - run: npx --yes --ignore-scripts --package=expo-doctor@1.21.4 expo-doctor --verbose
+        if: ${{ !cancelled() }}
+      # Raw audits retain their finding counts. This gate rebuilds web/iOS/Android
+      # JavaScript maps and the calling-server graph, applies the explicit public
+      # residual policy, and fails on unknown risks or high/critical runtime code.
+      # Native JS export is not a native build or a device/provider test.
+      - run: npm run audit:dependencies
+        if: ${{ !cancelled() }}

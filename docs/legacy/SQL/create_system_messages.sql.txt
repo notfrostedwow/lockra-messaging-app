@@ -1,0 +1,56 @@
+-- Create system_messages table for real-time notifications
+CREATE TABLE IF NOT EXISTS public.system_messages (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  type TEXT NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  read_at TIMESTAMPTZ,
+  action_required BOOLEAN DEFAULT FALSE,
+  action TEXT,
+  metadata JSONB
+);
+
+-- Add RLS policies for system_messages
+ALTER TABLE public.system_messages ENABLE ROW LEVEL SECURITY;
+
+-- Users can only read their own system messages
+CREATE POLICY "Users can read their own system messages"
+  ON public.system_messages
+  FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- Only admins can create system messages
+CREATE POLICY "Only admins can create system messages"
+  ON public.system_messages
+  FOR INSERT
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM public.users
+      WHERE users.id = auth.uid() AND users.role = 'admin'
+    )
+  );
+
+-- Create index on user_id for faster queries
+CREATE INDEX IF NOT EXISTS system_messages_user_id_idx ON public.system_messages (user_id);
+
+-- Create index on created_at for faster sorting
+CREATE INDEX IF NOT EXISTS system_messages_created_at_idx ON public.system_messages (created_at);
+
+-- Create index on type for faster filtering
+CREATE INDEX IF NOT EXISTS system_messages_type_idx ON public.system_messages (type);
+
+-- Enable realtime for the system_messages table
+BEGIN;
+  -- Check if the publication exists
+  DO $$
+  BEGIN
+    IF EXISTS (SELECT 1 FROM pg_publication WHERE pubname = 'supabase_realtime') THEN
+      -- Publication exists, add the table
+      ALTER PUBLICATION supabase_realtime ADD TABLE system_messages;
+    ELSE
+      -- Publication doesn't exist, create it
+      CREATE PUBLICATION supabase_realtime FOR TABLE system_messages;
+    END IF;
+  END $$;
+COMMIT; 

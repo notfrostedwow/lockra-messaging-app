@@ -1,0 +1,24 @@
+-- Fix foreign key for communities.locked_by to reference public.users(id)
+
+DO $$
+DECLARE
+  fk_name text;
+BEGIN
+  SELECT conname INTO fk_name
+  FROM pg_constraint
+  WHERE conrelid = 'public.communities'::regclass
+    AND contype = 'f'
+    AND conname = 'communities_locked_by_fkey';
+
+  IF fk_name IS NOT NULL THEN
+    EXECUTE 'ALTER TABLE public.communities DROP CONSTRAINT ' || quote_ident(fk_name);
+  END IF;
+END $$;
+
+ALTER TABLE public.communities
+  ADD CONSTRAINT communities_locked_by_fkey
+  FOREIGN KEY (locked_by)
+  REFERENCES public.users(id)
+  ON DELETE SET NULL;
+
+

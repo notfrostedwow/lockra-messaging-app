@@ -1,0 +1,598 @@
+{
+  "recordedAt": "2026-10-16T03:07:38.074Z",
+  "scope": "Resolved lockfile receipt; declarations/peer acceptance are not native runtime proof. Lifecycle scripts were ignored.",
+  "dependencies": [
+    {
+      "name": "@clerk/expo",
+      "declared": "4.12.0",
+      "resolved": "4.12.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@config-plugins/react-native-webrtc",
+      "declared": "15.0.2",
+      "resolved": "15.0.2",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@expo/metro-runtime",
+      "declared": "~57.0.17",
+      "resolved": "57.0.17",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@expo/vector-icons",
+      "declared": "^15.0.2",
+      "resolved": "15.1.1",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@livekit/react-native",
+      "declared": "3.0.0",
+      "resolved": "3.0.0",
+      "licenseMetadata": "Apache-2.0",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@livekit/react-native-expo-plugin",
+      "declared": "1.0.3",
+      "resolved": "1.0.3",
+      "licenseMetadata": "Apache-2.0",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@livekit/react-native-webrtc",
+      "declared": "144.2.0",
+      "resolved": "144.2.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@lucide/lab",
+      "declared": "^0.1.2",
+      "resolved": "0.1.2",
+      "licenseMetadata": "ISC",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@noble/ciphers",
+      "declared": "2.4.0",
+      "resolved": "2.4.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@noble/curves",
+      "declared": "2.4.0",
+      "resolved": "2.4.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@noble/hashes",
+      "declared": "2.4.0",
+      "resolved": "2.4.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@react-native-async-storage/async-storage",
+      "declared": "2.2.0",
+      "resolved": "2.2.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@supabase/supabase-js",
+      "declared": "2.118.0",
+      "resolved": "2.118.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@types/uuid",
+      "declared": "^10.0.0",
+      "resolved": "10.0.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "date-fns",
+      "declared": "^3.3.1",
+      "resolved": "3.6.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "dotenv",
+      "declared": "^16.5.0",
+      "resolved": "16.6.1",
+      "licenseMetadata": "BSD-2-Clause",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo",
+      "declared": "57.0.30",
+      "resolved": "57.0.30",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-application",
+      "declared": "~57.0.3",
+      "resolved": "57.0.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-auth-session",
+      "declared": "~57.0.16",
+      "resolved": "57.0.16",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-blur",
+      "declared": "~57.0.3",
+      "resolved": "57.0.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-camera",
+      "declared": "~57.0.6",
+      "resolved": "57.0.6",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-clipboard",
+      "declared": "~57.0.2",
+      "resolved": "57.0.2",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-constants",
+      "declared": "~57.0.22",
+      "resolved": "57.0.22",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-crypto",
+      "declared": "~57.0.4",
+      "resolved": "57.0.4",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-dev-client",
+      "declared": "~57.0.20",
+      "resolved": "57.0.20",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-device",
+      "declared": "~57.0.2",
+      "resolved": "57.0.2",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-document-picker",
+      "declared": "~57.0.3",
+      "resolved": "57.0.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-file-system",
+      "declared": "~57.0.7",
+      "resolved": "57.0.7",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-font",
+      "declared": "~57.0.4",
+      "resolved": "57.0.4",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-haptics",
+      "declared": "~57.0.3",
+      "resolved": "57.0.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-image-manipulator",
+      "declared": "~57.0.21",
+      "resolved": "57.0.21",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-image-picker",
+      "declared": "~57.0.20",
+      "resolved": "57.0.20",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-linear-gradient",
+      "declared": "~57.0.2",
+      "resolved": "57.0.2",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-linking",
+      "declared": "~57.0.13",
+      "resolved": "57.0.13",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-local-authentication",
+      "declared": "~57.0.3",
+      "resolved": "57.0.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-notifications",
+      "declared": "~57.0.23",
+      "resolved": "57.0.23",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-router",
+      "declared": "~57.0.28",
+      "resolved": "57.0.28",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-secure-store",
+      "declared": "~57.0.4",
+      "resolved": "57.0.4",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-sharing",
+      "declared": "~57.0.23",
+      "resolved": "57.0.23",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-splash-screen",
+      "declared": "~57.0.10",
+      "resolved": "57.0.10",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-status-bar",
+      "declared": "~57.0.1",
+      "resolved": "57.0.1",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-symbols",
+      "declared": "~57.0.3",
+      "resolved": "57.0.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-system-ui",
+      "declared": "~57.0.4",
+      "resolved": "57.0.4",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-updates",
+      "declared": "~57.0.26",
+      "resolved": "57.0.26",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "expo-web-browser",
+      "declared": "~57.0.3",
+      "resolved": "57.0.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "jose",
+      "declared": "6.2.12",
+      "resolved": "6.2.12",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "livekit-client",
+      "declared": "2.22.4",
+      "resolved": "2.22.4",
+      "licenseMetadata": "Apache-2.0",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "livekit-server-sdk",
+      "declared": "2.19.1",
+      "resolved": "2.19.1",
+      "licenseMetadata": "Apache-2.0",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "lucide-react-native",
+      "declared": "1.57.0",
+      "resolved": "1.57.0",
+      "licenseMetadata": "ISC",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react",
+      "declared": "19.2.9",
+      "resolved": "19.2.9",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-dom",
+      "declared": "19.2.9",
+      "resolved": "19.2.9",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native",
+      "declared": "0.86.3",
+      "resolved": "0.86.3",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-drawer-layout",
+      "declared": "4.2.12",
+      "resolved": "4.2.12",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-gesture-handler",
+      "declared": "~2.32.0",
+      "resolved": "2.32.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-get-random-values",
+      "declared": "~1.11.0",
+      "resolved": "1.11.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-reanimated",
+      "declared": "4.5.1",
+      "resolved": "4.5.1",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-safe-area-context",
+      "declared": "~5.7.0",
+      "resolved": "5.7.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-screens",
+      "declared": "~4.26.0",
+      "resolved": "4.26.2",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-svg",
+      "declared": "15.15.4",
+      "resolved": "15.15.4",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-url-polyfill",
+      "declared": "^2.0.0",
+      "resolved": "2.0.0",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-web",
+      "declared": "~0.21.0",
+      "resolved": "0.21.4",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-webview",
+      "declared": "13.16.1",
+      "resolved": "13.16.1",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-native-worklets",
+      "declared": "0.10.1",
+      "resolved": "0.10.1",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "react-server-dom-webpack",
+      "declared": "19.2.9",
+      "resolved": "19.2.9",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "uuid",
+      "declared": "^11.1.0",
+      "resolved": "11.1.1",
+      "licenseMetadata": "MIT",
+      "dev": false,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@babel/core",
+      "declared": "^7.25.2",
+      "resolved": "7.29.7",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@types/node",
+      "declared": "^24.0.1",
+      "resolved": "24.19.2",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "@types/react",
+      "declared": "~19.2.18",
+      "resolved": "19.2.18",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "cross-env",
+      "declared": "^7.0.3",
+      "resolved": "7.0.3",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "eslint",
+      "declared": "9.39.5",
+      "resolved": "9.39.5",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "eslint-config-expo",
+      "declared": "~57.0.2",
+      "resolved": "57.0.2",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "ts-node",
+      "declared": "^10.9.2",
+      "resolved": "10.9.2",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "tsx",
+      "declared": "4.23.15",
+      "resolved": "4.23.15",
+      "licenseMetadata": "MIT",
+      "dev": true,
+      "hasInstallScript": false
+    },
+    {
+      "name": "typescript",
+      "declared": "~5.9.3",
+      "resolved": "5.9.3",
+      "licenseMetadata": "Apache-2.0",
+      "dev": true,
+      "hasInstallScript": false
+    }
+  ]
+}

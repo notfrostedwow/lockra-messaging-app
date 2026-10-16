@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-16T09:12:08.821Z",
+  "command": "npm run typecheck",
+  "node": "v22.23.3",
+  "childPathPinned": true,
+  "demo": "demo",
+  "noDotenv": "1",
+  "noTelemetry": "1",
+  "expoOffline": true,
+  "seconds": 40.596,
+  "exit": 2
+}

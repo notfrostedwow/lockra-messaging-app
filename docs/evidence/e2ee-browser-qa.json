@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-16",
+  "mode": "offline synthetic demo",
+  "runtime": "actual exported web application at 127.0.0.1:4177",
+  "viewport": "1440x900",
+  "actions": ["sign in as synthetic Zaheer", "open existing Alice chat", "compare displayed synthetic fingerprints explicitly", "send synthetic text through actual compose button"],
+  "observed": {"visibleDecryptedText": true, "persistedContentEmpty": true, "encryptionVersion": 1, "persistedCiphertextPresent": true, "persistedRowContainsSentPlaintext": false, "draftCleared": true, "externalResourceRequests": []},
+  "limits": ["both synthetic private identities occupy the same browser process", "not a two-device or real-service test", "web private keys are ephemeral", "transient preview automation disconnect recovered; the send was repeated and then independently inspected"]
+}

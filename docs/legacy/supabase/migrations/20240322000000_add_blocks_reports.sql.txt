@@ -1,0 +1,143 @@
+-- Create blocks table
+CREATE TABLE IF NOT EXISTS user_blocks (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  blocker_id UUID NOT NULL REFERENCES users(id),
+  blocked_id UUID NOT NULL REFERENCES users(id),
+  reason TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(blocker_id, blocked_id)
+);
+
+-- Create reports table
+CREATE TABLE IF NOT EXISTS user_reports (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  reporter_id UUID NOT NULL REFERENCES users(id),
+  reported_id UUID NOT NULL REFERENCES users(id),
+  reason TEXT NOT NULL,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'resolved', 'dismissed')),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  resolved_at TIMESTAMPTZ,
+  resolved_by UUID REFERENCES users(id)
+);
+
+-- Enable RLS
+ALTER TABLE user_blocks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE user_reports ENABLE ROW LEVEL SECURITY;
+
+-- Create indexes
+CREATE INDEX IF NOT EXISTS idx_user_blocks_blocker ON user_blocks(blocker_id);
+CREATE INDEX IF NOT EXISTS idx_user_blocks_blocked ON user_blocks(blocked_id);
+CREATE INDEX IF NOT EXISTS idx_user_reports_reporter ON user_reports(reporter_id);
+CREATE INDEX IF NOT EXISTS idx_user_reports_reported ON user_reports(reported_id);
+CREATE INDEX IF NOT EXISTS idx_user_reports_status ON user_reports(status);
+
+-- Drop existing policies if they exist
+DROP POLICY IF EXISTS "Users can view their own blocks" ON user_blocks;
+DROP POLICY IF EXISTS "Users can create blocks" ON user_blocks;
+DROP POLICY IF EXISTS "Users can delete their own blocks" ON user_blocks;
+DROP POLICY IF EXISTS "Users can view their own reports" ON user_reports;
+DROP POLICY IF EXISTS "Admins can view all reports" ON user_reports;
+DROP POLICY IF EXISTS "Users can create reports" ON user_reports;
+DROP POLICY IF EXISTS "Admins can update reports" ON user_reports;
+
+-- Policies for user_blocks
+
+-- Users can view their own blocks (both as blocker and blocked)
+CREATE POLICY "Users can view their own blocks"
+  ON user_blocks
+  FOR SELECT
+  TO authenticated
+  USING (
+    auth.uid() = blocker_id OR 
+    auth.uid() = blocked_id
+  );
+
+-- Users can create blocks
+CREATE POLICY "Users can create blocks"
+  ON user_blocks
+  FOR INSERT
+  TO authenticated
+  WITH CHECK (
+    auth.uid() = blocker_id AND
+    auth.uid() != blocked_id
+  );
+
+-- Users can delete their own blocks
+CREATE POLICY "Users can delete their own blocks"
+  ON user_blocks
+  FOR DELETE
+  TO authenticated
+  USING (auth.uid() = blocker_id);
+
+-- Policies for user_reports
+
+-- Users can view reports they created
+CREATE POLICY "Users can view their own reports"
+  ON user_reports
+  FOR SELECT
+  TO authenticated
+  USING (auth.uid() = reporter_id);
+
+-- Admins can view all reports
+CREATE POLICY "Admins can view all reports"
+  ON user_reports
+  FOR SELECT
+  TO authenticated
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+-- Users can create reports
+CREATE POLICY "Users can create reports"
+  ON user_reports
+  FOR INSERT
+  TO authenticated
+  WITH CHECK (
+    auth.uid() = reporter_id AND
+    auth.uid() != reported_id
+  );
+
+-- Only admins can update reports
+CREATE POLICY "Admins can update reports"
+  ON user_reports
+  FOR UPDATE
+  TO authenticated
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+-- Create function to check if users are blocked
+CREATE OR REPLACE FUNCTION check_message_blocks()
+RETURNS TRIGGER AS $$
+BEGIN
+  -- Check if either user has blocked the other
+  IF EXISTS (
+    SELECT 1 FROM user_blocks b
+    JOIN users u ON u.username = NEW.receiver_username
+    WHERE (b.blocker_id = NEW.sender_id AND b.blocked_id = u.id)
+       OR (b.blocker_id = u.id AND b.blocked_id = NEW.sender_id)
+  ) THEN
+    RAISE EXCEPTION 'Cannot send message: one of the users has blocked the other';
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create trigger to enforce block check
+DROP TRIGGER IF EXISTS enforce_message_blocks ON messages;
+CREATE TRIGGER enforce_message_blocks
+  BEFORE INSERT ON messages
+  FOR EACH ROW
+  EXECUTE FUNCTION check_message_blocks();
+
+-- Enable realtime for new tables
+ALTER PUBLICATION supabase_realtime ADD TABLE user_blocks;
+ALTER PUBLICATION supabase_realtime ADD TABLE user_reports; 

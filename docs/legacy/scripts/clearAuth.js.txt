@@ -1,0 +1,20 @@
+// Simple script to clear authentication data and cache
+// Run this with: node scripts/clearAuth.js
+
+const { execSync } = require('child_process');
+
+console.log('Clearing Clerk session and app cache...');
+
+try {
+  // Clear Expo cache
+  console.log('Clearing Expo cache...');
+  execSync('npx expo r -c', { stdio: 'inherit' });
+  
+  console.log('✅ Cache cleared successfully!');
+  console.log('📋 Next steps:');
+  console.log('1. Restart your app with: npm start');
+  console.log('2. If you still get "already signed in" error, use the forceSignOut function');
+  console.log('3. Try signing in with Clerk');
+} catch (error) {
+  console.error('❌ Error clearing cache:', error.message);
+}

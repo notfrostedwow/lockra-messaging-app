@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-16T09:16:26.401Z",
+  "node": "v22.23.3",
+  "versions": {
+    "expo": "57.0.30",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "typescript": "6.0.3",
+    "@noble/ciphers": "2.4.0",
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0",
+    "jose": "6.2.12",
+    "livekit-client": "2.22.4",
+    "@livekit/react-native": "3.0.0"
+  },
+  "peerCommand": "npm ls expo react react-dom react-native typescript @noble/ciphers @noble/curves @noble/hashes jose livekit-client @livekit/react-native --all --json",
+  "peerExit": 0,
+  "legacyLinkingObjectEqual": true,
+  "schemeRetained": true,
+  "fileRoutesRetained": [
+    "app/signin.tsx",
+    "app/signup.tsx",
+    "app/auth/callback.tsx",
+    "app/(tabs)/index.tsx",
+    "app/(tabs)/communities.tsx"
+  ],
+  "optionalRscAbsent": true,
+  "scope": "Installed versions/selected full peer tree and unchanged config object relocation; not native/device execution"
+}

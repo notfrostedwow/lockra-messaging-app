@@ -1,0 +1,65 @@
+-- Community realtime events table for UI state sync (lock, unlock, kick, ban, etc.)
+
+CREATE TABLE IF NOT EXISTS public.community_events (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  community_id UUID NOT NULL REFERENCES public.communities(id) ON DELETE CASCADE,
+  event TEXT NOT NULL CHECK (event IN ('lock','unlock','kick','ban','unban','mute','unmute','role_change')),
+  target_user_id UUID NULL REFERENCES public.users(id) ON DELETE SET NULL,
+  payload JSONB NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+ALTER TABLE public.community_events ENABLE ROW LEVEL SECURITY;
+
+-- Members can read events for their community
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname='public' AND tablename='community_events' AND policyname='Members can read events'
+  ) THEN
+    DROP POLICY "Members can read events" ON public.community_events;
+  END IF;
+END $$;
+
+CREATE POLICY "Members can read events"
+  ON public.community_events FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_events.community_id
+        AND cm.user_id = auth.uid()
+    )
+  );
+
+-- Owners/admins can insert events
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies 
+    WHERE schemaname='public' AND tablename='community_events' AND policyname='Owners and admins can insert events'
+  ) THEN
+    DROP POLICY "Owners and admins can insert events" ON public.community_events;
+  END IF;
+END $$;
+
+CREATE POLICY "Owners and admins can insert events"
+  ON public.community_events FOR INSERT
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM public.community_members cm
+      WHERE cm.community_id = community_events.community_id
+        AND cm.user_id = auth.uid()
+        AND cm.role IN ('owner','admin')
+    )
+  );
+
+-- Add to realtime publication
+DO $$
+BEGIN
+  BEGIN
+    EXECUTE 'ALTER PUBLICATION supabase_realtime ADD TABLE public.community_events';
+  EXCEPTION WHEN others THEN NULL; END;
+END $$;
+
+

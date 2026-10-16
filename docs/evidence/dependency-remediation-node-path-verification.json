@@ -1,0 +1,12 @@
+{
+  "wrapper": "v22.23.3",
+  "before": {
+    "exit": 0,
+    "child": "v25.1.0"
+  },
+  "after": {
+    "exit": 0,
+    "child": "v22.23.3"
+  },
+  "scope": "npm script shell resolution; no package install, global config or app source changed"
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "reviewedOn": "2026-10-16",
+  "authorization": "Explicit user decision: remain on supported SDK57 without forks/backports; no critical/high runtime path may pass. Document and mitigate residual moderate runtime and tooling findings. Unknown or changed advisories require review.",
+  "residuals": [
+    {
+      "package": "braces",
+      "ghsa": "GHSA-vfj7-8cjw-p6xm",
+      "cve": "CVE-2026-93687",
+      "severity": "high",
+      "nodes": [{ "path": "node_modules/braces", "version": "3.0.3" }],
+      "classification": "tooling-only",
+      "mitigation": "Only trusted repository/config glob patterns; localhost-only Metro, no tunnels or production Metro hosting. Gate rejects any import into all three app bundle inventories or calling-server graph.",
+      "whyNoSupportedFix": "Advisory has no patched release; latest braces remains 3.0.3. Retain supported Metro/SDK57; no fork, backport or incompatible replacement."
+    },
+    {
+      "package": "node-forge",
+      "ghsa": "GHSA-86w9-cpqp-85rv",
+      "cve": "CVE-2026-85393",
+      "severity": "high",
+      "nodes": [{ "path": "node_modules/node-forge", "version": "1.4.0" }],
+      "classification": "tooling-only",
+      "mitigation": "No Expo signing, certificate ingestion, OTA or live service workflows. OTA remains disabled. Ship only static SPA artifacts; do not deploy CLI/node_modules as a web service. Gate rejects runtime JS inclusion. Native binary verification remains unperformed.",
+      "whyNoSupportedFix": "No patched upstream release; latest node-forge remains 1.4.0. SDK57 CLI/certificate tools retain ^1.3.3. Native update verifier is separate code, not proof this JS package is bundled."
+    },
+    {
+      "package": "uuid",
+      "ghsa": "GHSA-w5hq-g745-h8pq",
+      "cve": "CVE-2026-41907",
+      "severity": "moderate",
+      "nodes": [{ "path": "node_modules/xcode/node_modules/uuid", "version": "7.0.3" }],
+      "classification": "tooling-only",
+      "mitigation": "xcode invokes v4 for project IDs rather than affected v3/v5/v6 caller buffers. Only trusted native configuration; affected nested v7 must remain absent from runtime graphs. App direct uuid is separately patched 11.1.1.",
+      "whyNoSupportedFix": "xcode 3.0.1 still requires ^7.0.3. Patched uuid >=11.1.1 is outside that range; no compatible xcode release exists. No major override or fork is allowed."
+    },
+    {
+      "package": "decode-uri-component",
+      "ghsa": "GHSA-vcc3-ghjq-m6fr",
+      "cve": "CVE-2026-45822",
+      "severity": "moderate",
+      "nodes": [{ "path": "node_modules/decode-uri-component", "version": "0.2.2" }],
+      "classification": "runtime-moderate",
+      "mitigation": "Browser initial/back/hash URLs are bounded to 2048 characters and validated by platform decodeURIComponent before routing; malformed URLs redirect before Router imports. Local preview rejects malformed/oversized request URLs. Native intents and arbitrary integration inputs are not proven mitigated; no native/provider release is cleared.",
+      "whyNoSupportedFix": "SDK57 Router 57.0.28 requires query-string ^7.1.3, whose decoder range is ^0.2.2. Only fixed decoder 0.5.0 is outside that range and changes to an ESM default export. No SDK57/query-string7 patch is published; no override, fork or backport is authorized."
+    }
+  ]
+}

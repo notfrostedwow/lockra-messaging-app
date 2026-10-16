@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-16",
+  "runtime": "actual web export at 127.0.0.1:4177",
+  "viewport": "1440x900",
+  "actions": ["synthetic Zaheer sign-in", "open Alice conversation", "click actual Voice call control"],
+  "observed": {"explicitOfflineUnavailableMessage": true, "externalResourceRequests": [], "priorEncryptedMessageAfterReload": "explicit missing-key/integrity placeholder, not plaintext fallback"},
+  "limits": ["no provider call", "no real permissions requested or device used", "SDK/session lifecycle tested with explicit mocks separately", "this screenshot does not demonstrate a working call"]
+}

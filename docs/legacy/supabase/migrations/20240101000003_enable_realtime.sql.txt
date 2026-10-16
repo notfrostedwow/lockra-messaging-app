@@ -1,0 +1,5 @@
+-- Enable realtime for the system_messages table
+ALTER PUBLICATION supabase_realtime ADD TABLE system_messages;
+
+-- Enable realtime for the users table to listen for ban status changes
+ALTER PUBLICATION supabase_realtime ADD TABLE users; 

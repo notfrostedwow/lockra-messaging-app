@@ -1,0 +1,1719 @@
+{
+  "version": "1.0.0",
+  "name": "lockra-messaging-app",
+  "dependencies": {
+    "@clerk/expo": {
+      "version": "4.12.0",
+      "resolved": "https://registry.npmjs.org/@clerk/expo/-/expo-4.12.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@clerk/clerk-js": {
+          "version": "6.39.0",
+          "resolved": "https://registry.npmjs.org/@clerk/clerk-js/-/clerk-js-6.39.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@base-org/account": {
+              "version": "2.0.1",
+              "resolved": "https://registry.npmjs.org/@base-org/account/-/account-2.0.1.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@noble/hashes": {
+                  "version": "1.4.0",
+                  "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.4.0.tgz",
+                  "overridden": false
+                },
+                "ox": {
+                  "version": "0.6.9",
+                  "resolved": "https://registry.npmjs.org/ox/-/ox-0.6.9.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "@noble/curves": {
+                      "version": "1.9.7",
+                      "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.9.7.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "@noble/hashes": {
+                          "version": "1.8.0"
+                        }
+                      }
+                    },
+                    "@noble/hashes": {
+                      "version": "1.8.0",
+                      "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz",
+                      "overridden": false
+                    },
+                    "@scure/bip32": {
+                      "version": "1.7.0",
+                      "resolved": "https://registry.npmjs.org/@scure/bip32/-/bip32-1.7.0.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "@noble/curves": {
+                          "version": "1.9.7",
+                          "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.9.7.tgz",
+                          "overridden": false,
+                          "dependencies": {
+                            "@noble/hashes": {
+                              "version": "1.8.0"
+                            }
+                          }
+                        },
+                        "@noble/hashes": {
+                          "version": "1.8.0",
+                          "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz",
+                          "overridden": false
+                        }
+                      }
+                    },
+                    "@scure/bip39": {
+                      "version": "1.6.0",
+                      "resolved": "https://registry.npmjs.org/@scure/bip39/-/bip39-1.6.0.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "@noble/hashes": {
+                          "version": "1.8.0",
+                          "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz",
+                          "overridden": false
+                        }
+                      }
+                    },
+                    "abitype": {
+                      "version": "1.3.0",
+                      "resolved": "https://registry.npmjs.org/abitype/-/abitype-1.3.0.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "typescript": {
+                          "version": "6.0.3"
+                        }
+                      }
+                    },
+                    "typescript": {
+                      "version": "6.0.3"
+                    }
+                  }
+                },
+                "viem": {
+                  "version": "2.57.7",
+                  "resolved": "https://registry.npmjs.org/viem/-/viem-2.57.7.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "@noble/curves": {
+                      "version": "1.9.1",
+                      "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.9.1.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "@noble/hashes": {
+                          "version": "1.8.0"
+                        }
+                      }
+                    },
+                    "@noble/hashes": {
+                      "version": "1.8.0",
+                      "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz",
+                      "overridden": false
+                    },
+                    "abitype": {
+                      "version": "1.2.3",
+                      "resolved": "https://registry.npmjs.org/abitype/-/abitype-1.2.3.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "typescript": {
+                          "version": "6.0.3"
+                        }
+                      }
+                    },
+                    "ox": {
+                      "version": "0.14.56",
+                      "resolved": "https://registry.npmjs.org/ox/-/ox-0.14.56.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "@noble/ciphers": {
+                          "version": "1.3.0",
+                          "resolved": "https://registry.npmjs.org/@noble/ciphers/-/ciphers-1.3.0.tgz",
+                          "overridden": false
+                        },
+                        "@noble/curves": {
+                          "version": "1.9.1"
+                        },
+                        "@noble/hashes": {
+                          "version": "1.8.0"
+                        },
+                        "typescript": {
+                          "version": "6.0.3"
+                        }
+                      }
+                    },
+                    "typescript": {
+                      "version": "6.0.3"
+                    }
+                  }
+                },
+                "zustand": {
+                  "version": "5.0.3",
+                  "resolved": "https://registry.npmjs.org/zustand/-/zustand-5.0.3.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                }
+              }
+            },
+            "@coinbase/wallet-sdk": {
+              "version": "4.3.7",
+              "resolved": "https://registry.npmjs.org/@coinbase/wallet-sdk/-/wallet-sdk-4.3.7.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@noble/hashes": {
+                  "version": "1.8.0",
+                  "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz",
+                  "overridden": false
+                }
+              }
+            }
+          }
+        },
+        "@clerk/react": {
+          "version": "6.17.8",
+          "resolved": "https://registry.npmjs.org/@clerk/react/-/react-6.17.8.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-dom": {
+              "version": "19.2.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "@clerk/shared": {
+          "version": "4.40.0",
+          "resolved": "https://registry.npmjs.org/@clerk/shared/-/shared-4.40.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-dom": {
+              "version": "19.2.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-dom": {
+          "version": "19.2.3"
+        },
+        "react-native-url-polyfill": {
+          "version": "4.0.0",
+          "resolved": "https://registry.npmjs.org/react-native-url-polyfill/-/react-native-url-polyfill-4.0.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-native": {
+              "version": "0.86.3"
+            }
+          }
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "@config-plugins/react-native-webrtc": {
+      "version": "15.0.2",
+      "resolved": "https://registry.npmjs.org/@config-plugins/react-native-webrtc/-/react-native-webrtc-15.0.2.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "@expo/metro-runtime": {
+      "version": "57.0.17",
+      "resolved": "https://registry.npmjs.org/@expo/metro-runtime/-/metro-runtime-57.0.17.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@expo/log-box": {
+          "version": "57.0.4",
+          "resolved": "https://registry.npmjs.org/@expo/log-box/-/log-box-57.0.4.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-dom": {
+          "version": "19.2.3"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "@expo/vector-icons": {
+      "version": "15.1.1",
+      "resolved": "https://registry.npmjs.org/@expo/vector-icons/-/vector-icons-15.1.1.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "@livekit/react-native-expo-plugin": {
+      "version": "1.0.3",
+      "resolved": "https://registry.npmjs.org/@livekit/react-native-expo-plugin/-/react-native-expo-plugin-1.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@livekit/react-native": {
+          "version": "3.0.0"
+        },
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "@livekit/react-native-webrtc": {
+      "version": "144.2.0",
+      "resolved": "https://registry.npmjs.org/@livekit/react-native-webrtc/-/react-native-webrtc-144.2.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "@livekit/react-native": {
+      "version": "3.0.0",
+      "resolved": "https://registry.npmjs.org/@livekit/react-native/-/react-native-3.0.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@livekit/components-react": {
+          "version": "2.9.24",
+          "resolved": "https://registry.npmjs.org/@livekit/components-react/-/components-react-2.9.24.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@livekit/components-core": {
+              "version": "0.12.15",
+              "resolved": "https://registry.npmjs.org/@livekit/components-core/-/components-core-0.12.15.tgz",
+              "overridden": false,
+              "dependencies": {
+                "livekit-client": {
+                  "version": "2.22.4"
+                }
+              }
+            },
+            "jose": {
+              "version": "6.2.12"
+            },
+            "livekit-client": {
+              "version": "2.22.4"
+            },
+            "react-dom": {
+              "version": "19.2.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            },
+            "usehooks-ts": {
+              "version": "3.1.1",
+              "resolved": "https://registry.npmjs.org/usehooks-ts/-/usehooks-ts-3.1.1.tgz",
+              "overridden": false,
+              "dependencies": {
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            }
+          }
+        },
+        "livekit-client": {
+          "version": "2.22.4"
+        },
+        "react-native-url-polyfill": {
+          "version": "3.0.0",
+          "resolved": "https://registry.npmjs.org/react-native-url-polyfill/-/react-native-url-polyfill-3.0.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-native": {
+              "version": "0.86.3"
+            }
+          }
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "@noble/ciphers": {
+      "version": "2.4.0",
+      "resolved": "https://registry.npmjs.org/@noble/ciphers/-/ciphers-2.4.0.tgz",
+      "overridden": false
+    },
+    "@noble/curves": {
+      "version": "2.4.0",
+      "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-2.4.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@noble/hashes": {
+          "version": "2.4.0"
+        }
+      }
+    },
+    "@noble/hashes": {
+      "version": "2.4.0",
+      "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-2.4.0.tgz",
+      "overridden": false
+    },
+    "@react-native-async-storage/async-storage": {
+      "version": "2.2.0",
+      "resolved": "https://registry.npmjs.org/@react-native-async-storage/async-storage/-/async-storage-2.2.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "eslint-config-expo": {
+      "version": "57.0.2",
+      "resolved": "https://registry.npmjs.org/eslint-config-expo/-/eslint-config-expo-57.0.2.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": {
+          "version": "8.71.2",
+          "resolved": "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.71.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@typescript-eslint/type-utils": {
+              "version": "8.71.2",
+              "resolved": "https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.71.2.tgz",
+              "overridden": false,
+              "dependencies": {
+                "typescript": {
+                  "version": "6.0.3"
+                }
+              }
+            },
+            "@typescript-eslint/utils": {
+              "version": "8.71.2",
+              "resolved": "https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.71.2.tgz",
+              "overridden": false,
+              "dependencies": {
+                "typescript": {
+                  "version": "6.0.3"
+                }
+              }
+            },
+            "ts-api-utils": {
+              "version": "2.5.0",
+              "resolved": "https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-2.5.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "typescript": {
+                  "version": "6.0.3"
+                }
+              }
+            },
+            "typescript": {
+              "version": "6.0.3"
+            }
+          }
+        },
+        "@typescript-eslint/parser": {
+          "version": "8.71.2",
+          "resolved": "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.71.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@typescript-eslint/typescript-estree": {
+              "version": "8.71.2",
+              "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.71.2.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@typescript-eslint/project-service": {
+                  "version": "8.71.2",
+                  "resolved": "https://registry.npmjs.org/@typescript-eslint/project-service/-/project-service-8.71.2.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "typescript": {
+                      "version": "6.0.3"
+                    }
+                  }
+                },
+                "@typescript-eslint/tsconfig-utils": {
+                  "version": "8.71.2",
+                  "resolved": "https://registry.npmjs.org/@typescript-eslint/tsconfig-utils/-/tsconfig-utils-8.71.2.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "typescript": {
+                      "version": "6.0.3"
+                    }
+                  }
+                },
+                "typescript": {
+                  "version": "6.0.3"
+                }
+              }
+            },
+            "typescript": {
+              "version": "6.0.3"
+            }
+          }
+        }
+      }
+    },
+    "expo-application": {
+      "version": "57.0.3",
+      "resolved": "https://registry.npmjs.org/expo-application/-/expo-application-57.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-auth-session": {
+      "version": "57.0.16",
+      "resolved": "https://registry.npmjs.org/expo-auth-session/-/expo-auth-session-57.0.16.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-blur": {
+      "version": "57.0.3",
+      "resolved": "https://registry.npmjs.org/expo-blur/-/expo-blur-57.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-camera": {
+      "version": "57.0.6",
+      "resolved": "https://registry.npmjs.org/expo-camera/-/expo-camera-57.0.6.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-clipboard": {
+      "version": "57.0.2",
+      "resolved": "https://registry.npmjs.org/expo-clipboard/-/expo-clipboard-57.0.2.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-constants": {
+      "version": "57.0.22",
+      "resolved": "https://registry.npmjs.org/expo-constants/-/expo-constants-57.0.22.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "expo-crypto": {
+      "version": "57.0.4",
+      "resolved": "https://registry.npmjs.org/expo-crypto/-/expo-crypto-57.0.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-dev-client": {
+      "version": "57.0.20",
+      "resolved": "https://registry.npmjs.org/expo-dev-client/-/expo-dev-client-57.0.20.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo-dev-launcher": {
+          "version": "57.0.21",
+          "resolved": "https://registry.npmjs.org/expo-dev-launcher/-/expo-dev-launcher-57.0.21.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            }
+          }
+        },
+        "expo-dev-menu-interface": {
+          "version": "57.0.0",
+          "resolved": "https://registry.npmjs.org/expo-dev-menu-interface/-/expo-dev-menu-interface-57.0.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            }
+          }
+        },
+        "expo-dev-menu": {
+          "version": "57.0.20",
+          "resolved": "https://registry.npmjs.org/expo-dev-menu/-/expo-dev-menu-57.0.20.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            }
+          }
+        },
+        "expo-manifests": {
+          "version": "57.0.2",
+          "resolved": "https://registry.npmjs.org/expo-manifests/-/expo-manifests-57.0.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            }
+          }
+        },
+        "expo-updates-interface": {
+          "version": "57.0.2",
+          "resolved": "https://registry.npmjs.org/expo-updates-interface/-/expo-updates-interface-57.0.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            }
+          }
+        },
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-device": {
+      "version": "57.0.2",
+      "resolved": "https://registry.npmjs.org/expo-device/-/expo-device-57.0.2.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-document-picker": {
+      "version": "57.0.3",
+      "resolved": "https://registry.npmjs.org/expo-document-picker/-/expo-document-picker-57.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-file-system": {
+      "version": "57.0.7",
+      "resolved": "https://registry.npmjs.org/expo-file-system/-/expo-file-system-57.0.7.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "expo-font": {
+      "version": "57.0.4",
+      "resolved": "https://registry.npmjs.org/expo-font/-/expo-font-57.0.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-haptics": {
+      "version": "57.0.3",
+      "resolved": "https://registry.npmjs.org/expo-haptics/-/expo-haptics-57.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-image-manipulator": {
+      "version": "57.0.21",
+      "resolved": "https://registry.npmjs.org/expo-image-manipulator/-/expo-image-manipulator-57.0.21.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo-image-loader": {
+          "version": "57.0.1",
+          "resolved": "https://registry.npmjs.org/expo-image-loader/-/expo-image-loader-57.0.1.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            }
+          }
+        },
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-image-picker": {
+      "version": "57.0.20",
+      "resolved": "https://registry.npmjs.org/expo-image-picker/-/expo-image-picker-57.0.20.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-linear-gradient": {
+      "version": "57.0.2",
+      "resolved": "https://registry.npmjs.org/expo-linear-gradient/-/expo-linear-gradient-57.0.2.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-linking": {
+      "version": "57.0.13",
+      "resolved": "https://registry.npmjs.org/expo-linking/-/expo-linking-57.0.13.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-local-authentication": {
+      "version": "57.0.3",
+      "resolved": "https://registry.npmjs.org/expo-local-authentication/-/expo-local-authentication-57.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-notifications": {
+      "version": "57.0.23",
+      "resolved": "https://registry.npmjs.org/expo-notifications/-/expo-notifications-57.0.23.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@expo/image-utils": {
+          "version": "0.11.6",
+          "resolved": "https://registry.npmjs.org/@expo/image-utils/-/image-utils-0.11.6.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@expo/require-utils": {
+              "version": "57.0.6",
+              "resolved": "https://registry.npmjs.org/@expo/require-utils/-/require-utils-57.0.6.tgz",
+              "overridden": false,
+              "dependencies": {
+                "typescript": {
+                  "version": "6.0.3"
+                }
+              }
+            }
+          }
+        },
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-router": {
+      "version": "57.0.28",
+      "resolved": "https://registry.npmjs.org/expo-router/-/expo-router-57.0.28.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@expo/ui": {
+          "version": "57.0.25",
+          "resolved": "https://registry.npmjs.org/@expo/ui/-/ui-57.0.25.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-dom": {
+              "version": "19.2.3"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "@radix-ui/react-slot": {
+          "version": "1.5.0",
+          "resolved": "https://registry.npmjs.org/@radix-ui/react-slot/-/react-slot-1.5.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@radix-ui/react-compose-refs": {
+              "version": "1.1.5",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-compose-refs/-/react-compose-refs-1.1.5.tgz",
+              "overridden": false,
+              "dependencies": {
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "@radix-ui/react-tabs": {
+          "version": "1.2.1",
+          "resolved": "https://registry.npmjs.org/@radix-ui/react-tabs/-/react-tabs-1.2.1.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@radix-ui/react-context": {
+              "version": "1.3.0",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-context/-/react-context-1.3.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "@radix-ui/react-direction": {
+              "version": "1.2.0",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-direction/-/react-direction-1.2.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "@radix-ui/react-id": {
+              "version": "1.1.4",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-id/-/react-id-1.1.4.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@radix-ui/react-use-layout-effect": {
+                  "version": "1.1.4",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-use-layout-effect/-/react-use-layout-effect-1.1.4.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "@radix-ui/react-presence": {
+              "version": "1.1.11",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-presence/-/react-presence-1.1.11.tgz",
+              "overridden": false,
+              "dependencies": {
+                "react-dom": {
+                  "version": "19.2.3"
+                },
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "@radix-ui/react-primitive": {
+              "version": "2.2.0",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-primitive/-/react-primitive-2.2.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "react-dom": {
+                  "version": "19.2.3"
+                },
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "@radix-ui/react-roving-focus": {
+              "version": "1.2.1",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-roving-focus/-/react-roving-focus-1.2.1.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@radix-ui/react-collection": {
+                  "version": "1.2.0",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-collection/-/react-collection-1.2.0.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react-dom": {
+                      "version": "19.2.3"
+                    },
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "@radix-ui/react-use-callback-ref": {
+                  "version": "1.1.5",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-use-callback-ref/-/react-use-callback-ref-1.1.5.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "@radix-ui/react-use-is-hydrated": {
+                  "version": "0.1.3",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-use-is-hydrated/-/react-use-is-hydrated-0.1.3.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "react-dom": {
+                  "version": "19.2.3"
+                },
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "@radix-ui/react-use-controllable-state": {
+              "version": "1.3.0",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-use-controllable-state/-/react-use-controllable-state-1.3.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@radix-ui/react-use-effect-event": {
+                  "version": "0.0.5",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-use-effect-event/-/react-use-effect-event-0.0.5.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "react-dom": {
+              "version": "19.2.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "@react-native-masked-view/masked-view": {
+          "version": "0.3.2",
+          "resolved": "https://registry.npmjs.org/@react-native-masked-view/masked-view/-/masked-view-0.3.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "expo-glass-effect": {
+          "version": "57.0.4",
+          "resolved": "https://registry.npmjs.org/expo-glass-effect/-/expo-glass-effect-57.0.4.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-dom": {
+          "version": "19.2.3"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        },
+        "vaul": {
+          "version": "1.1.2",
+          "resolved": "https://registry.npmjs.org/vaul/-/vaul-1.1.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@radix-ui/react-dialog": {
+              "version": "1.3.1",
+              "resolved": "https://registry.npmjs.org/@radix-ui/react-dialog/-/react-dialog-1.3.1.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@radix-ui/react-dismissable-layer": {
+                  "version": "1.2.1",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-dismissable-layer/-/react-dismissable-layer-1.2.1.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react-dom": {
+                      "version": "19.2.3"
+                    },
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "@radix-ui/react-focus-guards": {
+                  "version": "1.2.0",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-focus-guards/-/react-focus-guards-1.2.0.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "@radix-ui/react-focus-scope": {
+                  "version": "1.3.1",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-focus-scope/-/react-focus-scope-1.3.1.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react-dom": {
+                      "version": "19.2.3"
+                    },
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "@radix-ui/react-portal": {
+                  "version": "1.2.0",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-portal/-/react-portal-1.2.0.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react-dom": {
+                      "version": "19.2.3"
+                    },
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "@radix-ui/react-presence": {
+                  "version": "1.1.11",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-presence/-/react-presence-1.1.11.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react-dom": {
+                      "version": "19.2.3"
+                    },
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "@radix-ui/react-primitive": {
+                  "version": "2.2.0",
+                  "resolved": "https://registry.npmjs.org/@radix-ui/react-primitive/-/react-primitive-2.2.0.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react-dom": {
+                      "version": "19.2.3"
+                    },
+                    "react": {
+                      "version": "19.2.3"
+                    }
+                  }
+                },
+                "react-dom": {
+                  "version": "19.2.3"
+                },
+                "react-remove-scroll": {
+                  "version": "2.7.2",
+                  "resolved": "https://registry.npmjs.org/react-remove-scroll/-/react-remove-scroll-2.7.2.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "react-remove-scroll-bar": {
+                      "version": "2.3.8",
+                      "resolved": "https://registry.npmjs.org/react-remove-scroll-bar/-/react-remove-scroll-bar-2.3.8.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "react": {
+                          "version": "19.2.3"
+                        }
+                      }
+                    },
+                    "react-style-singleton": {
+                      "version": "2.2.3",
+                      "resolved": "https://registry.npmjs.org/react-style-singleton/-/react-style-singleton-2.2.3.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "react": {
+                          "version": "19.2.3"
+                        }
+                      }
+                    },
+                    "react": {
+                      "version": "19.2.3"
+                    },
+                    "use-callback-ref": {
+                      "version": "1.3.3",
+                      "resolved": "https://registry.npmjs.org/use-callback-ref/-/use-callback-ref-1.3.3.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "react": {
+                          "version": "19.2.3"
+                        }
+                      }
+                    },
+                    "use-sidecar": {
+                      "version": "1.1.3",
+                      "resolved": "https://registry.npmjs.org/use-sidecar/-/use-sidecar-1.1.3.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "react": {
+                          "version": "19.2.3"
+                        }
+                      }
+                    }
+                  }
+                },
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "react-dom": {
+              "version": "19.2.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        }
+      }
+    },
+    "expo-secure-store": {
+      "version": "57.0.4",
+      "resolved": "https://registry.npmjs.org/expo-secure-store/-/expo-secure-store-57.0.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-sharing": {
+      "version": "57.0.23",
+      "resolved": "https://registry.npmjs.org/expo-sharing/-/expo-sharing-57.0.23.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-splash-screen": {
+      "version": "57.0.10",
+      "resolved": "https://registry.npmjs.org/expo-splash-screen/-/expo-splash-screen-57.0.10.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        }
+      }
+    },
+    "expo-status-bar": {
+      "version": "57.0.1",
+      "resolved": "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-57.0.1.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-symbols": {
+      "version": "57.0.3",
+      "resolved": "https://registry.npmjs.org/expo-symbols/-/expo-symbols-57.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-system-ui": {
+      "version": "57.0.4",
+      "resolved": "https://registry.npmjs.org/expo-system-ui/-/expo-system-ui-57.0.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "expo-updates": {
+      "version": "57.0.26",
+      "resolved": "https://registry.npmjs.org/expo-updates/-/expo-updates-57.0.26.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "expo-web-browser": {
+      "version": "57.0.3",
+      "resolved": "https://registry.npmjs.org/expo-web-browser/-/expo-web-browser-57.0.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "57.0.30"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "expo": {
+      "version": "57.0.30",
+      "resolved": "https://registry.npmjs.org/expo/-/expo-57.0.30.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@expo/cli": {
+          "version": "57.0.31",
+          "resolved": "https://registry.npmjs.org/@expo/cli/-/cli-57.0.31.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@expo/router-server": {
+              "version": "57.0.13",
+              "resolved": "https://registry.npmjs.org/@expo/router-server/-/router-server-57.0.13.tgz",
+              "overridden": false,
+              "dependencies": {
+                "expo": {
+                  "version": "57.0.30"
+                },
+                "react-dom": {
+                  "version": "19.2.3"
+                },
+                "react": {
+                  "version": "19.2.3"
+                }
+              }
+            },
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            }
+          }
+        },
+        "@expo/devtools": {
+          "version": "57.0.1",
+          "resolved": "https://registry.npmjs.org/@expo/devtools/-/devtools-57.0.1.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "@expo/dom-webview": {
+          "version": "57.0.1",
+          "resolved": "https://registry.npmjs.org/@expo/dom-webview/-/dom-webview-57.0.1.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "@expo/metro-config": {
+          "version": "57.0.13",
+          "resolved": "https://registry.npmjs.org/@expo/metro-config/-/metro-config-57.0.13.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            }
+          }
+        },
+        "babel-preset-expo": {
+          "version": "57.0.16",
+          "resolved": "https://registry.npmjs.org/babel-preset-expo/-/babel-preset-expo-57.0.16.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            }
+          }
+        },
+        "expo-asset": {
+          "version": "57.0.20",
+          "resolved": "https://registry.npmjs.org/expo-asset/-/expo-asset-57.0.20.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "expo-keep-awake": {
+          "version": "57.0.2",
+          "resolved": "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-57.0.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo": {
+              "version": "57.0.30"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "expo-modules-core": {
+          "version": "57.0.23",
+          "resolved": "https://registry.npmjs.org/expo-modules-core/-/expo-modules-core-57.0.23.tgz",
+          "overridden": false,
+          "dependencies": {
+            "expo-modules-jsi": {
+              "version": "57.1.2",
+              "resolved": "https://registry.npmjs.org/expo-modules-jsi/-/expo-modules-jsi-57.1.2.tgz",
+              "overridden": false,
+              "dependencies": {
+                "react-native": {
+                  "version": "0.86.3"
+                }
+              }
+            },
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "react-dom": {
+          "version": "19.2.3"
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "jose": {
+      "version": "6.2.12",
+      "resolved": "https://registry.npmjs.org/jose/-/jose-6.2.12.tgz",
+      "overridden": false
+    },
+    "livekit-client": {
+      "version": "2.22.4",
+      "resolved": "https://registry.npmjs.org/livekit-client/-/livekit-client-2.22.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "jose": {
+          "version": "6.2.12"
+        }
+      }
+    },
+    "livekit-server-sdk": {
+      "version": "2.19.1",
+      "resolved": "https://registry.npmjs.org/livekit-server-sdk/-/livekit-server-sdk-2.19.1.tgz",
+      "overridden": false,
+      "dependencies": {
+        "jose": {
+          "version": "5.10.0",
+          "resolved": "https://registry.npmjs.org/jose/-/jose-5.10.0.tgz",
+          "overridden": false
+        }
+      }
+    },
+    "lucide-react-native": {
+      "version": "1.57.0",
+      "resolved": "https://registry.npmjs.org/lucide-react-native/-/lucide-react-native-1.57.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-dom": {
+      "version": "19.2.3",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-19.2.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-drawer-layout": {
+      "version": "4.2.12",
+      "resolved": "https://registry.npmjs.org/react-native-drawer-layout/-/react-native-drawer-layout-4.2.12.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        },
+        "use-latest-callback": {
+          "version": "0.2.6",
+          "resolved": "https://registry.npmjs.org/use-latest-callback/-/use-latest-callback-0.2.6.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        }
+      }
+    },
+    "react-native-gesture-handler": {
+      "version": "2.32.0",
+      "resolved": "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.32.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-get-random-values": {
+      "version": "1.11.0",
+      "resolved": "https://registry.npmjs.org/react-native-get-random-values/-/react-native-get-random-values-1.11.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "react-native-reanimated": {
+      "version": "4.5.1",
+      "resolved": "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-4.5.1.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native-is-edge-to-edge": {
+          "version": "1.3.1",
+          "resolved": "https://registry.npmjs.org/react-native-is-edge-to-edge/-/react-native-is-edge-to-edge-1.3.1.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-safe-area-context": {
+      "version": "5.7.0",
+      "resolved": "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-5.7.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-screens": {
+      "version": "4.26.2",
+      "resolved": "https://registry.npmjs.org/react-native-screens/-/react-native-screens-4.26.2.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-freeze": {
+          "version": "1.0.4",
+          "resolved": "https://registry.npmjs.org/react-freeze/-/react-freeze-1.0.4.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-svg": {
+      "version": "15.15.4",
+      "resolved": "https://registry.npmjs.org/react-native-svg/-/react-native-svg-15.15.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-url-polyfill": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/react-native-url-polyfill/-/react-native-url-polyfill-2.0.0.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        }
+      }
+    },
+    "react-native-web": {
+      "version": "0.21.4",
+      "resolved": "https://registry.npmjs.org/react-native-web/-/react-native-web-0.21.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-dom": {
+          "version": "19.2.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-webview": {
+      "version": "13.16.1",
+      "resolved": "https://registry.npmjs.org/react-native-webview/-/react-native-webview-13.16.1.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native-worklets": {
+      "version": "0.10.1",
+      "resolved": "https://registry.npmjs.org/react-native-worklets/-/react-native-worklets-0.10.1.tgz",
+      "overridden": false,
+      "dependencies": {
+        "react-native": {
+          "version": "0.86.3"
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react-native": {
+      "version": "0.86.3",
+      "resolved": "https://registry.npmjs.org/react-native/-/react-native-0.86.3.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@react-native/virtualized-lists": {
+          "version": "0.86.3",
+          "resolved": "https://registry.npmjs.org/@react-native/virtualized-lists/-/virtualized-lists-0.86.3.tgz",
+          "overridden": false,
+          "dependencies": {
+            "react-native": {
+              "version": "0.86.3"
+            },
+            "react": {
+              "version": "19.2.3"
+            }
+          }
+        },
+        "react": {
+          "version": "19.2.3"
+        }
+      }
+    },
+    "react": {
+      "version": "19.2.3",
+      "resolved": "https://registry.npmjs.org/react/-/react-19.2.3.tgz",
+      "overridden": false
+    },
+    "ts-node": {
+      "version": "10.9.2",
+      "resolved": "https://registry.npmjs.org/ts-node/-/ts-node-10.9.2.tgz",
+      "overridden": false,
+      "dependencies": {
+        "typescript": {
+          "version": "6.0.3"
+        }
+      }
+    },
+    "typescript": {
+      "version": "6.0.3",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz",
+      "overridden": false
+    }
+  }
+}
