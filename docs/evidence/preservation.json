@@ -80,10 +80,10 @@
       "current": [
         {
           "path": "README.md",
-          "sha256": "3072a71cb51fbf832685d0440d4cc0fe133ba00e21ca813bf06e930345efc6bc"
+          "sha256": "0c8921ab641f1bb69da8561cf6894c9b2dec113dd240612cdca54e98be52094f"
         }
       ],
-      "reason": "Original documentation restored to source-evidenced features and honest offline/E2EE/calling limits. Current user-authorized SDK57 residual policy replaces the former blanket moderate stop; runtime bundle evidence, supported alignment and independent final publication gates are explicit."
+      "reason": "Original documentation restored to source-evidenced features and honest offline/E2EE/calling limits. Current user-authorized SDK57 residual policy replaces the former blanket moderate stop; runtime bundle evidence, supported alignment and independent final publication gates are explicit. Authorized README-only commit bca947fbe2730730faa94510fb6f51df56e21841 updated prior-CI wording to cite the verified earlier commit and successful run; this receipt updates only the current README hash, retaining historical original/intake hashes and recorded_at."
     },
     {
       "original_path": "SQL/README_COMMUNITY_FIX.md",
